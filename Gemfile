@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-spotify'
 gem 'rspotify'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'

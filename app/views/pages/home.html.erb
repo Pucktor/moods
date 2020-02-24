@@ -1,8 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= link_to "Sign in with Spotify", user_spotify_omniauth_authorize_path %>
 
-<%= link_to "Sign in with Spotify", user_spotify_omniauth_authorize_path %>
-
-<% if current_user %>
-  <p><%=current_user.inspect%></p>
-<%end%>
+      <% if current_user %>
+        <p><%= current_user.inspect %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
