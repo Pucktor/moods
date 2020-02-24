@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Hello</h1>
+      <h1>Create a playlist</h1>
       <%= simple_form_for(@playlist) do |t| %>
         <%= t.input :name %>
         <%= t.input :acousticness, input_html: { class: 'custom-range' }, as: :range, type: "range" %>
