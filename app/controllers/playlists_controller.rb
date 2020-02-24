@@ -1,12 +1,9 @@
-require 'rspotify'
-
-
-
 class PlaylistsController < ApplicationController
   def index
-    # RSpotify.authenticate("SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET")
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     @playlists = policy_scope(Playlist.all).where(user_id: current_user.id)
-    # @playlists = current_user.playlists
+    party = RSpotify::Category.find('party')
+    party.playlists #=> (Playlist array)
   end
 
   def new
