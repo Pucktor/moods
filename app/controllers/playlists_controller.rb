@@ -1,6 +1,7 @@
 class PlaylistsController < ApplicationController
   def index
     @playlists = Playlist.where(user_id: current_user.id)
+    # @playlists = current_user.playlists
   end
 
   def new
