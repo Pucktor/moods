@@ -35,6 +35,8 @@ gem 'devise'
 gem 'omniauth-spotify'
 gem 'rspotify'
 gem 'pundit'
+gem 'rspotify'
+gem 'rest-client', '>= 2.0.1'
 
 group :development, :test do
   gem 'pry-byebug'
