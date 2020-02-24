@@ -1,0 +1,2 @@
+class PlaylistGenre < ApplicationRecord
+end
