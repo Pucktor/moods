@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>All playlists</h1>
+        <% @playlists.each do |playlist| %>
+          <p><%= link_to playlist.name, playlist_path(playlist) %></p>
+        <% end %>
+    </div>
+  </div>
+</div>
