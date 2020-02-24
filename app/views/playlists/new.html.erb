@@ -11,6 +11,7 @@
         <%= t.input :popularity, input_html: { class: 'custom-range' }, as: :range, type: "range" %>
         <%= t.submit "Create a playlist", class: 'btn btn-primary' %>
       <% end %>
+      <%= link_to "Back to playlists", playlists_path %>
     </div>
   </div>
 </div>
