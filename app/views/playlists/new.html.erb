@@ -3,8 +3,8 @@
     <div class="col">
       <h1>Create a playlist</h1>
       <%= simple_form_for(@playlist) do |t| %>
-        <%= t.input :name %>
-        <%= t.input :acousticness, input_html: { class: 'slider' }, as: :range, type: "range"%>
+        <%= t.input :name, placeholder: "Choose your mood name", label: false %>
+        <%= t.input :acousticness, input_html: { class: 'slider' }, as: :range, type: "range" %>
         <%= t.input :danceability, input_html: { class: 'slider' }, as: :range, type: "range" %>
         <%= t.input :energy, input_html: { class: 'slider' }, as: :range, type: "range" %>
         <%= t.input :valence, input_html: { class: 'slider' }, as: :range, type: "range" %>
