@@ -1,4 +1,1 @@
-<%@playlist.tracks.each do |track|%>
-<p>coucou</p>
-<iframe src="https://open.spotify.com/embed/track/<%= track.spotify_track_id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<%end%>
+<iframe src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

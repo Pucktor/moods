@@ -23,7 +23,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = CreatePlaylist.call(playlist_params, current_user, session[:spotify_auth])
+    @playlist = CreatePlaylist.call(playlist_params, current_user)
     authorize @playlist
     if @playlist.persisted?
       genre_ids = playlist_params[:genre_ids]
