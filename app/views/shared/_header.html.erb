@@ -1,3 +1,5 @@
 <div id="header">
-  <%= current_user.uid %>
+  <% if current_user %>
+    <%= current_user.uid %>
+  <% end %>
 </div>
