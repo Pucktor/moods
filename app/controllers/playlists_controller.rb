@@ -12,20 +12,23 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = Playlist.new(playlist_params)
+    @playlist = CreatePlaylist.call(playlist_params, current_user)
+    byebug
     authorize @playlist
-    @playlist.user = current_user
-    @playlist.save
     if @playlist.save
-      redirect_to playlists_path
+      
+      redirect_to playlist_path(@playlist)
     else
       render :new
     end
   end
 
+  def show
+  end
+
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity)
+    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, genre_ids: [])
   end
 end

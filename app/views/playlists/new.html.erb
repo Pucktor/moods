@@ -9,6 +9,7 @@
         <%= t.input :energy, input_html: { class: 'slider' }, as: :range, type: "range" %>
         <%= t.input :valence, input_html: { class: 'slider' }, as: :range, type: "range" %>
         <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, type: "range" %>
+        <%= t.association :genres, include_blank: false, include_hidden: false %>
         <%= t.submit "Create a playlist", class: 'btn btn-primary' %>
       <% end %>
       <%= link_to "Back to playlists", playlists_path %>
