@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col d-flex align-items-center">
+      <span class="back-button"><%= link_to "<", playlists_path %></span>
       <h1>Create a playlist</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <%= simple_form_for(@playlist) do |t| %>
         <%= t.input :name, placeholder: "Choose your mood name", label: false %>
         <div class="row d-flex align-items-center">
@@ -58,11 +63,8 @@
           <div class="col-2 slider-value" id="playlist_popularity-value">
             0.5
           </div>
-        </div>
         <%= t.submit "+ Add playlist", class: 'button'%>
-
       <% end %>
-      <%= link_to "Back to playlists", playlists_path %>
     </div>
   </div>
 </div>
