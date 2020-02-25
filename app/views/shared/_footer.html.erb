@@ -1,5 +1,16 @@
-<div id="footer" class="fixed-bottom">
-  <div class="footer-copyright">
-    | Moods
+<div id="footer" class="container-fluid fixed-bottom">
+  <div class="row">
+    <div class="col">
+      <%= link_to icon('fas', 'home'), root_path %>
+    </div>
+    <div class="col">
+      <%= link_to icon('fas', 'stream'), playlists_path %>
+    </div>
+    <div class="col">
+      <%= link_to icon('fas', 'user'), playlists_path %>
+    </div>
+    <div class="col">
+      <%= link_to icon('fab', 'spotify'), playlists_path %>
+    </div>
   </div>
 </div>
