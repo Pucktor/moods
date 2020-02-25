@@ -38,13 +38,14 @@
         </div>
         <div class="row d-flex align-items-end">
           <div class="col-10">
-            <%= t.input :popularity, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
+            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, type: "range" %>
           </div>
           <div class="col-2 slider-value" id="playlist_popularity-value">
             0.5
           </div>
         </div>
-        <%= t.submit "Create a playlist", class: 'btn btn-primary' %>
+        <%= t.submit "+ Add playlist", class: 'button'%>
+
       <% end %>
       <%= link_to "Back to playlists", playlists_path %>
     </div>
