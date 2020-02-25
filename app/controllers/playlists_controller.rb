@@ -23,10 +23,16 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = CreatePlaylist.call(playlist_params, current_user)
-    byebug
+    @playlist = CreatePlaylist.call(playlist_params, current_user, session[:spotify_auth])
     authorize @playlist
-    if @playlist.save
+    if @playlist.persisted?
+      genre_ids = playlist_params[:genre_ids]
+      AddGenresToPlaylist.call(@playlist, genre_ids)
+      recommendations = GetSpotifyRecommendationsFromSettings.call(@playlist)
+      @tracks = CreateTracksFromSpotifyRecommendations.call(recommendations)
+      AddTracksToPlaylist.call(@playlist, @tracks)
+      spotify_user = RSpotify::User.new(session[:spotify_auth])
+      CreateSpotifyPlaylist.call(@playlist, recommendations, spotify_user)
       redirect_to playlist_path(@playlist)
     else
       render :new
@@ -34,6 +40,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @playlist = Playlist.find(params[:id])
+    authorize @playlist
   end
 
   private
