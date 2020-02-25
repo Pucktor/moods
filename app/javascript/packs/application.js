@@ -23,7 +23,7 @@ require("channels")
 // ----------------------------------------------------
 
 import "bootstrap";
-import { formSlider } from '../components/form-slider';
+// import { formSlider } from '../components/form-slider';
 
-formSlider();
+// formSlider();
 
