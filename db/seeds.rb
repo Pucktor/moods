@@ -126,12 +126,14 @@ genres = ["acoustic",
   "work-out",
   "world-music"
 ]
-puts "Destroying all genres..."
+puts "Creating genres"
 genres.each do |genre|
   g = Genre.create!({name: genre})
   puts "Created #{g.name} genre"
 end
-happy_playlist = Playlist.create!({
+
+puts "Instantiate playlist"
+happy_playlist = Playlist.new({
   name: "Happy",
   acousticness: 0.5,
   danceability: 0.5,
@@ -140,14 +142,12 @@ happy_playlist = Playlist.create!({
   popularity: 50,
   user_id: User.last.id
 })
-PlaylistGenre.create!({
-  playlist_id: happy_playlist.id,
-  genre_id: Genre.last.id
-})
-PlaylistGenre.create!({
-  playlist_id: happy_playlist.id,
-  genre_id: Genre.first.id
-})
+
+puts "Adding genres to playlist"
+happy_playlist.genres << Genre.last
+happy_playlist.genres << Genre.first
+
+puts "Get Spotify recommendations from playlist"
 recommendations = RSpotify::Recommendations.generate(
   seed_genres: happy_playlist.genres.map { |genre| genre.name },
   target_acousticness: happy_playlist.acousticness,
@@ -155,16 +155,18 @@ recommendations = RSpotify::Recommendations.generate(
   target_energy: happy_playlist.energy,
   target_valence: happy_playlist.valence,
   target_popularities: happy_playlist.popularity)
+
+puts "Adding tracks to playlist"
+tracks = []
 recommendations.tracks.each do |track|
-  Track.create!(
+  tracks << Track.new(
   title: track.name,
   artist: track.artists.first.name,
   album: track.album.name,
   spotify_track_id: track.id)
 end
-Track.all.each do |track|
-  PlaylistTrack.create!({
-    playlist_id: happy_playlist.id,
-    track_id: track.id
-  })
-end
+
+happy_playlist.tracks << tracks
+
+puts "Saving playlist + associated objects"
+happy_playlist.save!
