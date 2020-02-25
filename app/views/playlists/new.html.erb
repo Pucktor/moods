@@ -5,23 +5,23 @@
       <%= simple_form_for(@playlist) do |t| %>
         <%= t.input :name, placeholder: "Choose your mood name", label: false %>
         <div class="row d-flex align-items-end">
-          <div class="col-11">
+          <div class="col-10">
             <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
           </div>
-          <div class="col-1 slider-value" id="playlist_acousticness-value">
+          <div class="col-2 slider-value" id="playlist_acousticness-value">
             0.5
           </div>
         </div>
         <div class="row d-flex align-items-end">
-          <div class="col-11">
+          <div class="col-10">
             <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
           </div>
-          <div class="col-1 slider-value" id="playlist_danceability-value">
+          <div class="col-2 slider-value" id="playlist_danceability-value">
             0.5
           </div>
         </div>
         <div class="row d-flex align-items-end">
-          <div class="col-11">
+          <div class="col-10">
             <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
           </div>
           <div class="col-1 slider-value" id="playlist_energy-value">
@@ -29,18 +29,18 @@
           </div>
         </div>
         <div class="row d-flex align-items-end">
-          <div class="col-11">
+          <div class="col-10">
             <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
           </div>
-          <div class="col-1 slider-value" id="playlist_valence-value">
+          <div class="col-2 slider-value" id="playlist_valence-value">
             0.5
           </div>
         </div>
         <div class="row d-flex align-items-end">
-          <div class="col-11">
+          <div class="col-10">
             <%= t.input :popularity, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
           </div>
-          <div class="col-1 slider-value" id="playlist_popularity-value">
+          <div class="col-2 slider-value" id="playlist_popularity-value">
             0.5
           </div>
         </div>
