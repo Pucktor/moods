@@ -3,9 +3,10 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  background: $moods-bg;
   a {
     color:white;
-    font-size: 3em;
+    font-size: 48px;
+    // font-size: 3em;
   }
-
 }

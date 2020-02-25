@@ -1,11 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>All playlists</h1>
+       <h1>All playlists</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_tag playlists_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search your playlist"
+        %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "Create a new playlist", new_playlist_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
         <% @playlists.each do |playlist| %>
           <p><%= link_to playlist.name, playlist_path(playlist) %></p>
         <% end %>
-        <%= link_to "Create a new playlist", new_playlist_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
