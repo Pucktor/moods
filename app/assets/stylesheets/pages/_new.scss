@@ -13,3 +13,11 @@ input[type=text]:focus {
   background-color: transparent;
   color: white;
 }
+
+label {
+  font-weight: bold;
+}
+
+abbr[title] {
+  display: none;
+}
