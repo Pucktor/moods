@@ -26,4 +26,7 @@ import "bootstrap";
 // import { formSlider } from '../components/form-slider';
 
 // formSlider();
+import { initSelect2 } from './plugins/init_select2';
+
+initSelect2();
 
