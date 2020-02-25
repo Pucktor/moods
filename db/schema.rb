@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_115647) do
+ActiveRecord::Schema.define(version: 2020_02_25_170204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_115647) do
     t.float "danceability"
     t.float "energy"
     t.float "valence"
-    t.float "popularity"
+    t.integer "popularity"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
