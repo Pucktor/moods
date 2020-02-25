@@ -127,7 +127,6 @@ genres = ["acoustic",
   "world-music"
 ]
 puts "Destroying all genres..."
-Genre.destroy_all
 genres.each do |genre|
   g = Genre.create!({name: genre})
   puts "Created #{g.name} genre"
@@ -161,7 +160,7 @@ recommendations.tracks.each do |track|
   title: track.name,
   artist: track.artists.first.name,
   album: track.album.name,
-  spotify_track_id: "https://open.spotify.com/track/#{track.id}")
+  spotify_track_id: track.id)
 end
 Track.all.each do |track|
   PlaylistTrack.create!({

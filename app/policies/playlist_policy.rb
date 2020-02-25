@@ -5,6 +5,10 @@ class PlaylistPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    record.user == user
+  end
+
   def create?
     true
   end

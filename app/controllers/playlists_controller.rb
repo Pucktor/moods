@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+
   def index
     RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     @playlists = policy_scope(Playlist.all).where(user_id: current_user.id)
@@ -11,11 +12,15 @@ class PlaylistsController < ApplicationController
     authorize @playlist
   end
 
+  def show
+    @playlist = Playlist.find(params[:id])
+    authorize @playlist
+  end
+
   def create
     @playlist = Playlist.new(playlist_params)
     authorize @playlist
     @playlist.user = current_user
-    @playlist.save
     if @playlist.save
       redirect_to playlists_path
     else
