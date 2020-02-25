@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
 genres = ["acoustic",
   "afrobeat",
   "alt-rock",
@@ -132,20 +126,12 @@ genres = ["acoustic",
   "work-out",
   "world-music"
 ]
-
 puts "Destroying all genres..."
 Genre.destroy_all
 genres.each do |genre|
   g = Genre.create!({name: genre})
   puts "Created #{g.name} genre"
 end
-
-# User.create!({
-#   email: "paul.heilweck@gmail.com",
-#   provider: "spotify",
-#   uid: "1145809247"
-# })
-
 happy_playlist = Playlist.create!({
   name: "Happy",
   acousticness: 0.5,
@@ -155,20 +141,31 @@ happy_playlist = Playlist.create!({
   popularity: 50,
   user_id: User.last.id
 })
-
-track = Track.create!(
-  title: "Bullets",
-  artist: "Rebecca & Fiona",
-  album: "Remixes",
-  spotify_track_id: "https://open.spotify.com/track/2D9s9YpKFX6187aI3szOHS")
-
 PlaylistGenre.create!({
   playlist_id: happy_playlist.id,
   genre_id: Genre.last.id
 })
-
-PlaylistTrack.create!({
+PlaylistGenre.create!({
   playlist_id: happy_playlist.id,
-  track_id: track.id
+  genre_id: Genre.first.id
 })
-# <User id: 1, email: "paul.heilweck@gmail.com", created_at: "2020-02-24 14:37:25", updated_at: "2020-02-24 14:37:25", provider: "spotify", uid: "1145809247">
+recommendations = RSpotify::Recommendations.generate(
+  seed_genres: happy_playlist.genres.map { |genre| genre.name },
+  target_acousticness: happy_playlist.acousticness,
+  target_danceability: happy_playlist.danceability,
+  target_energy: happy_playlist.energy,
+  target_valence: happy_playlist.valence,
+  target_popularities: happy_playlist.popularity)
+recommendations.tracks.each do |track|
+  Track.create!(
+  title: track.name,
+  artist: track.artists.first.name,
+  album: track.album.name,
+  spotify_track_id: "https://open.spotify.com/track/#{track.id}")
+end
+Track.all.each do |track|
+  PlaylistTrack.create!({
+    playlist_id: happy_playlist.id,
+    track_id: track.id
+  })
+end
