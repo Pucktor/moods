@@ -23,12 +23,10 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = CreatePlaylist.call(playlist_params, current_user)
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    @playlist = CreatePlaylist.call(playlist_params, current_user, spotify_user)
     authorize @playlist
     if @playlist.persisted?
-      recommendations = GetSpotifyRecommendationsFromSettings.call(@playlist)
-      spotify_user = RSpotify::User.new(session[:spotify_auth])
-      CreateSpotifyPlaylist.call(@playlist, recommendations, spotify_user)
       redirect_to playlist_path(@playlist)
     else
       render :new
