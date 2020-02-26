@@ -51,7 +51,7 @@
         </div>
         <div class="row d-flex align-items-center">
           <div class="col-12">
-            <%= t.association :genres, include_blank: false, include_hidden: false, class: 'select2' %>
+            <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" } , multiple: "multiple" %>
           </div>
         </div>
         <%= t.submit "+ Add playlist", class: 'button'%>
