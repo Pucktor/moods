@@ -2,8 +2,6 @@
   <div class="container text-center">
     <h1>Moods, the soundtrack of your life</h1>
     <p>Discover new tracks, create playlists, enjoy !</p>
+    <%= link_to "Sign in with Spotify", user_spotify_omniauth_authorize_path, class: "btn btn-spotify text-center" %>
   </div>
-</div>
-<div id="button-banner">
-  <%= link_to "Sign in with Spotify", user_spotify_omniauth_authorize_path, class: "btn btn-spotify text-center" %>
 </div>
