@@ -1,12 +1,12 @@
 /* Each result */
 .select2-results {
-  background: #1C1848;
-  color: white;
+  background: white;
+  color: black;
 }
 
 .select2-selection {
   border: 2px solid grey !important;
-  background: white !important;
+  background: transparent !important;
 
 }
 
@@ -38,6 +38,6 @@
 
 /* Selected option */
 .select2-results__option[aria-selected=true] {
-    color: white;
-    background: #5797FB!important;
+    color: white!important;
+    background: #1C1848!important;
 }
