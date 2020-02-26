@@ -24,7 +24,12 @@
               <div class="card">
                 <div class="card-category">
                   <div class="card-category-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://mpact.tv/wp-content/uploads/2015/06/musique-ambiance-960x480.jpg)">
-                </div>
+                    <div class="btn-edit-playlist">
+                      <%= link_to edit_playlist_path(playlist) do %>
+                        <i class="fas fa-ellipsis-v"></i>
+                      <% end %>
+                    </div>
+                  </div>
                 </div>
                 <div class="pt-1 d-flex justify-content-between">
                   <span><%= playlist.name %></span>
@@ -32,11 +37,6 @@
                 </div>
               </div>
             <% end %>
-            <div class="btn-edit-playlist">
-              <%= link_to edit_playlist_path(playlist) do %>
-                <i class="fas fa-ellipsis-v"></i>
-              <% end %>
-            </div>
           </div>
         <% end %>
       </div>
