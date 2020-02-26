@@ -33,9 +33,12 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+  end
+
+  def update
   end
 
   private

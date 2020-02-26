@@ -13,7 +13,7 @@ class PlaylistPolicy < ApplicationPolicy
     true
   end
 
-  def show?
+  def update?
     record.user == user
   end
 end
