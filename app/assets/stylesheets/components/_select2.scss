@@ -1,14 +1,27 @@
-
 /* Each result */
 .select2-results {
-    background: #1C1848;
-    color:white;
+  background: white;
+  color: black;
 }
+
+.select2-selection {
+  border: 2px solid grey !important;
+  background: transparent !important;
+
+}
+
 
 /* Input field */
 .select2-selection__rendered {
     color: black;
  }
+
+.select2-selection__choice {
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 6px 12px !important;
+  background: #DADDD8 !important;;
+}
 
 /* Around the search field */
 .select2-search {  }
@@ -19,9 +32,12 @@
 }
 
 /* Higlighted (hover) result */
-.select2-results__option--highlighted { }
+.select2-results__option--highlighted {
+  color: black;
+}
 
 /* Selected option */
 .select2-results__option[aria-selected=true] {
-    color: black;
+    color: white!important;
+    background: #1C1848!important;
 }

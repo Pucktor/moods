@@ -5,57 +5,6 @@
       <h1>Create a playlist</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <%= simple_form_for(@playlist) do |t| %>
-        <%= t.input :name, placeholder: "Choose your mood name", label: false %>
-        <div class="row d-flex align-items-center">
-          <div class="col-1 text-center p-0">
-            <%= image_tag "guitar" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-1 text-center p-0">
-            <%= image_tag "dancing" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-1 text-center p-0">
-            <%= image_tag "thunder" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-1 text-center p-0">
-            <%= image_tag "drama" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-1 text-center p-0">
-            <%= image_tag "star" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, type: "range" %>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-12">
-            <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" } , multiple: "multiple" %>
-          </div>
-        </div>
-        <%= t.submit "+ Add playlist", class: 'button'%>
-      <% end %>
-    </div>
-  </div>
 </div>
+
+<%= render 'form' %>
