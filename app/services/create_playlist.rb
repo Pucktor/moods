@@ -1,8 +1,7 @@
-        # gem interactor. 
 
 class CreatePlaylist
 
-  def self.call(params, user)
+  def self.call(params, user, spotify_user)
     playlist = Playlist.new(
       name: params[:name],
       acousticness: params[:acousticness],
@@ -14,7 +13,8 @@ class CreatePlaylist
     )
     add_genres_to_playlist(playlist, params[:genre_ids])
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
-    add_tracks_to_playlist(playlist, recommendations)
+    add_tracks_to_playlist(playlist, recommendations) 
+    CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
     playlist.save
     playlist
   end
@@ -30,7 +30,14 @@ class CreatePlaylist
   end
 
   def self.add_tracks_to_playlist(playlist, recommendations)
-    tracks = CreateTracksFromSpotifyRecommendations.call(recommendations)
+    tracks = []
+    recommendations.each do |track|
+      tracks << Track.new(
+      title: track.name,
+      artist: track.artists.first.name,
+      album: track.album.name,
+      spotify_track_id: track.id)
+    end
     tracks.each do |track|
       playlist.tracks << track
     end
