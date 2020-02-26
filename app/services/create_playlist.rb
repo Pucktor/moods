@@ -11,6 +11,10 @@ class CreatePlaylist
       popularity: params[:popularity],
       user: user
     )
+    if params[:genre_ids].nil?
+      playlist.errors.add(:genres, "You need to select at least 1 genre")
+      return playlist
+    end
     add_genres_to_playlist(playlist, params[:genre_ids])
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
     add_tracks_to_playlist(playlist, recommendations) 
