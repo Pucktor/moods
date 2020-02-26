@@ -2,8 +2,6 @@
 <html>
   <head>
     <title>Moods</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag asset_path('moods-favicon.png') %>
@@ -16,10 +14,10 @@
     <div class="content-wrapper">
       <%= yield %>
     </div>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
     window.onSpotifyWebPlaybackSDKReady = () => {
-      const token = 'BQAcQwEsLI7k38sKTz-SKtIcEVdXY5DxabRYz4KxDLVORkPnpMk03T9CDD3mHqWpgMA5tTrmAhHs-fQu3pjX7uI94YY92nJJPHuHZW-IPlshsU3QZPku3-ceIolv76KOlt-plS5LNAnoex2_OYa4pY3VTWF46aA';
+      const token = 'BQDGdhLezFrGjfK9gfichMCDTsaCA8uxdTrSgTtZSQZONBMbmU_OsT5acRIosjFfbAlGuJBWS6xz0VET6G2B1WYTng5Gy4YyzKkvU8bWwRWeAMOhjl8QfLymw5iNnHHJzAkgHqKmvnob44ElTCg7y-llraJcy4A';
       const player = new Spotify.Player({
         name: 'Web Playback SDK Quick Start Player',
         getOAuthToken: cb => { cb(token); }
@@ -51,3 +49,6 @@
     <%= render 'shared/footer' %>
   </body>
 </html>
+
+
+<!-- Device ID : 22d338b41278b685700af323d0b971e2707d1d1c -->
