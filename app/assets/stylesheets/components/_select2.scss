@@ -14,10 +14,22 @@
 /* Input field */
 .select2-selection__rendered {
     color: black;
+    display: block !important;
+    .select2-search__field {
+      width: 100% !important;
+      height: 100%;
+    }
  }
 
- .select2-container--default .select2-search--inline .select2-search__field {
-  color: white;
+
+
+ .select2-container--default .select2-search--inline {
+  margin: 10px;
+  height: 36px;
+  .select2-search__field {
+    color: white;
+    margin-top: 0 !important;
+  }
  }
 
 .select2-selection__choice {
@@ -27,6 +39,7 @@
   background: $cyan !important;
   color: white !important;
   font-weight: bold;
+  margin: 10px !important;
 }
 
 .select2-selection__choice__remove {
