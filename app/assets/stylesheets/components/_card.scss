@@ -17,19 +17,24 @@
 }
 
 .card-category {
+  overflow: hidden;
+  border-radius: 20%;
+  box-shadow: 1px 1px 15px $purple;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 1px 1px 15px white;
+  }
+}
+
+.card-category-image {
   background-size: cover;
   background-position: center;
   height: 180px;
   width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 20%;
-  box-shadow: 1px 1px 15px white;
+  transition: 0.5s;
+  &:hover {
+     transform: scale(1.1);
+  }
 }
 
 .btn-edit-playlist {
