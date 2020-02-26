@@ -11,8 +11,9 @@ class CreatePlaylist
       popularity: params[:popularity],
       user: user
     )
-    if params[:genre_ids].nil?
-      playlist.errors.add(:genres, "You need to select at least 1 genre")
+    if params[:genre_ids].nil? || params[:name].empty?
+      playlist.errors.add(:genres, "are not present") if params[:genre_ids].nil?
+      playlist.errors.add(:name, "is not present") if params[:name].empty?
       return playlist
     end
     add_genres_to_playlist(playlist, params[:genre_ids])
