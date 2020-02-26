@@ -53,3 +53,17 @@
 .btn-spotify:hover {
   background-color: #1ed760;
 }
+
+#new_playlist {
+  .btn-primary {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  #new_playlist {
+    .btn-primary {
+      width: 90%;
+    }
+  }
+}

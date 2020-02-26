@@ -1,5 +1,8 @@
 .navbar {
-  position: sticky;
+  position: sticky !important;
+  top: 0;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.9);
 }
 .navbar-brand {
   margin-right: 20px;
@@ -10,9 +13,14 @@
   }
 }
 
-.nav-link {
-  &:hover {
-    color: white !important;
-    background-color: rgba(0,0,0,0.3);
+@media (max-width: 992px) {
+  #navbarText {
+    ul {
+      margin: 20px 0px 0px 0px;
+      text-align: center;
+    }
+    .nav-item {
+      padding: 10px 0px;
+    }
   }
 }
