@@ -29,8 +29,10 @@ import "bootstrap";
 import { initSelect2 } from '../plugins/init_select2';
 
 import { iframeResizer } from '../components/iframe-resizer';
+import { sliderRange } from '../components/slider';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
   iframeResizer();
+  sliderRange();
 });

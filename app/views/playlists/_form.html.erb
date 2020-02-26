@@ -15,7 +15,7 @@
             <%= image_tag "guitar" %>
           </div>
           <div class="col-11 pl-0">
-            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
+            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, type: "range" %>
           </div>
         </div>
 
