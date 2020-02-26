@@ -28,4 +28,16 @@ input[type=range]::-webkit-slider-thumb {
 
 #new_playlist {
   text-align: center;
+  margin: 20px 0px;
+}
+
+.page-title {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
 }

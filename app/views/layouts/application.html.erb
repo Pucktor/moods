@@ -11,7 +11,9 @@
   </head>
 
   <body>
+    <div class="content-wrapper">
       <%= render 'shared/header' if current_user %>
       <%= yield %>
+    </div>
   </body>
 </html>
