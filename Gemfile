@@ -37,6 +37,7 @@ gem 'omniauth-spotify'
 gem 'pundit'
 gem 'rspotify'
 gem 'rest-client', '>= 2.0.1'
+gem 'activerecord-session_store'
 
 group :development, :test do
   gem 'pry-byebug'
