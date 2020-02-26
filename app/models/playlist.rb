@@ -1,8 +1,8 @@
 class Playlist < ApplicationRecord
 
   belongs_to :user
-  has_many :playlist_genres
-  has_many :playlist_tracks
+  has_many :playlist_genres, dependent: :destroy
+  has_many :playlist_tracks, dependent: :destroy
   has_many :genres, through: :playlist_genres
   has_many :tracks, through: :playlist_tracks
 

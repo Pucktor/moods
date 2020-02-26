@@ -1,5 +1,21 @@
 <div class="container">
   <div class="row">
+    <div class="col d-flex align-items-center">
+      <span class="back-button">
+        <%= link_to playlists_path do %>
+          <i class="fas fa-arrow-circle-left"></i>
+        <% end %>
+      </span>
+      <h1>
+        <% if current_page?(new_playlist_path) %>
+          Create a playlist
+        <% else %>
+          <%= @playlist.name %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
       <%= simple_form_for(@playlist) do |t| %>
         <%= t.input :name, placeholder: "Choose your mood name", label: false %>
@@ -55,8 +71,12 @@
           </div>
         </div>
 
-
-        <%= t.submit "+ Add playlist", class: 'button'%>
+        <% if current_page?(new_playlist_path) %>
+          <% word = "+ Create" %>
+        <% else %>
+          <% word = "Edit" %>
+        <% end %>
+        <%= t.submit word + " playlist", class: 'button'%>
       <% end %>
     </div>
   </div>
