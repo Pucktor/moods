@@ -16,11 +16,21 @@
     color: black;
  }
 
+ .select2-container--default .select2-search--inline .select2-search__field {
+  color: white;
+ }
+
 .select2-selection__choice {
   border: none !important;
   border-radius: 25px !important;
   padding: 6px 12px !important;
-  background: #DADDD8 !important;;
+  background: $cyan !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.select2-selection__choice__remove {
+  color: white !important;
 }
 
 /* Around the search field */
@@ -41,3 +51,4 @@
     color: white!important;
     background: #1C1848!important;
 }
+
