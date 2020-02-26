@@ -17,7 +17,7 @@ h1 {
   text-align: center;
 }
 
-body {
-  padding-top: 10px;
-  padding-bottom: 100px;
+.content-wrapper {
+  background: linear-gradient(160deg, #120f30 64%, $purple 95%);
+  min-height: 100vh;
 }

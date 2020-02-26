@@ -28,6 +28,12 @@ import "bootstrap";
 // formSlider();
 import { initSelect2 } from '../plugins/init_select2';
 import { initSpotifyPlayer } from '../custom/init_spotify_player';
+import { addActiveClassNav } from '../components/navigation';
+import { iframeResizer } from '../components/iframe-resizer';
 
-initSelect2();
-initSpotifyPlayer();
+document.addEventListener('turbolinks:load', () => {
+  initSelect2();
+  initSpotifyPlayer();
+  iframeResizer();
+  addActiveClassNav();
+});

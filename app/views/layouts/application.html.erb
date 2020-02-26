@@ -4,16 +4,16 @@
     <title>Moods</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
     <%= favicon_link_tag asset_path('moods-favicon.png') %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-    <%#= render 'shared/header' %>
     <div class="content-wrapper">
+      <%= render 'shared/header' if current_user %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

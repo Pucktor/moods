@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
     # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     # party = RSpotify::Category.find('party')
     # party.playlists #=> (Playlist array)
-
+    @spotify_user = RSpotify::User.new(session[:spotify_auth])
     if params[:query].present?
       @playlists = policy_scope(Playlist.all).where("name ILIKE ?", "%#{params[:query]}%")
     else
@@ -34,9 +34,21 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+  end
+
+  def update
+    @playlist = Playlist.find(params[:id])
+    authorize @playlist
+  end
+
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    authorize @playlist
+    @playlist.destroy
+    redirect_to playlists_path
   end
 
   private
