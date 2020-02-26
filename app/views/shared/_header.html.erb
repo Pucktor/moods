@@ -1,5 +1,16 @@
-<div id="header">
-  <% if current_user %>
-    <%= current_user.uid %>
-  <% end %>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <%= link_to image_tag("moods-logo.png"), root_path, class: 'navbar-brand'%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item", id="nav-create-item">
+        <%= link_to 'Create a playlist', new_playlist_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      </li>
+    </ul>
+  </div>
+</nav>

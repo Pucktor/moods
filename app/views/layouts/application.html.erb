@@ -11,19 +11,7 @@
   </head>
 
   <body>
-    <% if !current_page?(root_path) %>
-      <div class="content-wrapper">
-        <%= yield %>
-      </div>
-    <% else %>
+      <%= render 'shared/header' if current_user %>
       <%= yield %>
-    <% end %>
-
-    <% unless current_page?(root_path) %>
-      <%= render 'shared/footer' %>
-    <% end %>
   </body>
 </html>
-
-
-<!-- Device ID : 22d338b41278b685700af323d0b971e2707d1d1c -->

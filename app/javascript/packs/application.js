@@ -27,6 +27,8 @@ import "bootstrap";
 
 // formSlider();
 import { initSelect2 } from '../plugins/init_select2';
+import { navigation } from '../components/navigation';
 
 initSelect2();
+navigation();
 

@@ -1,12 +1,18 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  position: sticky;
+}
+.navbar-brand {
+  margin-right: 20px;
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-link {
+  &:hover {
+    color: white !important;
+    background-color: rgba(0,0,0,0.3);
+  }
 }
