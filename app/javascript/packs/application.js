@@ -28,6 +28,9 @@ import "bootstrap";
 // formSlider();
 import { initSelect2 } from '../plugins/init_select2';
 
+import { iframeResizer } from '../components/iframe-resizer';
+
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
+  iframeResizer();
 });
