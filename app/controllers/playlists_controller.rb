@@ -20,6 +20,7 @@ class PlaylistsController < ApplicationController
   def show
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+    @spotify_user = RSpotify::User.new(session[:spotify_auth])
   end
 
   def create

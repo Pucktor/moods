@@ -27,6 +27,7 @@ import "bootstrap";
 
 // formSlider();
 import { initSelect2 } from '../plugins/init_select2';
+import { initSpotifyPlayer } from '../custom/init_spotify_player';
 
 initSelect2();
-
+initSpotifyPlayer();
