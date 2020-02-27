@@ -25,49 +25,43 @@
             <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
           </div>
         </div>
-
         <div class="row d-flex align-items-center my-3">
-          <div class="col-1 text-center p-0">
+          <div class="col-12">
+            <%= t.label :acousticness %>
             <%= image_tag "guitar" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, type: "range" %>
+            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
           </div>
         </div>
 
         <div class="row d-flex align-items-center my-3">
-          <div class="col-1 text-center p-0">
+          <div class="col-12">
+            <%= t.label :danceability %>
             <%= image_tag "dancing" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
+            <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
           </div>
         </div>
 
         <div class="row d-flex align-items-center my-3">
-          <div class="col-1 text-center p-0">
+          <div class="col-12">
+            <%= t.label :energy %>
             <%= image_tag "thunder" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
+            <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
           </div>
         </div>
 
         <div class="row d-flex align-items-center my-3">
-          <div class="col-1 text-center p-0">
+          <div class="col-12">
+            <%= t.label :valence%>
             <%= image_tag "drama" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, type: "range" %>
+            <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
           </div>
         </div>
 
         <div class="row d-flex align-items-center my-3">
-          <div class="col-1 text-center p-0">
+          <div class="col-12">
+            <%= t.label :popularity  %>
             <%= image_tag "star" %>
-          </div>
-          <div class="col-11 pl-0">
-            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, type: "range" %>
+            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
           </div>
         </div>
 
