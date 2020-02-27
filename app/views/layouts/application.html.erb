@@ -11,16 +11,9 @@
   </head>
 
   <body>
-    <% if !current_page?(root_path) %>
-      <div class="content-wrapper">
-        <%= yield %>
-      </div>
-    <% else %>
+    <div class="content-wrapper">
+      <%= render 'shared/header' if current_user %>
       <%= yield %>
-    <% end %>
-
-    <% unless current_page?(root_path) %>
-      <%= render 'shared/footer' %>
-    <% end %>
+    </div>
   </body>
 </html>

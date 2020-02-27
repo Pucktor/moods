@@ -14,13 +14,36 @@
 /* Input field */
 .select2-selection__rendered {
     color: black;
+    display: block !important;
+    .select2-search__field {
+      width: 100% !important;
+      height: 100%;
+    }
+ }
+
+
+
+ .select2-container--default .select2-search--inline {
+  margin: 10px;
+  height: 36px;
+  .select2-search__field {
+    color: white;
+    margin-top: 0 !important;
+  }
  }
 
 .select2-selection__choice {
   border: none !important;
   border-radius: 25px !important;
   padding: 6px 12px !important;
-  background: #DADDD8 !important;;
+  background: $cyan !important;
+  color: white !important;
+  font-weight: bold;
+  margin: 10px !important;
+}
+
+.select2-selection__choice__remove {
+  color: white !important;
 }
 
 /* Around the search field */
@@ -41,3 +64,4 @@
     color: white!important;
     background: #1C1848!important;
 }
+

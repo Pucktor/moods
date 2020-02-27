@@ -1,5 +1,21 @@
 <div class="container">
   <div class="row">
+    <div class="col d-flex align-items-center page-title">
+      <span class="back-button">
+        <%= link_to playlists_path do %>
+          <i class="fas fa-arrow-circle-left"></i>
+        <% end %>
+      </span>
+      <h1>
+        <% if current_page?(new_playlist_path) %>
+          Create a playlist
+        <% else %>
+          <%= @playlist.name %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
       <%= simple_form_for(@playlist) do |t| %>
         <%= t.input :name, placeholder: "Choose your mood name", label: false %>
@@ -10,7 +26,7 @@
           </div>
         </div>
 
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center my-3">
           <div class="col-1 text-center p-0">
             <%= image_tag "guitar" %>
           </div>
@@ -19,7 +35,7 @@
           </div>
         </div>
 
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center my-3">
           <div class="col-1 text-center p-0">
             <%= image_tag "dancing" %>
           </div>
@@ -28,7 +44,7 @@
           </div>
         </div>
 
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center my-3">
           <div class="col-1 text-center p-0">
             <%= image_tag "thunder" %>
           </div>
@@ -37,7 +53,7 @@
           </div>
         </div>
 
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center my-3">
           <div class="col-1 text-center p-0">
             <%= image_tag "drama" %>
           </div>
@@ -46,7 +62,7 @@
           </div>
         </div>
 
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center my-3">
           <div class="col-1 text-center p-0">
             <%= image_tag "star" %>
           </div>
@@ -55,8 +71,12 @@
           </div>
         </div>
 
-
-        <%= t.submit "+ Add playlist", class: 'button'%>
+        <% if current_page?(new_playlist_path) %>
+          <% word = "+ Create" %>
+        <% else %>
+          <% word = "Edit" %>
+        <% end %>
+        <%= t.submit word + " playlist", class: 'btn btn-primary'%>
       <% end %>
     </div>
   </div>

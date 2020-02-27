@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
     # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     # party = RSpotify::Category.find('party')
     # party.playlists #=> (Playlist array)
-
+    @spotify_user = RSpotify::User.new(session[:spotify_auth])
     if params[:query].present?
       @playlists = policy_scope(Playlist.all).where("name ILIKE ?", "%#{params[:query]}%")
     else
