@@ -1,7 +1,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 50px;
   a {
     color:white;
     &:hover {
@@ -10,76 +10,65 @@
   }
 }
 
-.card {
-  background-color: transparent;
-  padding: 10px;
-    align-items: center;
-}
-
 .card-category {
-  overflow: hidden;
-  border-radius: 50%;
-  box-shadow: 1px 1px 15px $purple;
-  transition: 0.5s;
-  &:hover {
-    box-shadow: 1px 1px 15px white;
-  }
-}
-
-.card-category-image {
   background-size: cover;
   background-position: center;
-  height: 180px;
-  width: 180px;
-  transition: 0.5s;
+  height: 360px;
+  word-break: break-word;
+  display: flex;
+  // justify-content: center;
   position: relative;
-  &:hover {
-     transform: scale(1.1);
+  align-items: center;
+  // color: white;
+  border-radius: 16px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  & .btn-play {
+      position: absolute;
+      font-size: 4em;
+      bottom: -5px;
+      left: 15px;
+  };
+  & .title {
+      font-size: 40px;
+      font-weight: bold;
   }
 }
 
-.btn-edit-playlist {
-  position: absolute;
-  top: 16px;
-  right: 12px;
-  padding: 5px;
-  a {
-    padding: 10px;
-  }
-}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
