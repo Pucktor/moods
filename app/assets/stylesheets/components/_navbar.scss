@@ -1,12 +1,28 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  position: sticky !important;
+  top: 0;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.9);
+}
+.navbar-brand {
+  margin-right: 20px;
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+@media (max-width: 992px) {
+  #navbarText {
+    ul {
+      margin: 20px 0px 0px 0px;
+      text-align: center;
+    }
+    .nav-item {
+      padding: 10px 0px;
+    }
+  }
 }

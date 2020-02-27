@@ -27,6 +27,11 @@ import "bootstrap";
 
 // formSlider();
 import { initSelect2 } from '../plugins/init_select2';
+import { addActiveClassNav } from '../components/navigation';
+import { sliderRange } from '../components/slider';
 
-initSelect2();
-
+document.addEventListener('turbolinks:load', () => {
+  initSelect2();
+  sliderRange();
+  addActiveClassNav();
+});

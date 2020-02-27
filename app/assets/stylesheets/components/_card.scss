@@ -1,7 +1,7 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
   a {
     color:white;
     &:hover {
@@ -10,59 +10,73 @@
   }
 }
 
-.card {
-  background-color: #1D1948;
-  border-radius: 8px;
-  padding: 10px;
-}
-
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 360px;
+  word-break: break-word;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  position: relative;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow:hidden;
+  // color: white;
+  border-radius: 16px;
+  background-position: top;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  & .btn-play {
+      position: absolute;
+      font-size: 4em;
+      bottom: -5px;
+      left: 15px;
+      a:hover {
+        text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+      };
+  };
+  & .title {
+      font-size: 40px;
+      font-weight: bold;
+  }
 }
+
+.card-transparent-background {
+  height: 30px;
+  width: 30px;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

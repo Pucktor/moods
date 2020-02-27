@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col d-flex align-items-center page-title">
+      <span class="back-button">
+        <%= link_to playlists_path do %>
+          <i class="fas fa-chevron-circle-left"></i>
+        <% end %>
+      </span>
+      <h1>
+        <% if current_page?(new_playlist_path) %>
+          Create a playlist
+        <% else %>
+          <%= @playlist.name %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for(@playlist) do |t| %>
+        <%= t.input :name, placeholder: "Choose your mood name", label: false %>
+
+        <div class="row d-flex align-content-center">
+          <div class="col-12">
+            <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center my-3">
+          <div class="col-12">
+            <%= t.label :acousticness %>
+            <%= image_tag "guitar.png" %>
+            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center my-3">
+          <div class="col-12">
+            <%= t.label :danceability %>
+            <%= image_tag "dancing.png" %>
+            <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center my-3">
+          <div class="col-12">
+            <%= t.label :energy %>
+            <%= image_tag "thunder.png" %>
+            <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center my-3">
+          <div class="col-12">
+            <%= t.label :valence%>
+            <%= image_tag "drama.png" %>
+            <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center my-3">
+          <div class="col-12">
+            <%= t.label :popularity  %>
+            <%= image_tag "star.png" %>
+            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
+          </div>
+        </div>
+
+        <% if current_page?(new_playlist_path) %>
+          <% word = "+ Create" %>
+        <% else %>
+          <% word = "Edit" %>
+        <% end %>
+        <%= t.submit word + " playlist", class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</div>
