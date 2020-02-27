@@ -1,5 +1,4 @@
 input[type=text] {
-  background-color: #1c1949;
   color: white;
   border-radius: 25px;
   border: none;
@@ -7,10 +6,15 @@ input[type=text] {
   box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.7);
   height: 50px;
   text-align: center;
+  width: 200px;
+  background: linear-gradient(145deg, #191b2d, #1e2036);
+  box-shadow:  11px 11px 22px #131422,
+             -11px -11px 22px #252843;
 }
 
 input[type=text]:focus {
-  background-color: transparent;
+  box-shadow: inset 11px 11px 22px #131422,
+            inset -11px -11px 22px #252843;
   color: white;
 }
 

@@ -1,4 +1,53 @@
-<div class="container">
+ <div class="grid-container">
+
+  <header class="header">
+    <h1 class="header__title">Discover</h1>
+    <div class="header__avatar">Your face</div>
+  </header>
+
+  <aside class="sidenav">
+    <ul class="sidenav__list">
+      <li class="sidenav__list-item">Item One</li>
+      <li class="sidenav__list-item">Item Two</li>
+      <li class="sidenav__list-item">Item Three</li>
+      <li class="sidenav__list-item">Item Four</li>
+      <li class="sidenav__list-item">Item Five</li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="main-searchbar">
+      <%= form_tag playlists_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search your playlist"
+        %>
+      <% end %>
+    </div>
+
+    <div class="app">
+      <div class="full hide-scroll">
+        <ul class="hs">
+          <li class="item">test</li>
+          <li class="item">test</li>
+          <li class="item">test</li>
+          <li class="item">test</li>
+          <li class="item">test</li>
+          <li class="item">test</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__copyright">&copy; 2018 MTH</div>
+    <div class="footer__signature">Made with love by pure genius</div>
+  </footer>
+</div>
+
+<!-- <div class="container">
   <div class="row">
     <div class="col">
        <h1>All playlists</h1>
@@ -39,3 +88,4 @@
     </div>
   </div>
 </div>
+ -->
