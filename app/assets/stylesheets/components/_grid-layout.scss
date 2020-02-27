@@ -36,6 +36,8 @@
 /* Make room for the menu icon on mobile */
 .header__title {
   margin-left: 48px;
+  font-size: 90px;
+  font-weight: 700;
 }
 
 .sidenav {
@@ -49,15 +51,14 @@
   transform: translateX(-400px);
   transition: all .6s ease-in-out;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  z-index: 2; /* Needs to sit above the hamburger menu icon */
-  // background-color: #394263;
-  padding-top:95px;
-  border-right: solid 1px #323446;
+  z-index: 2;
+  padding-top:126px;
+  background: linear-gradient(315deg, #191b2d, #1e2036);
+  box-shadow:  20px 20px 60px #11121e,
+             -20px -20px 60px #272a47;
+  border-radius:25px;
 }
 
-.sidenav.active {
-  transform: translateX(0);
-}
 
 .sidenav__list {
   padding: 0;
@@ -77,7 +78,6 @@
 
 .main {
   grid-area: main;
-  // background-color: #8fd4d9;
 }
 
 .main-searchbar {
@@ -86,8 +86,7 @@
   margin: 20px;
   margin-left : 60px;
   height: 50px;
-  // background-color: #e3e4e6;
-  // color: slategray;
+
 }
 
 .footer {
@@ -96,15 +95,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  // background-color: #648ca6;
 }
 
-/* Non-mobile styles, 46.875em 750px breakpoint */
 @media only screen and (min-width: 56.875em ) {
-  /* Show the sidenav */
+
   .grid-container {
     grid-template-columns: 270px 1fr;
-    grid-template-rows: 180px 1fr 50px;
+    grid-template-rows: 200px 1fr 50px;
     grid-template-areas:
       "sidenav header"
       "sidenav main"
@@ -118,5 +115,18 @@
   .sidenav {
     position: relative;
     transform: translateX(0);
+  }
+
+  .sidenav-logo {
+    position: absolute;
+    top: 48px;
+    left: 80px;
+    box-shadow:  20px 20px 60px #11121e,
+                 -20px -20px 60px #272a47;
+    border-radius:100px;
+  }
+
+  .sidenav-logo img {
+  width:100px;
   }
 }
