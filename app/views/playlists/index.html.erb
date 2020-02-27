@@ -15,12 +15,17 @@
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
       <div class="cards">
         <% @playlists.each do |playlist| %>
-            <div class="card-category" style="background: #fc5c7d; background: -webkit-linear-gradient(to top right, #fc5c7d, #6a82fb);   background: linear-gradient(to top right, #fc5c7d, #6a82fb);">
-              <div class="card-category-content pl-3">
+            <div class="card-category" style="background-image: linear-gradient(to top right, rgb(252, 92, 125, 0.9), rgb(106, 130, 251, 0.9)), url(<%= asset_path 'card-background-vertical.jpg' %>)">
+              <div class="card-transparent-background">
+                <%#= image_tag "card-background" %>
+
+                </div>
+              <div class="card-category-content px-3">
                 <span class="title"><%= playlist.name.upcase %></span>
                 <div class="btn-play">
                   <%= link_to playlist_path(playlist) do %>
