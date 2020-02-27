@@ -12,16 +12,15 @@
 
 .hs {
   display: grid;
-  grid-gap: 58px;
+  grid-gap: 28px;
   grid-template-columns: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: calc(50% - 230px * 2);
+  grid-auto-columns: calc(75%);
   grid-template-rows: minmax(150px, 1fr);
-
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   padding-bottom: calc(.75 * 20px);
-  margin-bottom: -20px;
+  margin-bottom: -10px;
 }
 
 .hs:before,
@@ -54,4 +53,18 @@ ul {
   background: #fff;
   border-radius: 8px;
   height: 50vh;
+  background-image: linear-gradient(to top right, rgba(252, 92, 125, 0.9), rgba(106, 130, 251, 0.9)), url(/assets/card-background-vertical-71d34b49806be81e6c6852f1601f4e03a82b6664d722abf08dd02d917e196725.jpg)
+}
+
+.item h1 {
+  text-decoration: none;
+  color:white;
+}
+
+@media only screen and (min-width: 56.875em ) {
+  .hs {
+  grid-gap: 58px;
+  grid-auto-columns: calc(50% - 230px * 2);
+  margin-bottom: -20px;
+  }
 }

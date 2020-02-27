@@ -85,7 +85,6 @@
   justify-content: space-between;
   margin: 20px;
   margin-left : 60px;
-  padding: 20px;
   height: 50px;
   // background-color: #e3e4e6;
   // color: slategray;
@@ -100,8 +99,8 @@
   // background-color: #648ca6;
 }
 
-/* Non-mobile styles, 750px breakpoint */
-@media only screen and (min-width: 46.875em) {
+/* Non-mobile styles, 46.875em 750px breakpoint */
+@media only screen and (min-width: 56.875em ) {
   /* Show the sidenav */
   .grid-container {
     grid-template-columns: 270px 1fr;
@@ -119,13 +118,5 @@
   .sidenav {
     position: relative;
     transform: translateX(0);
-  }
-}
-
-/* Medium screens breakpoint (1050px) */
-@media only screen and (min-width: 65.625em) {
-  /* Break out main cards into two columns */
-  .main-cards {
-    column-count: 2;
   }
 }
