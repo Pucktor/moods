@@ -19,15 +19,19 @@
   // justify-content: center;
   position: relative;
   align-items: center;
+  overflow:hidden;
   // color: white;
   border-radius: 16px;
+  background-position: top;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
   & .btn-play {
       position: absolute;
       font-size: 4em;
       bottom: -5px;
       left: 15px;
+      a:hover {
+        text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+      };
   };
   & .title {
       font-size: 40px;
@@ -35,6 +39,10 @@
   }
 }
 
+.card-transparent-background {
+  height: 30px;
+  width: 30px;
+}
 
 
 // Smallest device
