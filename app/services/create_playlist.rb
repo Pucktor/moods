@@ -18,8 +18,9 @@ class CreatePlaylist
     end
     add_genres_to_playlist(playlist, params[:genre_ids])
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
-    add_tracks_to_playlist(playlist, recommendations) 
+    add_tracks_to_playlist(playlist, recommendations)
     CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
+    playlist.color = COLORS.keys.sample
     playlist.save
     playlist
   end
