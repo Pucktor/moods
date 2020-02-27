@@ -20,20 +20,16 @@
     <div class="col">
       <div class="cards">
         <% @playlists.each do |playlist| %>
-            <div class="card-category" style="background-image: linear-gradient(to top right, rgb(252, 92, 125, 0.9), rgb(106, 130, 251, 0.9)), url(<%= asset_path 'card-background-vertical.jpg' %>)">
-              <div class="card-transparent-background">
-                <%#= image_tag "card-background" %>
-
-                </div>
+          <%= link_to playlist_path(playlist) do %>
+            <div class="card-category" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
               <div class="card-category-content px-3">
                 <span class="title"><%= playlist.name.upcase %></span>
                 <div class="btn-play">
-                  <%= link_to playlist_path(playlist) do %>
-                    <i class="fas fa-play-circle"></i>
-                  <% end %>
+                  <i class="fas fa-play-circle"></i>
                 </div>
               </div>
             </div>
+          <% end %>
         <% end %>
       </div>
     </div>
