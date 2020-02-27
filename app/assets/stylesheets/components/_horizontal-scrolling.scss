@@ -13,7 +13,9 @@
 .hs {
   display: grid;
   grid-gap: 58px;
-  grid-template-columns: 10px repeat(6, 380px) 10px;
+  grid-template-columns: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(50% - 230px * 2);
   grid-template-rows: minmax(150px, 1fr);
 
   overflow-x: scroll;
@@ -25,6 +27,7 @@
 .hs:before,
 .hs:after {
   content: '';
+  width: 10px;
 }
 
 /* Hide scrollbar */
@@ -43,7 +46,7 @@ ul {
 .hs > li,
 .item {
   scroll-snap-align: center;
-  padding: calc(20px / 2 * 1.5);
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
