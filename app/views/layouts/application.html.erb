@@ -26,8 +26,17 @@
   </head>
 
   <body>
-<!--     <%= render 'shared/header' if current_user %> -->
-    <%= yield %>
-    <!-- <%= render 'shared/footer' %> -->
+     <div class="grid-container">
+      <%= render 'shared/sidenav' %>
+
+      <% if current_page?(root_path) %>
+        <%= render 'shared/home-header' %>
+      <% else current_page?(root_path) %>
+      <% end %>
+
+      <%= yield %>
+
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

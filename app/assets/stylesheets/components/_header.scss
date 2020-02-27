@@ -1,0 +1,30 @@
+/* Give every child element its grid name */
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  span {
+    background-image: linear-gradient(transparent 75px, #F243B3 50%, #FFCA47 100%);
+    position:relative;
+  }
+}
+
+/* Make room for the menu icon on mobile */
+.header__title {
+  margin-left: 48px;
+}
+
+@media only screen and (min-width: 56.875em ) {
+
+  .header__title {
+  margin-left: 48px;
+  font-size: 64px;
+  font-weight: 700;
+  }
+
+  // .header__search {
+  //   margin-left: 0;
+  // }
+}
