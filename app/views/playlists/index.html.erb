@@ -15,13 +15,32 @@
         <ul class="hs">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
-              <li class="item">
+              <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
                   <h1><%= playlist.name %></h1>
-                  <h1><i class="fas fa-play-circle"></i></h1>
+                  <div class="btn-play">
+                    <i class="fas fa-play-circle"></i>
+                  </div>
               </li>
               <% end %>
             <% end %>
         </ul>
+<!-- =======
+  <div class="row">
+    <div class="col">
+      <div class="cards">
+        <% @playlists.each do |playlist| %>
+          <%= link_to playlist_path(playlist) do %>
+            <div class="card-category" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+              <div class="card-category-content px-3">
+                <span class="title"><%= playlist.name.upcase %></span>
+                <div class="btn-play">
+                  <i class="fas fa-play-circle"></i>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+>>>>>>> 2712d7b78273af621cf993026899452e2f0fc17f -->
       </div>
     </div>
 
