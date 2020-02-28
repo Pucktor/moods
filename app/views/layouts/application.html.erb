@@ -29,7 +29,7 @@
      <div class="grid-container">
       <%= render 'shared/sidenav' %>
 
-      <% if current_page?(root_path) %>
+      <% if current_page?(root_path) || current_page?(playlists_path) %>
         <%= render 'shared/home-header' %>
       <% else current_page?(root_path) %>
       <% end %>
