@@ -1,0 +1,43 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+}
+
+.main-searchbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  margin-left : 60px;
+  height: 50px;
+
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+@media only screen and (min-width: 56.875em ) {
+
+  .grid-container {
+    grid-template-columns: 270px 1fr;
+    grid-template-rows: 200px 1fr 50px;
+    grid-template-areas:
+      "sidenav header"
+      "sidenav main"
+      "sidenav footer";
+  }
+}
