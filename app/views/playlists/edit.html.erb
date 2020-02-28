@@ -3,11 +3,6 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= link_to "Edit this playlist (not working)", edit_playlist_path(@playlist), class: "btn btn-primary btn-block" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
       <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn btn-danger btn-block" %>
     </div>
   </div>

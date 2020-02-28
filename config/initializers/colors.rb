@@ -27,5 +27,5 @@ COLORS = {
   "Neon Gummy" => "linear-gradient(to top right, #EE195Ae6, #523CA8e6, #76C7B0e6)",
   "Neon Light" => "linear-gradient(to top right, #70FCD0e6, #E9FC69e6, #F569D8e6)",
   "Neon Parrot" => "linear-gradient(to top right, #27B200e6, #70C70Be6, #BEDC10e6)",
-  "Neon Marshmallow" => "linear-gradient(to top right, #5291DFe6, #F67ADCe6, #FED336e6)",
+  "Neon Marshmallow" => "linear-gradient(to top right, #5291DFe6, #F67ADCe6, #FED336e6)"
 }
