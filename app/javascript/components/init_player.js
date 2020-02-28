@@ -13,7 +13,7 @@ const initPlayer = () => {
 
           const urlencoded = new URLSearchParams();
           urlencoded.append("grant_type", "refresh_token");
-          urlencoded.append("refresh_token", "AQB_eA0y1uwUOmsIqADCakQ8ScqoGHWFRmFO_ZQowh6F7qO7Mwt7RklUMwhzkZrR1dGTbDHiWVcq4IiJaJqkErqHEZsq2m4cIHDz9a4LAn6zmOXCakXjR7ZHHTztkKUgqSA");
+          urlencoded.append("refresh_token", refreshToken);
           urlencoded.append("client_id", "62750ba1fb924428b4c6ae4845542d46");
           urlencoded.append("client_secret", "881423bf972f48b7aab19f7bd3220123");
 
