@@ -20,7 +20,10 @@
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   padding-bottom: calc(.75 * 20px);
-  margin-bottom: -10px;
+  margin-bottom: -15px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .hs:before,
@@ -80,6 +83,9 @@ ul {
   .hs {
   grid-gap: 58px;
   grid-auto-columns: 300px;
-  margin-bottom: -10px;
+  margin-bottom: -15px;
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
