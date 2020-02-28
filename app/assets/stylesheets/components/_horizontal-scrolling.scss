@@ -21,6 +21,9 @@
   scroll-snap-type: x proximity;
   padding-bottom: calc(.75 * 20px);
   margin-bottom: -10px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .hs:before,
@@ -81,5 +84,8 @@ ul {
   grid-gap: 58px;
   grid-auto-columns: 300px;
   margin-bottom: -10px;
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
