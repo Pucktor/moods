@@ -95,7 +95,10 @@
     top: 48px;
     left: 80px;
     border-radius:100px;
-    // transition: box-shadow 1s ease-out;
+    background: #1B1B1B;
+    box-shadow:  15px 15px 29px #0b0b0b,
+             -15px -15px 29px #2b2b2b;
+    transition: box-shadow 0.15s ease-out;
     &:hover {
       box-shadow:  1px 1px 50px #b255d4,
              -1px -1px 50px #6D276D;
