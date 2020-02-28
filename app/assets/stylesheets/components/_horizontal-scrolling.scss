@@ -15,7 +15,7 @@
   grid-gap: 28px;
   grid-template-columns: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: calc(75%);
+  grid-auto-columns: 270px;
   grid-template-rows: minmax(150px, 1fr);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
@@ -58,6 +58,7 @@ ul {
 }
 
 .item h1, i {
+  text-align: center;
   text-decoration: none;
   color: white;
 }
@@ -65,7 +66,7 @@ ul {
 @media only screen and (min-width: 56.875em ) {
   .hs {
   grid-gap: 58px;
-  grid-auto-columns: calc(50% - 230px * 2);
-  margin-bottom: -20px;
+  grid-auto-columns: 300px;
+  margin-bottom: -10px;
   }
 }
