@@ -16,5 +16,16 @@ COLORS = {
   "Azure Pop" => "linear-gradient(to top right, rgba(239, 50, 217, 0.9), rgba(137, 255, 253, 0.9))",
   "Sun on the Horizon" => "linear-gradient(to top right, rgba(252, 234, 187, 0.9), rgba(248, 181, 0, 0.9))",
   "Blood Red" => "linear-gradient(to top right, rgba(248, 80, 50, 0.9), rgba(231, 56, 39, 0.9))",
-  "Vibrant Neon Green" => "linear-gradient(to top right, #0bed97cc, #00e6bfcc, #00ddddcc, #00d1eecc, #00c4f2cc, #00baf5cc, #00b0f6cc, #00a5f6cc, #009bfacc, #0090fccc, #0085fdcc, #0078fccc)"
+  "Vibrant Neon Green" => "linear-gradient(to top right, #0bed97e6, #00e6bfe6, #00dddde6, #00d1eee6, #00c4f2e6, #00baf5e6, #00b0f6e6, #00a5f6e6, #009bfae6, #0090fce6, #0085fde6, #0078fce6)",
+  "Neon Peach" => "linear-gradient(to top right, #FE7168e6, #EC1288e6)",
+  "Neon Purple" => "linear-gradient(to top right, #22FAFFe6, #9612FDe6)",
+  "Neon Sunset" => "linear-gradient(to top right, #F8B23Be6, #EC1288e6)",
+  "Neon Yellow" => "linear-gradient(to top right, #FEFC46e6, #FF883De6)",
+  "Neon Dark" => "linear-gradient(to top right, #D44DFFe6, #7005EDe6)",
+  "Neon Glowy" => "linear-gradient(to top right, #FFCC31e6, #FD7031e6, #C70D79e6)",
+  "Neon Sea" => "linear-gradient(to top right, #38D7D0e6, #DDCE3Ae6, #D6E8BEe6)",
+  "Neon Gummy" => "linear-gradient(to top right, #EE195Ae6, #523CA8e6, #76C7B0e6)",
+  "Neon Light" => "linear-gradient(to top right, #70FCD0e6, #E9FC69e6, #F569D8e6)",
+  "Neon Parrot" => "linear-gradient(to top right, #27B200e6, #70C70Be6, #BEDC10e6)",
+  "Neon Marshmallow" => "linear-gradient(to top right, #5291DFe6, #F67ADCe6, #FED336e6)",
 }
