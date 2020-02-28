@@ -15,10 +15,13 @@
 
 .main-searchbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   margin: 20px;
   margin-left : 60px;
   height: 50px;
+  a {
+    text-decoration:none;
+  }
 
 }
 
