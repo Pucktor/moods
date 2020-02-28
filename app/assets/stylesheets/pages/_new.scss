@@ -7,11 +7,13 @@ input[type=text] {
   text-align: center;
   width: 200px;
   border: solid 1px white;
-  background-color: none !important;
+  background-color: #1A1A1A;
+  border: 2px solid #F2E0B7;
 }
 
 input[type=text]:focus {
   color: grey;
+  background-color: white;
 }
 
 label {
