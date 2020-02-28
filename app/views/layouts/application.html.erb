@@ -26,12 +26,14 @@
   </head>
 
   <body>
-     <div class="grid-container">
-      <%= render 'shared/sidenav' %>
-
-      <%= yield %>
-
-      <%= render 'shared/footer' %>
-    </div>
+      <% if current_page?('/users/sign_in') %>
+          <%= yield %>
+      <% else %>
+        <div class="grid-container">
+          <%= render 'shared/sidenav'%>
+          <%= yield %>
+          <%= render 'shared/footer' %>
+        </div>
+      <% end %>
   </body>
 </html>
