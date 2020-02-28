@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: 0 16px;
   span {
-    background-image: linear-gradient(transparent 75px, #F243B3 50%, #FFCA47 100%);
+    background-image: linear-gradient(transparent 54px, #F243B3 50%, #FFCA47 100%);
     position:relative;
   }
 }
@@ -14,12 +14,17 @@
 /* Make room for the menu icon on mobile */
 .header__title {
   margin-left: 48px;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 56.875em ) {
-
+  .header {
+    span {
+      background-image: linear-gradient(transparent 75px, #F243B3 50%, #FFCA47 100%);
+    }
+  }
   .header__title {
   margin-left: 48px;
   font-size: 64px;
