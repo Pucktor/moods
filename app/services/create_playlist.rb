@@ -9,7 +9,8 @@ class CreatePlaylist
       valence: params[:valence],
       energy: params[:energy],
       popularity: params[:popularity],
-      user: user
+      user: user,
+      color: params[:color]
     )
     if params[:genre_ids].nil? || params[:name].empty?
       playlist.errors.add(:genres, "are not present") if params[:genre_ids].nil?
@@ -20,7 +21,9 @@ class CreatePlaylist
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
     add_tracks_to_playlist(playlist, recommendations)
     CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
-    playlist.color = COLORS.keys.sample
+    if playlist.color.empty?
+      playlist.color = COLORS.keys.sample
+    end
     playlist.save
     playlist
   end
