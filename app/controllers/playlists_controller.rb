@@ -13,7 +13,7 @@ class PlaylistsController < ApplicationController
   end
 
   def new
-    @playlist = Playlist.new
+    @playlist = Playlist.new(color: COLORS.keys.sample)
     authorize @playlist
   end
 

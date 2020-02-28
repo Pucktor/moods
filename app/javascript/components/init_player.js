@@ -3,6 +3,7 @@ const initPlayer = () => {
   if (spotifyPlayer) {
     window.onSpotifyWebPlaybackSDKReady = () => {
       let token = spotifyPlayer.dataset.spotifyToken;
+      let deviceId;
       const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
       const playButton = document.getElementById('play-btn');
 
@@ -57,16 +58,16 @@ const initPlayer = () => {
         try {
           fetchNewToken(
             () => {
-              fetch("https://api.spotify.com/v1/me/player/play", {
-                method: 'PUT',
+              fetch("https://api.spotify.com/v1/me/player/devices", {
+                method: 'GET',
                 headers: {
                   "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify({})
-                }).then(response => response.json())
-                  .then((data) => {
-                    console.log(data)
-                  })
+                }
+              }).then(response => response.json())
+                .then((data) => {
+                  let deviceId = data.devices["0"].id;
+                  console.log(deviceId);
+                })
             }
           );
         } catch (error) {
