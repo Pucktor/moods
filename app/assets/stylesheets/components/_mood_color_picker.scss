@@ -13,7 +13,7 @@
   transition :0.3s;
   display:inline-block;
   &.active {
-  border: 6px solid white !important;
+  border: 3px solid white !important;
   };
   &:hover {
     transform: translateY(-25%)
