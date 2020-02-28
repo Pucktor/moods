@@ -1,6 +1,13 @@
+  <header class="header">
+    <h1 class="header__title">My <span>moods</span>.</h1>
+  </header>
+
   <main class="main">
 
     <div class="main-searchbar">
+      <%= link_to new_playlist_path do %>
+        <div id="add-button"><i class="fas fa-plus"></i></div>
+      <% end %>
       <%= form_tag playlists_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -12,6 +19,11 @@
 
     <div class="app">
       <div class="full hide-scroll">
+        <% if @playlists.empty? %>
+        <div class="container m-3">
+          <p>Sorry, no results!</p>
+        </div>
+        <% end %>
         <ul class="hs">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
