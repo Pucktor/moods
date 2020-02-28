@@ -1,0 +1,24 @@
+.mood-color-picker {
+  background-size: cover;
+  background-position: center;
+  height: 35px;
+  width: 35px;
+  word-break: break-word;
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow:hidden;
+  border-radius: 5px;
+  background-position: top;
+  transition :0.3s;
+  display:inline-block;
+  &.active {
+  border: 3px solid white !important;
+  };
+  &:hover {
+    transform: translateY(-25%)
+  };
+  .color-name {
+    display:none;
+  }
+}

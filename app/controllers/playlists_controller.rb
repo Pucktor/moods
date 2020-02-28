@@ -41,6 +41,12 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+    @playlist.update(playlist_params)
+    if @playlist.persisted?
+      redirect_to playlist_path(@playlist)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -53,6 +59,6 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, genre_ids: [])
+    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, :color, genre_ids: [])
   end
 end

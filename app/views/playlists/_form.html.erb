@@ -4,8 +4,31 @@
       <%= simple_form_for(@playlist) do |t| %>
         <div class="row d-flex justify-content-center align-items-center">
           <%= t.input :name, placeholder: "NAME", label: false %>
-          <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
         </div>
+
+        <div class="row d-flex justify-content-center align-items-center">
+          <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
+          </div>
+
+        <div class="row d-flex justify-content-center align-content-center">
+          <div class="col-7">
+            <% COLORS.keys.each do |color| %>
+              <% if COLORS[@playlist.color] == COLORS[color] %>
+                <div class="mood-color-picker active" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+              <% else %>
+                <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center align-content-center">
+          <div class="col-7">
+            <%= t.input :color, as: :hidden %>
+          </div>
+        </div>
+
+
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-7">
             <%= t.label :acousticness %>
@@ -46,12 +69,16 @@
           </div>
         </div>
 
-        <% if current_page?(new_playlist_path) %>
-          <% word = "+ Create" %>
-        <% else %>
-          <% word = "Edit" %>
-        <% end %>
-        <%= t.submit word + " playlist", class: 'btn btn-primary'%>
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-7 d-flex justify-content-center mt-3">
+            <% if current_page?(new_playlist_path) %>
+              <% word = "+ Create" %>
+            <% else %>
+              <% word = "Edit" %>
+            <% end %>
+            <%= t.submit word + " playlist", id: 'add-button'%>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

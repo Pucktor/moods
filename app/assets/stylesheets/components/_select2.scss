@@ -7,8 +7,6 @@
 .select2-selection {
   border: 2px solid #F2E0B7 !important;
   background: transparent !important;
-  border-radius: 50px;
-
 }
 
 
@@ -27,7 +25,7 @@
  .select2-container--default .select2-search--inline {
   margin: 10px;
   height: 36px;
-  border-radius: 50px;
+  text-align:center;
   .select2-search__field {
     color: white;
     margin-top: 0 !important;
@@ -42,6 +40,7 @@
   color: white !important;
   font-weight: bold;
   margin: 10px !important;
+
 }
 
 .select2-selection__choice__remove {
@@ -63,7 +62,7 @@
 
 /* Selected option */
 .select2-results__option[aria-selected=true] {
-    color: red!important;
-    background: #1C1848!important;
+    color: black !important;
+    background: #F2E0B7!important;
 }
 
