@@ -1,41 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-       <h1>All playlists</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+  <header class="header">
+    <h1 class="header__title">My <span>moods</span>.</h1>
+  </header>
+
+  <main class="main">
+
+    <div class="main-searchbar">
+      <%= link_to new_playlist_path do %>
+        <div id="add-button"><i class="fas fa-plus"></i></div>
+      <% end %>
       <%= form_tag playlists_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Search your playlist"
+          placeholder: "Search a playlist"
         %>
       <% end %>
     </div>
-  </div>
 
+    <div class="app">
+      <div class="full hide-scroll">
+        <% if @playlists.empty? %>
+        <div class="container m-3">
+          <p>Sorry, no results!</p>
+        </div>
+        <% end %>
+        <ul class="hs">
+            <% @playlists.each do |playlist| %>
+              <%= link_to playlist_path(playlist) do %>
+              <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+                  <h1><%= playlist.name %></h1>
+                  <div class="btn-play">
+                    <i class="fas fa-play-circle"></i>
+                  </div>
+              </li>
+              <% end %>
+            <% end %>
+        </ul>
+<!-- =======
   <div class="row">
     <div class="col">
       <div class="cards">
         <% @playlists.each do |playlist| %>
-            <div class="card-category" style="background-image: linear-gradient(to top right, rgb(252, 92, 125, 0.9), rgb(106, 130, 251, 0.9)), url(<%= asset_path 'card-background-vertical.jpg' %>)">
-              <div class="card-transparent-background">
-                <%#= image_tag "card-background" %>
-
-                </div>
+          <%= link_to playlist_path(playlist) do %>
+            <div class="card-category" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
               <div class="card-category-content px-3">
                 <span class="title"><%= playlist.name.upcase %></span>
                 <div class="btn-play">
-                  <%= link_to playlist_path(playlist) do %>
-                    <i class="fas fa-play-circle"></i>
-                  <% end %>
+                  <i class="fas fa-play-circle"></i>
                 </div>
               </div>
             </div>
+          <% end %>
         <% end %>
+>>>>>>> 2712d7b78273af621cf993026899452e2f0fc17f -->
       </div>
     </div>
-  </div>
-</div>
+
+  </main>

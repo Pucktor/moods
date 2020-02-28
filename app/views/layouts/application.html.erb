@@ -26,10 +26,14 @@
   </head>
 
   <body>
-    <div class="content-wrapper">
-      <%= render 'shared/header' if current_user %>
-      <%= yield %>
-    </div>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <% if current_page?('/users/sign_in') %>
+          <%= yield %>
+      <% else %>
+        <div class="grid-container">
+          <%= render 'shared/sidenav'%>
+          <%= yield %>
+          <%= render 'shared/footer' %>
+        </div>
+      <% end %>
   </body>
 </html>
