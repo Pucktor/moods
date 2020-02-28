@@ -6,7 +6,7 @@ const initPlayer = () => {
       const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
       const playButton = document.getElementById('play-btn');
 
-      const fetchNewToken = () => {
+      const fetchNewToken = (callback) => {
         try {
           const myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -24,6 +24,8 @@ const initPlayer = () => {
           }).then(response => response.json())
             .then((data) => {
               token = data.access_token;
+              console.log('Token updated!')
+              callback();
             });
         } catch (error) {
           console.log(error);
@@ -33,16 +35,19 @@ const initPlayer = () => {
       
       const fetchUserInfo = () => {
         try {
-          fetchNewToken();
-          fetch("https://api.spotify.com/v1/me", {
-          method: 'GET',
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        }).then(response => response.json())
-          .then((data) => {
-            console.log(data)
-          })
+          fetchNewToken(
+            () => {
+              fetch("https://api.spotify.com/v1/me", {
+                method: 'GET',
+                headers: {
+                  "Authorization": `Bearer ${token}`
+                }
+              }).then(response => response.json())
+                .then((data) => {
+                  console.log(data)
+                })
+            }
+          );
         } catch (error) {
           console.log(error)
         }
@@ -50,17 +55,20 @@ const initPlayer = () => {
 
       const fetchDeviceId = () => {
         try {
-          fetchNewToken();
-          fetch("https://api.spotify.com/v1/me/player/play", {
-            method: 'PUT',
-            headers: {
-              "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify({})
-            }).then(response => response.json())
-              .then((data) => {
-                console.log(data)
-              })
+          fetchNewToken(
+            () => {
+              fetch("https://api.spotify.com/v1/me/player/play", {
+                method: 'PUT',
+                headers: {
+                  "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({})
+                }).then(response => response.json())
+                  .then((data) => {
+                    console.log(data)
+                  })
+            }
+          );
         } catch (error) {
           console.log(error)
         }
@@ -68,8 +76,8 @@ const initPlayer = () => {
 
       playButton.addEventListener('click', (event) => {
         event.preventDefault();
-        fetchUserInfo();
         fetchDeviceId();
+        fetchUserInfo();
       })
     };
   }
