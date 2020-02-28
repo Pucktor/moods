@@ -1,7 +1,10 @@
+<header class="header">
+    <h1 class="header__title"><span><%= @playlist.name %></span>.</h1>
+</header>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><%= @playlist.name %></h1>
       <div class="playlist-container">
         <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 80%;"></iframe>
       </div>
