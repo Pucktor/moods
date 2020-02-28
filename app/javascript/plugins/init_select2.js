@@ -6,7 +6,7 @@ const initSelect2 = () => {
   $(document).ready(function() {
     $('.select2').select2({
       maximumSelectionLength: 5,
-      placeholder: "Select Up To 5 Genres",
+      placeholder: "GENRES",
       width: '100%'
     });
   });

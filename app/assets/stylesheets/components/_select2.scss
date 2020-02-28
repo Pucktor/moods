@@ -1,12 +1,13 @@
 /* Each result */
 .select2-results {
-  background: white;
-  color: black;
+  background: #1B1B1B;
+  color: #F2E0B7;
 }
 
 .select2-selection {
-  border: 2px solid grey !important;
+  border: 2px solid #F2E0B7 !important;
   background: transparent !important;
+  border-radius: 50px;
 
 }
 
@@ -26,6 +27,7 @@
  .select2-container--default .select2-search--inline {
   margin: 10px;
   height: 36px;
+  border-radius: 50px;
   .select2-search__field {
     color: white;
     margin-top: 0 !important;
@@ -36,7 +38,7 @@
   border: none !important;
   border-radius: 25px !important;
   padding: 6px 12px !important;
-  background: $cyan !important;
+  background: linear-gradient(to top right, #F8B23Be6, #EC1288e6) !important;
   color: white !important;
   font-weight: bold;
   margin: 10px !important;
@@ -61,7 +63,7 @@
 
 /* Selected option */
 .select2-results__option[aria-selected=true] {
-    color: white!important;
+    color: red!important;
     background: #1C1848!important;
 }
 
