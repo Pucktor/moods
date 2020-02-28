@@ -38,10 +38,11 @@
       padding-left: 60px;
       cursor: pointer;
       background: #1B1B1B;
+      color:#F2E0B7;
       box-shadow: inset 9px 9px 18px #141414,
                   inset -9px -9px 18px #222222;
       i {
-        color:#ef3787;
+        color:#F2E0B7;
       }
     }
 }
@@ -52,34 +53,34 @@
   transition: all 0.15s ease-out;
 }
 
-#moods:hover {
-  color:#ef3787;
-}
+// #moods:hover {
+//   color:#F2E0B7;
+// }
 
-#explore:hover {
-  color:#ff8c00;
-}
+// #explore:hover {
+//   color:#ff8c00;
+// }
 
-#explore:hover i {
-  color:#ff8c00 !important;
-}
+// #explore:hover i {
+//   color:#ff8c00 !important;
+// }
 
 
-#library:hover {
-  color:yellow;
-}
+// #library:hover {
+//   color:yellow;
+// }
 
-#library:hover i {
-  color:yellow !important;
-}
+// #library:hover i {
+//   color:yellow !important;
+// }
 
-#rooms:hover {
-  color:#a1ff0a;
-}
+// #rooms:hover {
+//   color:#a1ff0a;
+// }
 
-#rooms:hover i {
-  color:#a1ff0a !important;
-}
+// #rooms:hover i {
+//   color:#a1ff0a !important;
+// }
 
 
 @media only screen and (min-width: 56.875em ) {
