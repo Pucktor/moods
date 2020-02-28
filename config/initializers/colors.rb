@@ -15,5 +15,5 @@ COLORS = {
   "Cosmic Fusion" => "linear-gradient(to top right, rgba(238, 9, 121, 0.9), rgba(255, 106, 0, 0.9))",
   "Azure Pop" => "linear-gradient(to top right, rgba(239, 50, 217, 0.9), rgba(137, 255, 253, 0.9))",
   "Sun on the Horizon" => "linear-gradient(to top right, rgba(252, 234, 187, 0.9), rgba(248, 181, 0, 0.9))",
-  "Blood Red" => "linear-gradient(to top right, rgba(248, 80, 50, 0.9), rgba(231, 56, 39, 0.9))"
+  "Blood Red" => "linear-gradient(to top right, rgba(231, 56, 39, 0.9), rgba(255, 255, 28, 0.9))"
 }

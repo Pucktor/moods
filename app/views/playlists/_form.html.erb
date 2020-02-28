@@ -22,6 +22,24 @@
 
         <div class="row d-flex align-content-center">
           <div class="col-12">
+            <% COLORS.keys.each do |color| %>
+              <% if COLORS[@playlist.color] == COLORS[color] %>
+                <div class="mood-color-picker active" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+              <% else %>
+                <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-content-center">
+          <div class="col-12">
+            <%= t.input :color, as: :hidden %>
+          </div>
+        </div>
+
+        <div class="row d-flex align-content-center">
+          <div class="col-12">
             <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
           </div>
         </div>
