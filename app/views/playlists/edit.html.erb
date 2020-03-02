@@ -1,9 +1,5 @@
-<%= render 'form' %>
+<header class="header">
+  <h1 class="header__title">Edit <span><%= @playlist.name %></span></h1>
+</header>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn btn-danger btn-block" %>
-    </div>
-  </div>
-</div>
+<%= render 'form' %>
