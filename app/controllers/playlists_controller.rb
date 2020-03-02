@@ -27,6 +27,7 @@ class PlaylistsController < ApplicationController
     @playlist = CreatePlaylist.call(playlist_params, current_user, spotify_user)
     authorize @playlist
     if @playlist.persisted?
+      UpdateStatusOnPlaylistTracks.call(@playlist)
       redirect_to playlist_path(@playlist)
       flash[:success] = "Your playlist has been created and added to your Spotify account!"
     else
