@@ -40,7 +40,6 @@
   color: white !important;
   font-weight: bold;
   margin: 10px !important;
-
 }
 
 .select2-selection__choice__remove {
@@ -51,8 +50,9 @@
 .select2-search {  }
 
 /* Search field */
-.select2-search input {
-
+.select2-selection.select2-selection--multiple {
+  width: 60vh;
+  border-radius: 25px !important;
 }
 
 /* Higlighted (hover) result */
