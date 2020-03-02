@@ -1,12 +1,12 @@
 const moodColorPicker = () => {
-  const moods = document.querySelectorAll(".mood-color-picker");
-  moods.forEach((mood) => {
+  const moodcolors = document.querySelectorAll(".mood-color-picker");
+  moodcolors.forEach((mood) => {
     mood.addEventListener("click", (event) => {
-      moods.forEach((mood) => {
-        mood.classList.remove('active');
+      moodcolors.forEach((mood) => {
+        mood.classList.remove('activemood');
         });
 
-      event.currentTarget.classList.add('active');
+      event.currentTarget.classList.add('activemood');
       const colorName = event.currentTarget.textContent;
       const colorSelected = document.getElementById('playlist_color');
       colorSelected.value = colorName;
