@@ -53,14 +53,10 @@ class PlaylistsController < ApplicationController
   def destroy
     @playlist = Playlist.find(params[:id])
     authorize @playlist
-
-    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
-    spotify_user = RSpotify::User.new(session[:spotify_auth])
-    playlist = RSpotify::Playlist.find(current_user.uid, @playlist.spotify_id)
-    playlist.remove_tracks!(playlist.tracks)
-    spotify_user.unfollow(playlist)
-
     @playlist.tracks.destroy_all
+
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    spotify_playlist = DeletePlaylist.call(@playlist, spotify_user)
 
     @playlist.destroy
     redirect_to playlists_path
