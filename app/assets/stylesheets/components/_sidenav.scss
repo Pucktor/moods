@@ -25,9 +25,10 @@
   padding: 0;
   margin-top: 85px;
   list-style-type: none;
-  // a:hover {
-  //   text-decoration: none;
-  // }
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .sidenav__list-item {
@@ -38,17 +39,29 @@
   font-weight:300;
   transition: all 0.15s ease-out;
   &:hover{
-      padding-left: 60px;
-      cursor: pointer;
-      background: #1B1B1B;
+    padding-left: 60px;
+    cursor: pointer;
+    background: #1B1B1B;
+    color:#F2E0B7;
+    box-shadow: inset 9px 9px 18px #141414,
+                inset -9px -9px 18px #222222;
+    i {
       color:#F2E0B7;
-      box-shadow: inset 9px 9px 18px #141414,
-                  inset -9px -9px 18px #222222;
-      i {
-        color:#F2E0B7;
-      }
     }
+  };
 }
+
+.sidenav__list-item.active{
+    padding-left: 60px;
+    cursor: pointer;
+    background: #1B1B1B;
+    color:#F2E0B7;
+    box-shadow: inset 9px 9px 18px #141414,
+                inset -9px -9px 18px #222222;
+    i {
+      color:#F2E0B7;
+    }
+  };
 
 .sidenav__list-item i {
   color: #6F6F6F;

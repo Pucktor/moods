@@ -57,6 +57,7 @@ ul {
   word-break: break-word;
   border-radius: 8px;
   height: 50vh;
+  max-height: 450px;
   background-image: linear-gradient(to top right, #0bed97cc, #00e6bfcc, #00ddddcc, #00d1eecc, #00c4f2cc, #00baf5cc, #00b0f6cc, #00a5f6cc, #009bfacc, #0090fccc, #0085fdcc, #0078fccc), url(/assets/card-background-vertical-71d34b49806be81e6c6852f1601f4e03a82b6664d722abf08dd02d917e196725.jpg);
   // background-image: COLORS[playlist.color], url(/assets/card-background-vertical.jpg);
   & .btn-play {
