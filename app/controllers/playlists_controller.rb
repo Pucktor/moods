@@ -28,7 +28,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
     if @playlist.persisted?
       redirect_to playlist_path(@playlist)
-      flash[:notice] = "Your playlist has been created and added to your Spotify account!"
+      flash[:success] = "Your playlist has been created and added to your Spotify account!"
     else
       render :new
     end
