@@ -12,6 +12,7 @@
 
         <div class="row d-flex justify-content-center align-content-center">
           <div class="col-7">
+
             <% COLORS.keys.each do |color| %>
               <% if COLORS[@playlist.color] == COLORS[color] %>
                 <div class="mood-color-picker active" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
