@@ -3,32 +3,12 @@
     <div class="col">
       <%= simple_form_for(@playlist) do |t| %>
         <div class="row d-flex justify-content-center align-items-center">
-          <%= t.input :name, placeholder: "NAME", label: false %>
+          <%= t.input :name, placeholder: "Give me a name", label: false, input_html: { class: "mb-2 text-left" } %>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
           <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
           </div>
-
-        <div class="row d-flex justify-content-center align-content-center">
-          <div class="col-7">
-
-            <% COLORS.keys.each do |color| %>
-              <% if COLORS[@playlist.color] == COLORS[color] %>
-                <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
-              <% else %>
-                <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-content-center">
-          <div class="col-7">
-            <%= t.input :color, as: :hidden %>
-          </div>
-        </div>
-
 
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-7">
@@ -70,12 +50,36 @@
           </div>
         </div>
 
+        <div class="row d-flex justify-content-center align-content-center mt-3">
+          <div class="col-7">
+            <div class="mb-1 text-muted">
+              Give me some style
+            </div>
+            <div>
+              <% COLORS.keys.each do |color| %>
+                <% if COLORS[@playlist.color] == COLORS[color] %>
+                  <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+                <% else %>
+                  <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)" aria-labelledby="shopping cart items"><span class="color-name"><%= color %></span></div>
+                <% end %>
+              <% end %>
+              <%= t.input :color, as: :hidden %>
+            </div>
+          </div>
+        </div>
+
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-7 d-flex justify-content-center mt-3">
             <%= t.submit id: 'add-button'%>
           </div>
         </div>
       <% end %>
+
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-7 d-flex justify-content-center mt-3">
+          <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
