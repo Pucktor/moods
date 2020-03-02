@@ -21,8 +21,10 @@ class CreatePlaylist
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
     add_tracks_to_playlist(playlist, recommendations)
     CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
+    
     image_url = RSpotify::Playlist.find(spotify_user.id, playlist.spotify_id).images.first['url']
     playlist.image_url = image_url
+
     playlist.save
     playlist
   end
