@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
 
   def index
     # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
@@ -18,7 +19,6 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
 
@@ -36,12 +36,10 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
 
   def update
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
     @playlist.update(playlist_params)
     if @playlist.persisted?
@@ -52,7 +50,6 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
     @playlist.tracks.destroy_all
 
@@ -63,9 +60,22 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path
   end
 
+  def refresh
+    @playlist = Playlist.find(params[:playlist_id])
+    # when refresh
+      # get 100 recommendations and add to playlist only new ones. 
+      # get next 20 tracks by creation date and put them in read status. 
+      # delete tracks from spotify playlist and add them to playlist.
+      # if no newer tracks, message to user. 
+  end
+
   private
 
   def playlist_params
     params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, :color, genre_ids: [])
+  end
+
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
   end
 end

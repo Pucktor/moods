@@ -6,12 +6,3 @@ class CreateSpotifyPlaylist
     playlist.spotify_id = spotify_playlist.id
   end
 end
-
-
-# add read status to playlist track.
-# get 100 recommendations. 
-# display first 20 tracks and add status to "read". 
-# when refresh
-  # get 100 recommendations and add to playlist only new ones. 
-  # get next 20 tracks by creation date and put them in read status. 
-  # if no newer tracks, message to user. 
