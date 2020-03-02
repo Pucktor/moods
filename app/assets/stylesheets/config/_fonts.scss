@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,700|Exo:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
 // Define fonts for body and headers
-$body-font: 'IBM Plex Sans', "sans-serif";
-$headers-font: 'IBM Plex Sans', "sans-serif";
+$body-font: 'IBM Plex Sans', 'Roboto', 'sans-serif';
+$headers-font: 'Exo', 'Open Sans', 'sans-serif';
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

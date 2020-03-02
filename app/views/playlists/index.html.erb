@@ -27,12 +27,14 @@
         <ul class="hs">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
-              <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
-                  <h1><%= playlist.name %></h1>
-                  <div class="btn-play">
-                    <i class="fas fa-play-circle"></i>
-                  </div>
-              </li>
+                <div class="item-parent">
+                  <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+                      <h1><%= playlist.name.capitalize %></h1>
+                      <div class="btn-play">
+                        <i class="fas fa-play-circle"></i>
+                      </div>
+                  </li>
+                </div>
               <% end %>
             <% end %>
         </ul>
@@ -40,18 +42,18 @@
   <div class="row">
     <div class="col">
       <div class="cards">
-        <% @playlists.each do |playlist| %>
-          <%= link_to playlist_path(playlist) do %>
-            <div class="card-category" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+        <#% @playlists.each do |playlist| %>
+          <%#= link_to playlist_path(playlist) do %>
+            <div class="card-category" style="background-image: <%#= COLORS[playlist.color] %>, url(<%#= asset_path 'card-background-vertical.jpg' %>)">
               <div class="card-category-content px-3">
-                <span class="title"><%= playlist.name.upcase %></span>
+                <span class="title"><%#= playlist.name.upcase %></span>
                 <div class="btn-play">
                   <i class="fas fa-play-circle"></i>
                 </div>
               </div>
             </div>
-          <% end %>
-        <% end %>
+          <#% end %>
+        <#% end %>
 >>>>>>> 2712d7b78273af621cf993026899452e2f0fc17f -->
       </div>
     </div>

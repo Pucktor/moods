@@ -26,6 +26,12 @@
   </head>
 
   <body>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-info">
+          <%= msg %>
+        </div>
+      <% end %>
+
       <% if current_page?('/users/sign_in') %>
           <%= yield %>
       <% else %>
