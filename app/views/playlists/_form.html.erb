@@ -77,7 +77,10 @@
 
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-7 d-flex justify-content-center mt-3">
-          <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+          <% if params["controller"] == "playlists" && params["action"] == "create" %>
+            <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+          <% else %>
+          <% end %>
         </div>
       </div>
     </div>
