@@ -1,11 +1,31 @@
 <aside class="sidenav">
   <%= link_to image_tag("moods-logo.png"), root_path, class: 'sidenav-logo'%>
   <ul class="sidenav__list">
-    <h4>
-      <%= link_to playlists_path do %>
-        <li class="sidenav__list-item active" id="moods"><i class="fas fa-globe-asia"></i>My moods</li>
+    <div>
+      <% if params["controller"] == "playlists" && (params["action"] == "new" || params["action"] == "create") %>
+        <h4>
+          <%= link_to playlists_path do %>
+            <li class="sidenav__list-item" id="moods"><i class="fas fa-globe-asia"></i>My moods</li>
+          <% end %>
+        </h4>
+        <h4>
+          <%= link_to new_playlist_path do %>
+            <li class="sidenav__list-item active" id="moods"><i class="fas fa-plus"></i>Add a mood</li>
+          <% end %>
+        </h4>
+      <% else %>
+        <h4>
+          <%= link_to playlists_path do %>
+            <li class="sidenav__list-item active" id="moods"><i class="fas fa-globe-asia"></i>My moods</li>
+          <% end %>
+        </h4>
+        <h4>
+          <%= link_to new_playlist_path do %>
+            <li class="sidenav__list-item" id="moods"><i class="fas fa-plus"></i>Add a mood</li>
+          <% end %>
+        </h4>
       <% end %>
-    </h4>
+    </div>
     <h4>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <li class="sidenav__list-item" id="moods"><i class="fas fa-sign-out-alt"></i>Sign out</li>

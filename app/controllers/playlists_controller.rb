@@ -32,7 +32,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
     if @playlist.persisted?
       redirect_to playlist_path(@playlist)
-      flash[:notice] = "Your playlist has been created and added to your Spotify account!"
+      flash[:success] = "Your playlist has been created and added to your Spotify account!"
     else
       render :new
     end
@@ -57,6 +57,11 @@ class PlaylistsController < ApplicationController
   def destroy
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+    @playlist.tracks.destroy_all
+
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    spotify_playlist = DeletePlaylist.call(@playlist, spotify_user)
+
     @playlist.destroy
     redirect_to playlists_path
   end

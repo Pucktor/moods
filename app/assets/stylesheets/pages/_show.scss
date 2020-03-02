@@ -1,0 +1,16 @@
+.playlist-items {
+  display: flex;
+  align-items: center;
+}
+
+.image-playlist img {
+  margin: 20px 0px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .image-playlist {
+    display: none;
+  }
+}
+
