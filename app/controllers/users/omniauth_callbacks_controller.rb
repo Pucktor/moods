@@ -9,7 +9,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "Spotify") if is_navigational_format?
     else
       session["devise.spotify_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      redirect_to root_url
+      flash[:notice] = "Sorry you need to have a Spotify account to continue"
     end
   end
   def failure

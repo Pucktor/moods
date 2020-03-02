@@ -29,7 +29,7 @@
               <%= link_to playlist_path(playlist) do %>
                 <div class="item-parent">
                   <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
-                      <h1><%= playlist.name %></h1>
+                      <h1><%= playlist.name.capitalize %></h1>
                       <div class="btn-play">
                         <i class="fas fa-play-circle"></i>
                       </div>

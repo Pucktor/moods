@@ -29,6 +29,7 @@ import "bootstrap";
 import { initSelect2 } from '../plugins/init_select2';
 // import { addActiveClassNav } from '../components/navigation';
 import { sliderRange } from '../components/slider';
+import { initPlayer } from '../components/init_player';
 import { moodColorPicker } from '../components/mood-color-picker';
 
 document.addEventListener('turbolinks:load', () => {
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   sliderRange();
   // addActiveClassNav();
+  initPlayer();
 });
