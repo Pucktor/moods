@@ -42,6 +42,14 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+    @playlist.tracks.destroy_all
+    @playlist.genres.destroy_all
+
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    spotify_playlist = DeleteTracks.call(@playlist, spotify_user)
+
+    @playlist = EditPlaylist.call(@playlist, playlist_params, current_user, spotify_user)
+
     @playlist.update(playlist_params)
     if @playlist.persisted?
       redirect_to playlist_path(@playlist)

@@ -21,9 +21,9 @@ class CreatePlaylist
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
     add_tracks_to_playlist(playlist, recommendations)
     CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
-    # if playlist.color.empty?
-    #   playlist.color = COLORS.keys.sample
-    # end
+    if playlist.color.empty?
+      playlist.color = COLORS.keys.sample
+    end
     playlist.save
     playlist
   end
