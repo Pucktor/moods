@@ -17,6 +17,9 @@
   font-size: 48px;
   font-weight: 700;
   text-transform: uppercase;
+  &:after {
+    content: ".";
+  }
 }
 
 @media only screen and (min-width: 56.875em ) {

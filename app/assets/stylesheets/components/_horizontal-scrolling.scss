@@ -45,7 +45,7 @@ ul {
   padding: 0;
 }
 
-.hs > li,
+.hs li,
 .item {
   scroll-snap-align: center;
   padding: 15px;
@@ -54,10 +54,30 @@ ul {
   justify-content: center;
   align-items: center;
   background: #fff;
+  word-break: break-word;
   border-radius: 8px;
   height: 50vh;
+  max-height: 450px;
   background-image: linear-gradient(to top right, #0bed97cc, #00e6bfcc, #00ddddcc, #00d1eecc, #00c4f2cc, #00baf5cc, #00b0f6cc, #00a5f6cc, #009bfacc, #0090fccc, #0085fdcc, #0078fccc), url(/assets/card-background-vertical-71d34b49806be81e6c6852f1601f4e03a82b6664d722abf08dd02d917e196725.jpg);
   // background-image: COLORS[playlist.color], url(/assets/card-background-vertical.jpg);
+  & .btn-play {
+      position: absolute;
+      font-size: 56px;
+      bottom: 0px;
+      left: 15px;
+  };
+
+  &:hover {
+    text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    & .btn-play {
+      transform: rotate(360deg);
+      transition: 0.8s;
+    }
+  }
+}
+
+.item-parent {
+  position: relative;
 }
 
 .item h1, i {
