@@ -8,9 +8,7 @@
 
 
 
-<div class="btn btn-primary" id="previous-button">Previous</div>
-<div class="btn btn-primary" id="play-button">Play</div>
-<div class="btn btn-primary" id="next-button">Next</div>
+<!-- <div class="btn btn-primary" id="previous-button">Previous</div> -->
 
 
 
@@ -19,8 +17,19 @@
     <div class="row">
       <div class="col-12">
         <div class="playlist-container">
-          <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 80%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+          <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 80%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"=></iframe>
         </div>
+
+        <!-- Play Button -->
+        <div class="btn btn-primary" id="previous-button">Previous</div>
+        <div class="btn btn-primary" id="play-button">Play</div>
+        <div class="btn btn-primary" id="next-button">Next</div>
+        <div class="btn btn-primary" id="refresh-button">Refresh Token</div>
+        <% @playlist.tracks.each do |x|%>
+        <p><%= x.id %> <%= x.title %></p>
+        <%end%>
+
+
       </div>
     </div>
     <div class="row">
@@ -30,4 +39,6 @@
     </div>
   </div>
 </div>
+
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
 

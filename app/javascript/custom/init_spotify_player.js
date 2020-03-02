@@ -1,9 +1,89 @@
 const initSpotifyPlayer = () => {
-  const playerElement = document.getElementById("player");
-  if (playerElement) {
+  const spotifyPlayer = document.getElementById("spotify-player-iframe");
+  if (spotifyPlayer) {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
-    //CONNECT CONFIRMATION
+      let token = 'BQB0ARt2gf5rcpBhCQIsWxhzm5VVDd846wSSw9NvOOucbSKqmoAKzrgQ67MEJgA2zXTDemn8GLWnhDkNEFH1XKCxWOunHM12qLEyEDFEjMMjXQ52rqEZI_428QPQhhICQsEgJwrHOkKNJDwVteMsKk7pJUsf6Q0BVfK7ghWdVlXdg5P8h99ukIhTY9g2OhY4gDfXpTq_qZLkce0s6o9ZFcp9BPucgp6bPulScfzK1muj4Z0r1FxH4LWT2HZSqtTXyLnHrA';
+      // let token = spotifyPlayer.dataset.spotifyToken;
+      const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
+      let position = 0
+      console.log(typeof tracks)
+      console.log(tracks[1].spotify_track_id)
+
+      let deviceId;
+      const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
+
+
+
+
+
+      const fetchNewToken = (callback) => {
+        try {
+          const myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+          const urlencoded = new URLSearchParams();
+          urlencoded.append("grant_type", "refresh_token");
+          urlencoded.append("refresh_token", refreshToken);
+          urlencoded.append("client_id", "99b2d888ddd94505a2e4d3e02c68fe47");
+          urlencoded.append("client_secret", "131ff6e9a9644e0595d01a0492c41eab");
+
+          fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded
+          }).then(response => response.json())
+            .then((data) => {
+              token = data.access_token;
+              console.log('Token updated!')
+              callback();
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+
+      const fetchUserInfo = () => {
+        try {
+          fetchNewToken(
+            () => {
+              fetch("https://api.spotify.com/v1/me", {
+                method: 'GET',
+                headers: {
+                  "Authorization": `Bearer ${token}`
+                }
+              }).then(response => response.json())
+                .then((data) => {
+                  console.log(data)
+                })
+            }
+          );
+        } catch (error) {
+          console.log(error)
+        }
+      };
+
+      const fetchDeviceId = () => {
+        try {
+          fetchNewToken(
+            () => {
+              fetch("https://api.spotify.com/v1/me/player/devices", {
+                method: 'GET',
+                headers: {
+                  "Authorization": `Bearer ${token}`
+                }
+              }).then(response => response.json())
+                .then((data) => {
+                  let deviceId = data.devices["0"].id;
+                  console.log(deviceId);
+                })
+            }
+          );
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
       const play = ({
         spotify_uri,
@@ -14,8 +94,6 @@ const initSpotifyPlayer = () => {
           }
         }
       }) => {
-        console.log(id);
-        console.log(spotify_uri);
         getOAuthToken(access_token => {
           fetch('https://api.spotify.com/v1/me/player/devices', {
             method: 'GET',
@@ -41,8 +119,6 @@ const initSpotifyPlayer = () => {
         });
       };
 
-      const token = 'BQCXQ1yDhKgUEW0iJRHyVEj_mTJWX6BMJqSUziAYfQ8aQkCuntBVqRnDfJ5uBwVZOCuORZRWM-ZzyJNUeSoKu-eYL_r1mujjowluM1OtrvGVMXSkpdNdCxNbcabaGoFWS_iguMO24kvcGce-oJY6d0_ig1URnQIbEzZsA11U7F8J1lw1F_szhm1mhkX3SuzfXrGouiAAP6g-58XZ-tPieWWH_nSxxvcas1rBNguuVuo--jsSmb8mahtPpBuMY-mWl4oAOvNYwp-zSQ';
-
       const player = new Spotify.Player({
           name: 'Web Playback SDK Quick Start Player',
           getOAuthToken: cb => { cb(token); }
@@ -54,28 +130,76 @@ const initSpotifyPlayer = () => {
           setTimeout(() => {
             play({
               playerInstance: player,
-              spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
+              spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
+
             });
-          }, 1000)
+          }, 500)
         }
       })
-        // console.log('--->', player)
-        // play({
-        //   playerInstance: player,
-        //   spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
-        // });
 
-        // PLAY BUTTON
+      player.getCurrentState().then(state => {
+        if (!state) {
+          console.error('User is not playing music through the Web Playback SDK');
+          return;
+        }
 
-        const playButton = document.getElementById("play-button");
+        let {
+          current_track,
+          next_tracks: [next_track]
+        } = state.track_window;
 
-        playButton.addEventListener('click', (event) => {
-          event.preventDefault();
-          console.log(event);
-          player.togglePlay().then(() => {
-            console.log('Toggled play!');
-          });
+        console.log('Currently Playing', current_track);
+        console.log('Playing Next', next_track);
+      });
+
+      const playButton = document.getElementById('play-button');
+      const previousButton = document.getElementById("previous-button");
+      const nextButton = document.getElementById("next-button");
+      const refreshButton = document.getElementById('refresh-button');
+
+
+      // PLAY BUTTON
+
+      playButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(event);
+        player.togglePlay().then(() => {
+          console.log('Toggled play!');
         });
+      });
+
+      // NEXT BUTTON
+
+      nextButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(event);
+        position = ++position
+        play({
+            playerInstance: player,
+            spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
+          });
+      });
+
+      // PREVIOUS BUTTON
+
+      previousButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(event);
+        position = --position
+        play({
+            playerInstance: player,
+            spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
+          });
+      });
+
+      // REFRESH BUTTON
+
+      refreshButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        fetchDeviceId();
+        fetchUserInfo();
+        console.log('--------------------',token);
+      })
 
     };
 

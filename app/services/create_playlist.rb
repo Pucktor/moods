@@ -1,4 +1,3 @@
-
 class CreatePlaylist
 
   def self.call(params, user, spotify_user)

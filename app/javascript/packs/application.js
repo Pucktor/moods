@@ -29,17 +29,16 @@ import "bootstrap";
 import { initSelect2 } from '../plugins/init_select2';
 import { initSpotifyPlayer } from '../custom/init_spotify_player';
 // import { addActiveClassNav } from '../components/navigation';
-import { iframeResizer } from '../components/iframe-resizer';
+// import { iframeResizer } from '../components/iframe-resizer';
 import { sliderRange } from '../components/slider';
-import { initPlayer } from '../components/init_player';
+// import { initPlayer } from '../components/init_player';
 import { moodColorPicker } from '../components/mood-color-picker';
 
 document.addEventListener('turbolinks:load', () => {
   moodColorPicker();
   initSelect2();
   initSpotifyPlayer();
-  iframeResizer();
   sliderRange();
   // addActiveClassNav();
-  initPlayer();
+  // initPlayer();
 });
