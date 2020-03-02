@@ -1,19 +1,37 @@
 <header class="header">
+<<<<<<< HEAD
+  <h1 class="header__title"><span><%= @playlist.name %></span>.</h1>
+=======
     <h1 class="header__title"><span><%= @playlist.name %></span></h1>
+>>>>>>> 56535b2e0c896b08b19435132c9e73a5411686b4
 </header>
-
 <div class="main">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="playlist-container">
-          <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 80%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+    <div class="row playlist-items">
+      <% if @playlist.image_url %>
+        <div class="col-3 image-playlist">
+          <%= image_tag @playlist.image_url %>
         </div>
-      </div>
+        <div class="col-12 col-md-9">
+          <div class="playlist-container">
+            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+          </div>
+        </div>
+      <% else %>
+        <div class="col-12">
+          <div class="playlist-container">
+            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="row">
       <div class="col text-center">
         <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
+<<<<<<< HEAD
+        <%#= link_to 'play', root_path, id:'play-btn', class: 'btn btn-primary' %>
+=======
+>>>>>>> 56535b2e0c896b08b19435132c9e73a5411686b4
       </div>
     </div>
   </div>
