@@ -6,7 +6,7 @@ const initSelect2 = () => {
   $(document).ready(function() {
     $('.select2').select2({
       maximumSelectionLength: 5,
-      placeholder: "GENRES",
+      placeholder: "Add me some genres: pop, rock...",
       width: '100%'
     });
   });
