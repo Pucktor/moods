@@ -1,45 +1,61 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-       <h1>All playlists</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+  <header class="header">
+    <h1 class="header__title">My <span>moods</span></h1>
+  </header>
+
+  <main class="main">
+
+    <div class="main-searchbar">
+      <%= link_to new_playlist_path do %>
+        <div id="add-button"><i class="fas fa-plus"></i></div>
+      <% end %>
       <%= form_tag playlists_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Search your playlist"
+          placeholder: "Find a playlist"
         %>
       <% end %>
     </div>
-  </div>
+
+    <div class="app">
+      <div class="full hide-scroll">
+        <% if @playlists.empty? %>
+        <div class="container m-3">
+          <p>Sorry, no results!</p>
+        </div>
+        <% end %>
+        <ul class="hs">
+            <% @playlists.each do |playlist| %>
+              <%= link_to playlist_path(playlist) do %>
+                <div class="item-parent">
+                  <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+                      <h1><%= playlist.name.capitalize %></h1>
+                      <div class="btn-play">
+                        <i class="fas fa-play-circle"></i>
+                      </div>
+                  </li>
+                </div>
+              <% end %>
+            <% end %>
+        </ul>
+<!-- =======
   <div class="row">
     <div class="col">
       <div class="cards">
-        <% @playlists.each do |playlist| %>
-          <div class="position-relative">
-            <%= link_to playlist_path(playlist) do %>
-              <div class="card">
-                <div class="card-category">
-                  <div class="card-category-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://mpact.tv/wp-content/uploads/2015/06/musique-ambiance-960x480.jpg)">
-                    <!-- <div class="btn-edit-playlist">
-                      <%#= link_to edit_playlist_path(playlist) do %>
-                        <i class="fas fa-ellipsis-v"></i>
-                      <#% end %>
-                    </div> -->
-                  </div>
-                </div>
-                <div class="pt-1 d-flex justify-content-between">
-                  <span><%= playlist.name %></span>
-                  <span>XX songs</span>
+        <#% @playlists.each do |playlist| %>
+          <%#= link_to playlist_path(playlist) do %>
+            <div class="card-category" style="background-image: <%#= COLORS[playlist.color] %>, url(<%#= asset_path 'card-background-vertical.jpg' %>)">
+              <div class="card-category-content px-3">
+                <span class="title"><%#= playlist.name.upcase %></span>
+                <div class="btn-play">
+                  <i class="fas fa-play-circle"></i>
                 </div>
               </div>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <#% end %>
+        <#% end %>
+>>>>>>> 2712d7b78273af621cf993026899452e2f0fc17f -->
       </div>
     </div>
-  </div>
-</div>
+
+  </main>

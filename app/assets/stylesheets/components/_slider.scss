@@ -3,16 +3,12 @@
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  // background: #06E1F7;
   outline: none;
   opacity: 1;
   -webkit-transition: .2s;
-  // transition: opacity .2s;
   // background: linear-gradient(to right, rgba(9,142,237,1) 0%, rgba(10,207,213,1) 49%, rgba(9,230,237,0.9934348739495799) 100%);
   // background: linear-gradient(90deg, rgba(100,150,50,1) 0%, orange 49%, red 100%);
-  // background: linear-gradient(to right, rgba(9,142,237,1) 0%, rgba(10,207,213,1) 50%, #fff 50%, #fff 100%);
   transition: background 450ms ease-in;
-  -webkit-appearance: none;
 }
 
 .slider::-webkit-slider-thumb {
@@ -21,37 +17,30 @@
   width: 30px;
   height: 20px;
   border-radius: 30%;
-  // background: #FFFFFF;
   cursor: pointer;
-  // background-image: linear-gradient(white, #FF5964);
   box-shadow:  1px 2px 5px 2px rgba(0, 0, 0, 0.7);
   $l: 6.25em;
   $bw: .1*$l;
   $sh: radial-gradient(
     rgba(#787878, .9), rgba(#787878, 0) 70%)
   50% bottom / 80% .75*$bw no-repeat border-box;
-
   background:
     conic-gradient(
-        #d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
-        #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8,
-        #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf,
-        #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5,
-        #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd,
-        #c4c4c4, #d9d9d9, #cecece, #c5c5c5,
-        #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9,
-        #d7d7d7) content-box,
+      #d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
+      #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8,
+      #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf,
+      #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5,
+      #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd,
+      #c4c4c4, #d9d9d9, #cecece, #c5c5c5,
+      #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9,
+      #d7d7d7) content-box,
     linear-gradient(#d4d4d4, #d4d4d4)
       padding-box, $sh !important;
+
 }
 
-// #myinput {
-//   background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%);
-//   border: solid 1px #82CFD0;
-//   border-radius: 8px;
-//   height: 7px;
-//   width: 356px;
-//   outline: none;
-//   transition: background 450ms ease-in;
-//   -webkit-appearance: none;
-// }
+label, .simple_form img {
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -7,17 +7,26 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "select2/dist/css/select2";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
 
-h1 {
-  text-align: center;
+// h1 {
+//   text-align: center;
+// }
+
+
+body {
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .content-wrapper {
-  background: linear-gradient(160deg, #120f30 64%, $purple 95%);
+  // background: linear-gradient(160deg, #120f30 64%, $purple 95%);
+  background: #120f30;
   min-height: 100vh;
 }

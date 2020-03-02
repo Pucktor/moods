@@ -13,7 +13,7 @@ class PlaylistsController < ApplicationController
   end
 
   def new
-    @playlist = Playlist.new
+    @playlist = Playlist.new(color: COLORS.keys.sample)
     authorize @playlist
   end
 
@@ -29,6 +29,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
     if @playlist.persisted?
       redirect_to playlist_path(@playlist)
+      flash[:notice] = "Your playlist has been created and added to your Spotify account!"
     else
       render :new
     end
@@ -42,6 +43,12 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+    @playlist.update(playlist_params)
+    if @playlist.persisted?
+      redirect_to playlist_path(@playlist)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -54,6 +61,6 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, genre_ids: [])
+    params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, :color, genre_ids: [])
   end
 end
