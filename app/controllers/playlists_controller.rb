@@ -46,11 +46,19 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     authorize @playlist
+
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    spotify_playlist = DeleteTracks.call(@playlist, spotify_user)
+
+    @playlist = EditPlaylist.call(@playlist, playlist_params, current_user, spotify_user)
+
     @playlist.update(playlist_params)
     if @playlist.persisted?
       redirect_to playlist_path(@playlist)
+      flash[:success] = "Your playlist has been updated to your Spotify account!"
     else
       render :new
+      flash[:notice] = "Sorry the playlist could not create due to Spotify API Error"
     end
   end
 
