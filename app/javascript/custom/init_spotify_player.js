@@ -2,15 +2,10 @@ const initSpotifyPlayer = () => {
   const spotifyPlayer = document.getElementById("spotify-player-iframe");
   if (spotifyPlayer) {
 
-      let token = spotifyPlayer.dataset.spotifyToken;
-      window.onSpotifyWebPlaybackSDKReady = () => {
-      // let token = 'BQACUyX67Q1Di7mjxVtae3n_pIu5kxVmZENVt2pKbbOPJrIG_cegnXt3ZFZ-UWhCVAf3XT6ykkyw5U8te_Hxzsp7i8Vn_bm-Dolv7kZQBTMzrKIN7AC9pbmeaoj6srAywGPvIV4hnpGS6t_-DkERqUKBIZeN0kW6rlmxrlwbL8IuWanI8EOo6RC90AQX3_Jkaov0eKqxUzSvdwnK_KY-gFRgMhya5dXrRNUZF1ubsMfpa2hvJGxGsr-C';
-      console.log(token)
+    let token = spotifyPlayer.dataset.spotifyToken;
+    window.onSpotifyWebPlaybackSDKReady = () => {
       const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
       let position = 0;
-
-      let deviceId;
-      const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
 
       const play = ({
         spotify_uri,
@@ -22,16 +17,6 @@ const initSpotifyPlayer = () => {
         }
       }) => {
         getOAuthToken(access_token => {
-          fetch('https://api.spotify.com/v1/me/player/devices', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${access_token}`
-            }
-          }).then(response => response.json())
-            .then(data => {
-
-            })
           fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
             method: 'PUT',
             body: JSON.stringify({ uris: [spotify_uri] }),
@@ -39,18 +24,17 @@ const initSpotifyPlayer = () => {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${access_token}`
             },
-          }).then(response => response.body)
-            .then( data => {
-              console.log('--->',data);
-            });
+          })
         });
       };
 
+      // initialize player
       const player = new Spotify.Player({
           name: 'Moods Player',
           getOAuthToken: cb => { cb(token); }
         });
 
+      // connect player
       player.connect().then(success => {
         if (success) {
           console.log('Moods successfully connected to Spotify!', player);
