@@ -1,12 +1,82 @@
-#footer {
-  height: 75px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background: $moods-bg;
-  a {
-    color:white;
-    font-size: 48px;
-    // font-size: 3em;
-  }
+.footer {
+  grid-area: footer;
+  position:fixed;
+  width: 100%;
+  height:75px;
+  // display: flex;
+  bottom:0px;
+  // align-items: center;
+  // justify-content: space-between;
+  padding: 0 16px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(20px);
+  z-index:5;
 }
+
+#current-track-image {
+  width:100px;
+  height:100px;
+  border-radius:500px;
+  transform: scale(1);
+
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 6000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.vinyl-hole{
+  position: absolute;
+  left: 118px;
+  top: -3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #1B1B1B;
+  z-index: 12;
+}
+
+
+#current-track-image {
+      position: absolute;
+      left: 75px;
+      top: -45px;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: -10px -10px 19px black;
+
+    &.spin {
+    }
+
+    &.spin::before {
+      transition: all .5s ease;
+      animation: rotation 3s infinite linear;
+      -webkit-animation: rotation 3s infinite linear;
+      animation-fill-mode: forwards;
+    }
+
+    }
+
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
