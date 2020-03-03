@@ -27,14 +27,8 @@
   50% bottom / 80% .75*$bw no-repeat border-box;
   background:
     conic-gradient(
-      #d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
-      #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8,
-      #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf,
-      #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5,
-      #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd,
-      #c4c4c4, #d9d9d9, #cecece, #c5c5c5,
-      #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9,
-      #d7d7d7) content-box,
+      #F2E0B7 20%, #D6C08E 100%
+      ) content-box,
     linear-gradient(#d4d4d4, #d4d4d4)
       padding-box, $sh !important;
 
