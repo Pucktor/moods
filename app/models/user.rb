@@ -16,6 +16,8 @@ class User < ApplicationRecord
       user.token = auth.credentials.token
       user.refresh_token = auth.credentials.refresh_token
       user.image_url = auth.info.image
+      user.expires_on = (Time.now + 3600).to_datetime
+
 
       # user.name = auth.info.display_name   # assuming the user model has a name
       # user.image = auth.info.image # assuming the user model has an image
