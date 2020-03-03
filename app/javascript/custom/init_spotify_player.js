@@ -3,7 +3,7 @@ const initSpotifyPlayer = () => {
   if (spotifyPlayer) {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
-      let token = 'BQApoQxDyIIy3VtGtEgZn-gxXllVHVbWHoDjnSneMKqbVRYMbO0M710uHknm0hSGICwU7RRL2YocL4CFiUqE5dTuzGj0ORmHUhduK7CUVJ25vXueTEtNH6uNZQbYEEmVIxJIKOaM1zM_NenB1h7HQPq2T-JaA6U_7awCxM5pkio-6_Nr7PwR320DuBH1UopDHpZtQtp0GhY2zWwBW3Z0qa7jMViUxsflkrEKEWuUNtjW5pSqrZDfjdg1YptezeWAiAvzXg';
+      let token = 'BQBksuOl2SR6J2_QZTVUfU0TkqOYt-7bu8v0wRto4UdtBodo4fp8fBWnAHyjyHnJsjgLFXUOQDfE1dylnPfaQa6SEBc6HxiEN-zhKqbcsxvnRZrV7GJyytI2fP75wqIyYy-eXb_qAV9EQE4BuOzEGW8p3lCW6G3lJD_tcnzX3aFlYaX-P_bKZOTCTdCxFQJ_6TgHRT1H7BgFo45Ixm8sxFqvHEwnCKB4OVKEm23Sa7vIbPetO0n_p9x7SD6Nv7gEDW5tzw';
       // let token = spotifyPlayer.dataset.spotifyToken;
       const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
       let position = 0;
