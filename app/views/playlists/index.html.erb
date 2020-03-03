@@ -19,7 +19,7 @@
 
     <div class="app">
       <div class="full hide-scroll">
-        <% if @playlists.empty? %>
+        <% if @playlists.empty? && params[:query] %>
         <div class="container m-3">
           <p>Sorry, no results!</p>
         </div>
