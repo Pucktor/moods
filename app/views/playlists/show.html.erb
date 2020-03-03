@@ -24,14 +24,16 @@
             <th scope="row" class="title">
               <div class="track-image" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
               <span><%= i + 1%>.</span>
-              <%= image_tag x.image_url %>
+              <% if x.image_url %>
+                <%= image_tag x.image_url %>
+              <% else %>
+                <%= image_tag 'moods-logo.png' %>
+              <% end %>
               <%= x.title %>
               </div>
             </th>
             <td class="artist"><%= x.album %></td>
           </tr>
-        <!-- <p><%= x.id %> <%= x.title %> <%= x.spotify_track_id %></p> -->
-        <!-- <%= image_tag x.image_url %> -->
         <%end%>
       </tbody>
     </table>
@@ -60,6 +62,7 @@
     <div class="row">
       <div class="col text-center">
         <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
+        <span><%= link_to "Refresh", playlist_refresh_path(@playlist) %></span>
         <%#= link_to 'play', root_path, id:'play-btn', class: 'btn btn-primary' %>
       </div>
     </div>

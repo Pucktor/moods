@@ -7,7 +7,8 @@ class GetSpotifyRecommendationsFromSettings
       target_danceability: playlist.danceability,
       target_energy: playlist.energy,
       target_valence: playlist.valence,
-      target_popularities: playlist.popularity
+      target_popularities: playlist.popularity,
+      limit: 100
     )
     recommendations.tracks
   end
