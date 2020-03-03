@@ -1,0 +1,28 @@
+#play-button {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding : 10px;
+  border:none;
+  margin: 0px 15px;
+  font-size:25px;
+  border-radius:50%;
+  background-color:#F2E0B7;
+  i {
+  color:#1B1B1B !important
+  }
+
+}
+#next-button{
+  i {
+  color:#F2E0B7 !important
+  }
+
+}
+
+#previous-button{
+  i {
+  color:#F2E0B7 !important
+  }
+}
+

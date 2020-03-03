@@ -29,11 +29,14 @@ class EditPlaylist
   def self.add_tracks_to_playlist(playlist, recommendations)
     tracks = []
     recommendations.each do |track|
+      json_image = JSON.parse(open("https://open.spotify.com/oembed?url=spotify:track:#{track.id}").read)
       tracks << Track.new(
       title: track.name,
       artist: track.artists.first.name,
       album: track.album.name,
-      spotify_track_id: track.id)
+      spotify_track_id: track.id,
+      image_url: json_image['thumbnail_url']
+      )
     end
     tracks.each do |track|
       playlist.tracks << track

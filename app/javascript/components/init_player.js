@@ -1,11 +1,11 @@
 const initPlayer = () => {
-  const spotifyPlayer = document.getElementById('player');
+  const spotifyPlayer = document.getElementById('spotify-player-iframe');
   if (spotifyPlayer) {
     window.onSpotifyWebPlaybackSDKReady = () => {
       let token = spotifyPlayer.dataset.spotifyToken;
       let deviceId;
       const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
-      const playButton = document.getElementById('play-button');
+      const playButton = document.getElementById('play-btn');
 
       const fetchNewToken = (callback) => {
         try {
