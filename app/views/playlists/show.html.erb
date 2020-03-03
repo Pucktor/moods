@@ -24,14 +24,12 @@
             <th scope="row" class="title">
               <div class="track-image" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
               <span><%= i + 1%>.</span>
-              <%= image_tag x.image_url %>
+              <% x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
               <%= x.title %>
               </div>
             </th>
             <td class="artist"><%= x.album %></td>
           </tr>
-        <!-- <p><%= x.id %> <%= x.title %> <%= x.spotify_track_id %></p> -->
-        <!-- <%= image_tag x.image_url %> -->
         <%end%>
       </tbody>
     </table>
