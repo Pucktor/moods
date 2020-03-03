@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_135604) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "playlist_id", null: false
     t.bigint "track_id", null: false
+    t.boolean "read", default: false
     t.index ["playlist_id"], name: "index_playlist_tracks_on_playlist_id"
     t.index ["track_id"], name: "index_playlist_tracks_on_track_id"
   end

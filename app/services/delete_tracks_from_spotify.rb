@@ -1,4 +1,4 @@
-class DeleteTracks
+class DeleteTracksFromSpotify
 
   def self.call(playlist, spotify_user)
     spotify_playlist = RSpotify::Playlist.find(spotify_user.id, playlist.spotify_id)
