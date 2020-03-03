@@ -27,6 +27,7 @@
         <ul class="hs">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
+              <div class=item-bg></div>
                 <div class="item-parent">
                   <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
                       <h1><%= playlist.name.capitalize %></h1>

@@ -3,7 +3,7 @@ const initSpotifyPlayer = () => {
   if (spotifyPlayer) {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
-      let token = 'BQAKFaGm2kWC7Zkp2fEpqFvu_TNc_TXrOpHNzglC_TfWzXPIqSIK2ERwFjz_JlGcHlenGteTQaB63-iENDzhfTZ0pjFC0P8x7gX0zq42CDKtStjqd14XL1449pFONbkVluZ5hi3BvbLAgYOoUUIjUjDxnv5aZu7C3B6mCQ5h2PzHJtabaOE3XFNVha6D6z6GgsFeWWIE4-gyxTvnAjx9qhQau7QIFKFH3srjmenwzPOqww5VNQIqy3udilK2EkwvZYHXGA';
+      let token = 'BQApoQxDyIIy3VtGtEgZn-gxXllVHVbWHoDjnSneMKqbVRYMbO0M710uHknm0hSGICwU7RRL2YocL4CFiUqE5dTuzGj0ORmHUhduK7CUVJ25vXueTEtNH6uNZQbYEEmVIxJIKOaM1zM_NenB1h7HQPq2T-JaA6U_7awCxM5pkio-6_Nr7PwR320DuBH1UopDHpZtQtp0GhY2zWwBW3Z0qa7jMViUxsflkrEKEWuUNtjW5pSqrZDfjdg1YptezeWAiAvzXg';
       // let token = spotifyPlayer.dataset.spotifyToken;
       const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
       let position = 0;
@@ -200,7 +200,7 @@ const initSpotifyPlayer = () => {
         const currentTrackImage = document.getElementById('current-track-image');
         const fontAwesome = document.getElementById('fontawesome-play-pause');
         fontAwesome.classList.toggle("fa-play");
-        currentTrackImage.classList.toggle("spin");
+        currentTrackImage.classList.toggle("paused");
       });
 
 
