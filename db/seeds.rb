@@ -140,7 +140,8 @@ happy_playlist = Playlist.new({
   energy: 0.5,
   valence: 0.5,
   popularity: 50,
-  user_id: User.last.id
+  user_id: User.last.id,
+  color: COLORS.keys.sample
 })
 
 puts "Adding genres to playlist"

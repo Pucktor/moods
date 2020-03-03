@@ -24,7 +24,7 @@
             <th scope="row" class="title">
               <div class="track-image" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
               <span><%= i + 1%>.</span>
-              <% x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
+              <%= x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
               <%= x.title %>
               </div>
             </th>
