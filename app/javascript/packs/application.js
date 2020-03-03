@@ -34,6 +34,7 @@ import { sliderRange } from '../components/slider';
 // import { initPlayer } from '../components/init_player';
 import { moodColorPicker } from '../components/mood-color-picker';
 import { horizontalScrollingControls } from '../components/horizontal-scrolling-controls';
+import { enlargeInput } from '../components/enlarge-input';
 
 document.addEventListener('turbolinks:load', () => {
   moodColorPicker();
@@ -41,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initSpotifyPlayer();
   sliderRange();
+  enlargeInput();
 
   // addActiveClassNav();
   // initPlayer();
