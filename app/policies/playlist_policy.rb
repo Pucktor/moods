@@ -20,4 +20,9 @@ class PlaylistPolicy < ApplicationPolicy
   def destroy?
     update?
   end
+
+  def refresh?
+    show?
+  end
+
 end

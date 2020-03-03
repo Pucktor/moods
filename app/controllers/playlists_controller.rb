@@ -47,7 +47,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
 
     spotify_user = RSpotify::User.new(session[:spotify_auth])
-    spotify_playlist = DeleteTracks.call(@playlist, spotify_user)
+    spotify_playlist = DeleteTracksFromSpotify.call(@playlist, spotify_user)
 
     @playlist = EditPlaylist.call(@playlist, playlist_params, current_user, spotify_user)
 
@@ -74,11 +74,18 @@ class PlaylistsController < ApplicationController
 
   def refresh
     @playlist = Playlist.find(params[:playlist_id])
-    # when refresh
-      # get 100 recommendations and add to playlist only new ones. 
-      # get next 20 tracks by creation date and put them in read status. 
-      # delete tracks from spotify playlist and add them to playlist.
-      # if no newer tracks, message to user. 
+    authorize @playlist
+
+    count = @playlist.tracks.pluck(:read).select {|n| n == true }.count
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    RefreshPlaylist.call(@playlist, spotify_user)
+    if count < @playlist.tracks.pluck(:read).select {|n| n == true }.count
+      redirect_to playlist_path(@playlist)
+      flash[:success] = "Your playlist has been updated with new tracks."
+    else
+      redirect_to playlist_path(@playlist)
+      flash[:notice] = "Sorry there are no new tracks for this playlist settings."
+    end
   end
 
   private
