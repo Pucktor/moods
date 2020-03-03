@@ -3,12 +3,42 @@
 
 
 <header class="header">
-  <h1 class="header__title"><span><%= @playlist.name %></span></h1>
+  <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:20px;padding:0px 20px;"><%= @playlist.name %></span></h1>
 </header>
 
 
 <div class="main">
   <div class="container">
+    <table class="table table-sm table-genres">
+      <thead>
+        <tr>
+          <th scope="col" class="sort" data-sort="title">Title</th>
+          <th scope="col" class="sort desc" data-sort="artist">Album</th>
+
+        </tr>
+      </thead>
+      <tbody class="list">
+
+        <% @playlist.tracks.each_with_index do |x,i|%>
+          <tr>
+            <th scope="row" class="title">
+              <div class="track-image" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
+              <span><%= i + 1%>.</span>
+              <%= image_tag x.image_url %>
+              <%= x.title %>
+              </div>
+            </th>
+            <td class="artist"><%= x.album %></td>
+          </tr>
+        <!-- <p><%= x.id %> <%= x.title %> <%= x.spotify_track_id %></p> -->
+        <!-- <%= image_tag x.image_url %> -->
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+
+
+
     <div class="row playlist-items">
       <% if @playlist.image_url %>
         <div class="col-3 image-playlist">
@@ -36,14 +66,7 @@
   </div>
 </div>
 
-    <div class="btn btn-primary" id="previous-button">Previous</div>
-      <div class="btn btn-primary" id="play-button">Play</div>
-      <div class="btn btn-primary" id="next-button">Next</div>
-      <div class="btn btn-primary" id="refresh-button">Refresh Token</div>
-      <% @playlist.tracks.each do |x|%>
-      <p><%= x.id %> <%= x.title %></p>
-      <%end%>
-    </div>
 
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
 
+<%= render 'shared/footer'%>

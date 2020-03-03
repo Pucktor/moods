@@ -3,10 +3,11 @@
   grid-area: sidenav;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 270px;
   position: fixed;
-  overflow-y: auto;
+  top:0px;
+  left:0px;
   transform: translateX(-400px);
   // transition: all .6s ease-in-out;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -102,7 +103,7 @@
 @media only screen and (min-width: 56.875em ) {
 
   .sidenav {
-    position: relative;
+    // position: relative;
     transform: translateX(0);
   }
 

@@ -11,6 +11,7 @@
 
 .main {
   grid-area: main;
+  overflow:scroll;
 }
 
 .main-searchbar {
@@ -24,13 +25,7 @@
   }
 }
 
-.footer {
-  grid-area: footer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-}
+
 
 @media only screen and (min-width: 56.875em ) {
 

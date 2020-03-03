@@ -22,6 +22,30 @@
     <%= favicon_link_tag asset_path('moods-favicon.png') %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        border-radius:20px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #1B1B1B;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background-image: linear-gradient(to top right, #FFCC31e6, #FD7031e6, #C70D79e6);
+      }
+    </style>
+
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -39,7 +63,6 @@
         <div class="grid-container">
           <%= render 'shared/sidenav'%>
           <%= yield %>
-          <%= render 'shared/footer' %>
         </div>
       <% end %>
 
