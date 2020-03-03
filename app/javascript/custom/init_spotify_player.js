@@ -2,82 +2,15 @@ const initSpotifyPlayer = () => {
   const spotifyPlayer = document.getElementById("spotify-player-iframe");
   if (spotifyPlayer) {
 
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      let token = 'BQBksuOl2SR6J2_QZTVUfU0TkqOYt-7bu8v0wRto4UdtBodo4fp8fBWnAHyjyHnJsjgLFXUOQDfE1dylnPfaQa6SEBc6HxiEN-zhKqbcsxvnRZrV7GJyytI2fP75wqIyYy-eXb_qAV9EQE4BuOzEGW8p3lCW6G3lJD_tcnzX3aFlYaX-P_bKZOTCTdCxFQJ_6TgHRT1H7BgFo45Ixm8sxFqvHEwnCKB4OVKEm23Sa7vIbPetO0n_p9x7SD6Nv7gEDW5tzw';
-      // let token = spotifyPlayer.dataset.spotifyToken;
+      let token = spotifyPlayer.dataset.spotifyToken;
+      window.onSpotifyWebPlaybackSDKReady = () => {
+      // let token = 'BQACUyX67Q1Di7mjxVtae3n_pIu5kxVmZENVt2pKbbOPJrIG_cegnXt3ZFZ-UWhCVAf3XT6ykkyw5U8te_Hxzsp7i8Vn_bm-Dolv7kZQBTMzrKIN7AC9pbmeaoj6srAywGPvIV4hnpGS6t_-DkERqUKBIZeN0kW6rlmxrlwbL8IuWanI8EOo6RC90AQX3_Jkaov0eKqxUzSvdwnK_KY-gFRgMhya5dXrRNUZF1ubsMfpa2hvJGxGsr-C';
+      console.log(token)
       const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
       let position = 0;
 
       let deviceId;
       const refreshToken = spotifyPlayer.dataset.spotifyRefreshToken;
-
-      const fetchNewToken = (callback) => {
-        try {
-          const myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-          const urlencoded = new URLSearchParams();
-          urlencoded.append("grant_type", "refresh_token");
-          urlencoded.append("refresh_token", refreshToken);
-          urlencoded.append("client_id", "99b2d888ddd94505a2e4d3e02c68fe47");
-          urlencoded.append("client_secret", "131ff6e9a9644e0595d01a0492c41eab");
-
-          fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: myHeaders,
-            body: urlencoded
-          }).then(response => response.json())
-            .then((data) => {
-              token = data.access_token;
-              console.log('Token updated!')
-              callback();
-            });
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-
-      const fetchUserInfo = () => {
-        try {
-          fetchNewToken(
-            () => {
-              fetch("https://api.spotify.com/v1/me", {
-                method: 'GET',
-                headers: {
-                  "Authorization": `Bearer ${token}`
-                }
-              }).then(response => response.json())
-                .then((data) => {
-                  console.log(data)
-                })
-            }
-          );
-        } catch (error) {
-          console.log(error)
-        }
-      };
-
-      const fetchDeviceId = () => {
-        try {
-          fetchNewToken(
-            () => {
-              fetch("https://api.spotify.com/v1/me/player/devices", {
-                method: 'GET',
-                headers: {
-                  "Authorization": `Bearer ${token}`
-                }
-              }).then(response => response.json())
-                .then((data) => {
-                  let deviceId = data.devices["0"].id;
-                  console.log(deviceId);
-                })
-            }
-          );
-        } catch (error) {
-          console.log(error)
-        }
-      }
 
       const play = ({
         spotify_uri,
@@ -235,7 +168,7 @@ const initSpotifyPlayer = () => {
 
       refreshButton.addEventListener('click', (event) => {
         event.preventDefault();
-        fetchDeviceId();
+        // fetchDeviceId();
         fetchUserInfo();
         console.log('--------------------',token);
       })

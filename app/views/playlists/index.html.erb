@@ -1,21 +1,15 @@
   <header class="header">
     <h1 class="header__title">My <span>moods</span></h1>
-  </header>
-
-  <main class="main">
-
-    <div class="main-searchbar">
-      <%#= link_to new_playlist_path do %>
-        <!-- <div id="add-button"><i class="fas fa-plus"></i></div> -->
-      <%# end %>
-      <%= form_tag playlists_path, method: :get do %>
+    <%= form_tag playlists_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a playlist"
         %>
-      <% end %>
-    </div>
+    <% end %>
+  </header>
+
+  <main class="main">
 
     <div class="app">
       <div class="full hide-scroll">
@@ -27,18 +21,28 @@
         <ul class="hs" id="horizontal-slider" data-ride="carousel">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
-              <div class=item-bg></div>
                 <div class="item-parent">
-                  <li class="item" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
-                      <h1><%= playlist.name.capitalize %></h1>
-                      <div class="btn-play">
-                        <i class="fas fa-play-circle"></i>
+                  <li class="card" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
+
+                        <h1 class="title"><%= playlist.name %></h1>
+                        <div class="bar">
+                          <div class="emptybar"></div>
+                          <div class="filledbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+
+                      <div class="circle">
+                        <div class="item-img"><%= image_tag playlist.image_url %></div>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="stroke" cx="60" cy="60" r="50"/>
+                      </svg>
                       </div>
+                      <!-- <div class="btn-play"><i class="fas fa-play-circle"></i></div> -->
                   </li>
                 </div>
               <% end %>
             <% end %>
         </ul>
+
         <a class="carousel-control-prev" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon-custom" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
           <span class="sr-only">Previous</span>

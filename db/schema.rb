@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_135604) do
     t.string "token"
     t.string "refresh_token"
     t.string "image_url"
-    t.datetime "expires_on", default: "2020-03-03 14:15:26"
+    t.datetime "expires_on", default: "2020-03-03 15:08:01"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
