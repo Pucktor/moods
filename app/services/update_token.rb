@@ -1,7 +1,7 @@
 class UpdateToken
   def self.call(user)
     # token valid 3600 seconds but check at 3000 to be safe
-    if Time.now - user.expires_on.to_time <= 3000
+    if Time.now - user.expires_on.to_time >= 3000
       url = 'https://accounts.spotify.com/api/token'
       headers = {
         content_type: 'application/x-www-form-urlencoded'
