@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
 
   def index
     # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
@@ -18,7 +19,6 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
     @spotify_user = RSpotify::User.new(session[:spotify_auth])
     @track_ids = @playlist.tracks.map do |x|
@@ -31,6 +31,7 @@ class PlaylistsController < ApplicationController
     @playlist = CreatePlaylist.call(playlist_params, current_user, spotify_user)
     authorize @playlist
     if @playlist.persisted?
+      UpdateStatusOnPlaylistTracks.call(@playlist)
       redirect_to playlist_path(@playlist)
       flash[:success] = "Your playlist has been created and added to your Spotify account!"
     else
@@ -39,16 +40,14 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
 
   def update
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
 
     spotify_user = RSpotify::User.new(session[:spotify_auth])
-    spotify_playlist = DeleteTracks.call(@playlist, spotify_user)
+    spotify_playlist = DeleteTracksFromSpotify.call(@playlist, spotify_user)
 
     @playlist = EditPlaylist.call(@playlist, playlist_params, current_user, spotify_user)
 
@@ -63,7 +62,6 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
-    @playlist = Playlist.find(params[:id])
     authorize @playlist
     @playlist.tracks.destroy_all
 
@@ -74,9 +72,29 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path
   end
 
+  def refresh
+    @playlist = Playlist.find(params[:playlist_id])
+    authorize @playlist
+
+    count = @playlist.tracks.pluck(:read).select {|n| n == true }.count
+    spotify_user = RSpotify::User.new(session[:spotify_auth])
+    RefreshPlaylist.call(@playlist, spotify_user)
+    if count < @playlist.tracks.pluck(:read).select {|n| n == true }.count
+      redirect_to playlist_path(@playlist)
+      flash[:success] = "Your playlist has been updated with new tracks."
+    else
+      redirect_to playlist_path(@playlist)
+      flash[:notice] = "Sorry there are no new tracks for this playlist settings."
+    end
+  end
+
   private
 
   def playlist_params
     params.require(:playlist).permit(:name, :acousticness, :danceability, :energy, :valence, :popularity, :color, genre_ids: [])
+  end
+
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
   end
 end

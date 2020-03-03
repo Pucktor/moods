@@ -33,12 +33,15 @@ import { initSpotifyPlayer } from '../custom/init_spotify_player';
 import { sliderRange } from '../components/slider';
 // import { initPlayer } from '../components/init_player';
 import { moodColorPicker } from '../components/mood-color-picker';
+import { horizontalScrollingControls } from '../components/horizontal-scrolling-controls';
 
 document.addEventListener('turbolinks:load', () => {
   moodColorPicker();
+  horizontalScrollingControls();
   initSelect2();
   initSpotifyPlayer();
   sliderRange();
+
   // addActiveClassNav();
   // initPlayer();
 });

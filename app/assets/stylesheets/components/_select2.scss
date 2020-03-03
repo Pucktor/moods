@@ -20,8 +20,6 @@
     }
  }
 
-
-
  .select2-container--default .select2-search--inline {
   margin: 10px;
   height: 36px;
@@ -66,3 +64,21 @@
     background: #F2E0B7!important;
 }
 
+.name {
+  background-image: linear-gradient(transparent 54px, #F243B3 50%, #FFCA47 100%);
+}
+
+#playlist_name {
+  position: relative;
+  font-size: 64px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #F2E0B7;
+  background: transparent;
+  border: none;
+  border-radius: 1px !important;
+  margin-top: 14px;
+  height: 100%;
+  text-align: left;
+   background-image: linear-gradient(transparent 84px, #F243B3 50%, #FFCA47 100%);
+}

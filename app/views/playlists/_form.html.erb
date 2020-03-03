@@ -1,12 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <%= simple_form_for(@playlist) do |t| %>
-        <div class="row d-flex justify-content-center align-items-center">
-          <%= t.input :name, placeholder: "Give me a name", label: false, input_html: { class: "mb-2 text-left" } %>
-        </div>
+<header class="header">
+  <h3 class="header__title d-flex align-items-center">Playlist
+    <%= simple_form_for(@playlist) do |t| %>
+      <span class="mb-0 name" id="playlist_name">
+        <%= t.input :name, placeholder: "name", label: false, input_html: { class: "mb-2 text-left input", autofocus: true, style: 'width:3px;'}, autofocus: 'autofocus' %>
+      </span>
+  </h3>
+</header>
 
-        <div class="row d-flex justify-content-center align-items-center">
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+          <div class="row d-flex justify-content-center align-items-center">
           <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
           </div>
 
@@ -73,15 +78,17 @@
             <%= t.submit id: 'add-button'%>
           </div>
         </div>
-      <% end %>
+    <% end %>
 
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-7 d-flex justify-content-center mt-3">
-          <% if params["controller"] == "playlists" && params["action"] == "create" %>
-            <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
-          <% else %>
-          <% end %>
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-7 d-flex justify-content-center mt-3">
+            <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
+              <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+            <% else %>
+            <% end %>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

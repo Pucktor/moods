@@ -24,7 +24,7 @@
           <p>Sorry, no results!</p>
         </div>
         <% end %>
-        <ul class="hs">
+        <ul class="hs" id="horizontal-slider" data-ride="carousel">
             <% @playlists.each do |playlist| %>
               <%= link_to playlist_path(playlist) do %>
               <div class=item-bg></div>
@@ -39,23 +39,14 @@
               <% end %>
             <% end %>
         </ul>
-<!-- =======
-  <div class="row">
-    <div class="col">
-      <div class="cards">
-        <#% @playlists.each do |playlist| %>
-          <%#= link_to playlist_path(playlist) do %>
-            <div class="card-category" style="background-image: <%#= COLORS[playlist.color] %>, url(<%#= asset_path 'card-background-vertical.jpg' %>)">
-              <div class="card-category-content px-3">
-                <span class="title"><%#= playlist.name.upcase %></span>
-                <div class="btn-play">
-                  <i class="fas fa-play-circle"></i>
-                </div>
-              </div>
-            </div>
-          <#% end %>
-        <#% end %>
->>>>>>> 2712d7b78273af621cf993026899452e2f0fc17f -->
+        <a class="carousel-control-prev" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon-custom" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next active-controls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon-custom" aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
 

@@ -22,11 +22,8 @@ class CreatePlaylist
     add_genres_to_playlist(playlist, params[:genre_ids])
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
     add_tracks_to_playlist(playlist, recommendations)
-    CreateSpotifyPlaylist.call(playlist, recommendations, spotify_user)
-
-    image_url = RSpotify::Playlist.find(spotify_user.id, playlist.spotify_id).images.first['url']
-    playlist.image_url = image_url
-
+    CreateSpotifyPlaylist.call(playlist, recommendations.first(20), spotify_user)
+    add_image_to_playlist(playlist, spotify_user)
     playlist.save
     playlist
   end
@@ -56,5 +53,10 @@ class CreatePlaylist
     tracks.each do |track|
       playlist.tracks << track
     end
+  end
+
+  def self.add_image_to_playlist(playlist, spotify_user)
+    image_url = RSpotify::Playlist.find(spotify_user.id, playlist.spotify_id).images.first['url']
+    playlist.image_url = image_url
   end
 end
