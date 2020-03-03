@@ -1,13 +1,1 @@
-<header class="header">
-  <h3 class="header__title d-flex align-items-center">Playlist
-    <%= simple_form_for(@playlist) do |t| %>
-      <span class="mb-0 name" id="playlist_name">
-        <%= t.input :name, placeholder: "name", label: false, input_html: { class: "mb-2 text-left input", autofocus: true, style: 'width:3px;'}, autofocus: 'autofocus' %>
-      </span>
-    <% end %>
-  </h3>
-</header>
-
-<div class="main">
-  <%= render 'form' %>
-</div>
+<%= render 'form' %>
