@@ -1,9 +1,11 @@
 .app {
-  padding: 20px 0;
+  margin: 40px 0;
+  // padding: 20px 0;
   display: grid;
   grid-gap: 20px 0;
   grid-template-columns: 20px 1fr 20px;
   align-content: start;
+  position: relative;
 }
 
 .app > .full {
@@ -32,10 +34,26 @@
   width: 10px;
 }
 
+/* Controls Previous/Next */
+.carousel-control-prev, .carousel-control-next {
+  cursor: pointer;
+  background: rgba(20,20,20,0.5);
+  visibility: hidden;
+}
+
+span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
+  font-size: 100%;
+}
+
+.active-controls {
+  visibility: visible;
+  width: 25px;
+}
+
 /* Hide scrollbar */
 .hide-scroll {
   overflow-y: hidden;
-  margin-bottom: calc(-.1 * 20px);
+  margin-bottom: calc(-.1 * 150px);
 }
 
 
@@ -95,5 +113,13 @@ ul {
     a:hover {
       text-decoration: none;
     }
+  }
+
+  .active-controls {
+    width: 63px;
+  }
+
+  span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
+    font-size: 350%;
   }
 }
