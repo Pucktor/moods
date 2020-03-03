@@ -4,62 +4,47 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+  @import url("https://fonts.googleapis.com/css?family=Dosis:300,400,700,800");
+
+  h1 {
+    margin-left: 200px;
+    color: #0E0000;
+    font-family: "Dosis", sans-serif;
+    font-size: 90px;
+    margin-bottom: 0px;
+    font-weight: bold;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  p {
+    color: #0E0000;
+    font-size: 25px;
+    line-height: 23px;
+    margin-left: 220px;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  body {
+    background-image: url(music_broken.jpg);
+    background-size: cover;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  #background_opacity {
+    position: fixed;
+    z-index: -10;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.4); /* L'opacite se regle ici */
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
+  <div class="dialog" id="background_opacity">
     <div>
-      <h1>Sorry there was an error or we are under maintenance!</h1>
-      <p>Please try again later.</p>
+      <h1>Sorry Moods is Broken !</h1>
+      <p>Please try your moods again later...or not</p>
     </div>
   </div>
 </body>
