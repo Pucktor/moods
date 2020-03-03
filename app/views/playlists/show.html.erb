@@ -1,6 +1,12 @@
+<div id="player"></div>
+
+
+
 <header class="header">
   <h1 class="header__title"><span><%= @playlist.name %></span></h1>
 </header>
+
+
 <div class="main">
   <div class="container">
     <div class="row playlist-items">
@@ -10,17 +16,17 @@
         </div>
         <div class="col-12 col-md-9">
           <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
           </div>
         </div>
       <% else %>
         <div class="col-12">
           <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>"></iframe>
+            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
           </div>
         </div>
       <% end %>
-    </div>
+
     <div class="row">
       <div class="col text-center">
         <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
@@ -30,4 +36,15 @@
     </div>
   </div>
 </div>
+
+    <div class="btn btn-primary" id="previous-button">Previous</div>
+      <div class="btn btn-primary" id="play-button">Play</div>
+      <div class="btn btn-primary" id="next-button">Next</div>
+      <div class="btn btn-primary" id="refresh-button">Refresh Token</div>
+      <% @playlist.tracks.each do |x|%>
+      <p><%= x.id %> <%= x.title %></p>
+      <%end%>
+    </div>
+
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
 

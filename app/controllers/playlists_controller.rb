@@ -20,6 +20,10 @@ class PlaylistsController < ApplicationController
 
   def show
     authorize @playlist
+    @spotify_user = RSpotify::User.new(session[:spotify_auth])
+    @track_ids = @playlist.tracks.map do |x|
+      {spotify_track_id: x.spotify_track_id}
+    end
   end
 
   def create
