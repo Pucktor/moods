@@ -10,8 +10,4 @@ Rails.application.routes.draw do
     get '/refresh', to: 'playlists#refresh'
   end
 
-  resources :playlists, only: :show do
-    get '/refresh', to: 'playlists#refresh'
-  end
-
 end

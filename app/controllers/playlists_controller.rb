@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  before_action :update_token, only: [:show]
 
   def index
     # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
@@ -96,5 +97,9 @@ class PlaylistsController < ApplicationController
 
   def set_playlist
     @playlist = Playlist.find(params[:id])
+  end
+
+  def update_token
+    UpdateToken.call(current_user)
   end
 end
