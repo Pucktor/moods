@@ -30,7 +30,7 @@
 
 .genres-div {
   grid-area: genres;
-  display: inline-block;
+  display: flex;
   justify-content: left;
   align-items: center;
   padding-left: 21px;
