@@ -11,7 +11,11 @@
 
 .main {
   grid-area: main;
-  overflow:scroll;
+  overflow: scroll;
+}
+
+.main.inactive {
+  overflow: hidden;
 }
 
 .main-searchbar {
