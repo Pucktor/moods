@@ -1,23 +1,27 @@
 <div id="player"></div>
+<div class="scrollbar"></div>
+
+<div class="playlist-banner" style="background-image: url("<%= @playlist.image_url %>");">
+  <header class="header">
+    <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:20px;padding:0px 20px;"><%= @playlist.name %></span></h1>
+    <% @playlist.genres.each do |genre|%>
+      <h2> <%= genre.name %> </h2>
+    <% end %>
+    <h2><%= @playlist.danceability %></h2>
+  </header>
+</div>
 
 
+<div class="main scrollbar">
+  <table class="table table-sm table-genres">
+    <thead>
+      <tr>
+        <th scope="col" class="sort" data-sort="title">Title</th>
+        <th scope="col" class="sort desc" data-sort="artist">Album</th>
 
-<header class="header">
-  <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:20px;padding:0px 20px;"><%= @playlist.name %></span></h1>
-</header>
-
-
-<div class="main">
-  <div class="container">
-    <table class="table table-sm table-genres">
-      <thead>
-        <tr>
-          <th scope="col" class="sort" data-sort="title">Title</th>
-          <th scope="col" class="sort desc" data-sort="artist">Album</th>
-
-        </tr>
-      </thead>
-      <tbody class="list">
+      </tr>
+    </thead>
+    <tbody class="list">
 
         <% @playlist.tracks.each_with_index do |x,i|%>
           <tr>
@@ -33,8 +37,6 @@
         <%end%>
       </tbody>
     </table>
-  </div>
-
 
 
     <div class="row playlist-items">
@@ -63,8 +65,8 @@
       </div>
     </div>
   </div>
-</div>
 
+</div>
 
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
 
