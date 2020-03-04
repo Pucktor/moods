@@ -1,12 +1,11 @@
 <footer class="footer">
   <div class="row" style="height:75px">
     <div class="col-2 d-flex justify-content-center align-items-center">
-      <img id="current-track-image" class="spin" src="../../assets/images/moods-logo.png"></img>
+      <%= image_tag 'moods-logo.png', id: 'current-track-image', class: 'spin' %>
       <div class="vinyl-hole"></div>
       <div class="vinyl-background"></div>
     </div>
     <div class="col-2 d-inline justify-content-between mb-0">
-      <img class="spin" src="../../app/assets/images/moods-logo.png"></img>
       <p id="current-track-title"></p>
       <p id="current-track-artist"></p>
     </div>
