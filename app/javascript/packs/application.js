@@ -39,8 +39,8 @@ import { playlistNameInput } from '../components/playlist-name-input';
 
 document.addEventListener('turbolinks:load', () => {
   moodColorPicker();
-  horizontalScrollingControls();
   initSelect2();
+  horizontalScrollingControls();
   initSpotifyPlayer();
   sliderRange();
   enlargeInput();
