@@ -10,6 +10,7 @@
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "select2": "^4.0.13",
+    "spin.js": "^4.1.0",
     "tilt.js": "^1.2.1",
     "turbolinks": "^5.2.0"
   },
