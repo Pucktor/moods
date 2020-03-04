@@ -35,6 +35,7 @@ import { sliderRange } from '../components/slider';
 import { moodColorPicker } from '../components/mood-color-picker';
 import { horizontalScrollingControls } from '../components/horizontal-scrolling-controls';
 import { enlargeInput } from '../components/enlarge-input';
+import { initSpin } from '../plugins/init_spin';
 
 document.addEventListener('turbolinks:load', () => {
   moodColorPicker();
@@ -43,7 +44,15 @@ document.addEventListener('turbolinks:load', () => {
   initSpotifyPlayer();
   sliderRange();
   enlargeInput();
-
+  initSpin(document.querySelector('body'));
   // addActiveClassNav();
   // initPlayer();
 });
+
+
+const createPlaylistButton = document.getElementById('add-button');
+if (createPlaylistButton) {
+  createPlaylistButton.addEventListener('click', (event) => {
+    initSpin(createPlaylistButton);
+  });
+}
