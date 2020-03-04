@@ -1,9 +1,9 @@
 <header class="header">
   <h3 class="header__title d-flex align-items-center">Playlist
-    <%= simple_form_for(@playlist) do |t| %>
-      <span class="mb-0 name">
-        <%= t.input :name, placeholder: "name", label: false, input_html: { class: "mb-2 text-left input", autofocus: true}, autofocus: 'autofocus' %>
-      </span>
+    <span class="mb-0 name">
+      <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name">
+      <%#= t.input :name, placeholder: "name", label: false, input_html: { class: "mb-2 text-left input", autofocus: true}, autofocus: 'autofocus' %>
+    </span>
   </h3>
 </header>
 
@@ -11,84 +11,87 @@
   <div class="container">
     <div class="row">
       <div class="col text-center">
+        <%= simple_form_for(@playlist) do |t| %>
+          <span class="row d-flex justify-content-center align-items-center">
+            <%= t.input :name, as: :hidden %>
+          </span>
+            <div class="row d-flex justify-content-center align-items-center">
+            <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
+            </div>
+
           <div class="row d-flex justify-content-center align-items-center">
-          <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
-          </div>
-
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
-            <%= t.label :acousticness %>
-            <%= image_tag "guitar.png" %>
-            <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
-            <%= t.label :danceability %>
-            <%= image_tag "dancing.png" %>
-            <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
-            <%= t.label :energy %>
-            <%= image_tag "thunder.png" %>
-            <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
-            <%= t.label :positivity %>
-            <%= image_tag "drama.png" %>
-            <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
-            <%= t.label :popularity  %>
-            <%= image_tag "star.png" %>
-            <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
-          </div>
-        </div>
-
-        <div class="row d-flex justify-content-center align-content-center mt-3">
-          <div class="col-7">
-            <div class="mb-1 text-muted">
-              Give me some style
+            <div class="col-7">
+              <%= t.label :acousticness %>
+              <%= image_tag "guitar.png" %>
+              <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
             </div>
-            <div>
-              <% COLORS.keys.each do |color| %>
-                <% if COLORS[@playlist.color] == COLORS[color] %>
-                  <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
-                <% else %>
-                  <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)" aria-labelledby="shopping cart items"><span class="color-name"><%= color %></span></div>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7">
+              <%= t.label :danceability %>
+              <%= image_tag "dancing.png" %>
+              <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7">
+              <%= t.label :energy %>
+              <%= image_tag "thunder.png" %>
+              <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7">
+              <%= t.label :positivity %>
+              <%= image_tag "drama.png" %>
+              <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7">
+              <%= t.label :popularity  %>
+              <%= image_tag "star.png" %>
+              <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center align-content-center mt-3">
+            <div class="col-7">
+              <div class="mb-1 text-muted">
+                Give me some style
+              </div>
+              <div>
+                <% COLORS.keys.each do |color| %>
+                  <% if COLORS[@playlist.color] == COLORS[color] %>
+                    <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+                  <% else %>
+                    <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)" aria-labelledby="shopping cart items"><span class="color-name"><%= color %></span></div>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <%= t.input :color, as: :hidden %>
+                <%= t.input :color, as: :hidden %>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7 d-flex justify-content-center mt-3">
-            <%= t.submit id: 'add-button'%>
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7 d-flex justify-content-center mt-3">
+              <%= t.submit id: 'add-button'%>
+            </div>
           </div>
-        </div>
-    <% end %>
 
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7 d-flex justify-content-center mt-3">
-            <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
-              <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
-            <% else %>
-            <% end %>
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-7 d-flex justify-content-center mt-3">
+              <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
+                <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+              <% else %>
+              <% end %>
+            </div>
           </div>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
