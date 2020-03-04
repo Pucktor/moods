@@ -140,6 +140,7 @@ happy_playlist = Playlist.new({
   energy: 0.5,
   valence: 0.5,
   popularity: 50,
+  image_url: "https://mosaic.scdn.co/640/ab67616d0000b2731c06cb4d876936df710824e3ab67616d0000b2732dc45b4ecdff2825f6bfbf6bab67616d0000b273b67a4e520977124ece9b1cd2ab67616d0000b273f929b3e3d48b848f5b42f8d3",
   user_id: User.last.id,
   color: COLORS.keys.sample
 })
