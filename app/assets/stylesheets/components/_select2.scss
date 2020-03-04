@@ -66,9 +66,10 @@
 
 .name {
   background-image: linear-gradient(transparent 54px, #F243B3 50%, #FFCA47 100%);
+  margin-left: 10px;
 }
 
-#playlist_name {
+#playlist-name {
   position: relative;
   font-size: 64px;
   font-weight: 700;
@@ -77,8 +78,9 @@
   background: transparent;
   border: none;
   border-radius: 1px !important;
-  margin-top: 14px;
+  // margin-top: 14px;
+  margin: 0 !important;
   height: 100%;
   text-align: left;
-  background-image: linear-gradient(transparent 84px, #F243B3 50%, #FFCA47 100%);
+  background-image: linear-gradient(transparent 84px, #F243B3 70%, #FFCA47 100%);
 }

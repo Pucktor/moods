@@ -1,6 +1,7 @@
 const initSpotifyPlayer = () => {
   const spotifyPlayer = document.getElementById("spotify-player-iframe");
   if (spotifyPlayer) {
+
     let token = spotifyPlayer.dataset.spotifyToken;
     window.onSpotifyWebPlaybackSDKReady = () => {
       const tracks = JSON.parse(spotifyPlayer.dataset.playlistTracks);
@@ -109,15 +110,15 @@ const initSpotifyPlayer = () => {
 
         player.togglePlay().then(() => {
           console.log('Toggled play!');
+          const currentTrackImage = document.getElementById('current-track-image');
+          const fontAwesome = document.getElementById('fontawesome-play-pause');
+          fontAwesome.classList.toggle("fa-play");
+          currentTrackImage.classList.toggle("paused");
         });
       });
 
-      playButton.addEventListener('click', (event) => {
-        const currentTrackImage = document.getElementById('current-track-image');
-        const fontAwesome = document.getElementById('fontawesome-play-pause');
-        fontAwesome.classList.toggle("fa-play");
-        currentTrackImage.classList.toggle("spin");
-      });
+      // playButton.addEventListener('click', (event) => {
+      // });
 
 
       // NEXT BUTTON
@@ -151,7 +152,7 @@ const initSpotifyPlayer = () => {
 
       refreshButton.addEventListener('click', (event) => {
         event.preventDefault();
-        fetchDeviceId();
+        // fetchDeviceId();
         fetchUserInfo();
         console.log('--------------------',token);
       })

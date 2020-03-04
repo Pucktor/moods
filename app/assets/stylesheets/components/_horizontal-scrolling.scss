@@ -37,12 +37,13 @@
 /* Controls Previous/Next */
 .carousel-control-prev, .carousel-control-next {
   cursor: pointer;
-  background: rgba(20,20,20,0.5);
+  background: rgb(20,20,20);
   visibility: hidden;
+  z-index:20;
 }
 
 span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
-  font-size: 100%;
+  font-size: 30px;
 }
 
 .active-controls {
@@ -56,29 +57,54 @@ span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-cust
   margin-bottom: calc(-.1 * 150px);
 }
 
-
 /* Demo styles */
 ul {
   list-style: none;
   padding: 0;
 }
 
+.item-img{
+  z-index:2;
+  img {
+    width: 93px;
+    height: 93px;
+    position: absolute;
+    left: 14px;
+    bottom: 44px;
+    z-index: 2;
+    border-radius: 64px;
+    filter: grayscale(80%);
+  }
+}
+
+.item-parent {
+  position: relative;
+  padding-top:45px;
+}
+
 .hs li,
 .item {
-  scroll-snap-align: center;
-  padding: 15px;
   display: flex;
+  align-items: center;
+  scroll-snap-align: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background: #fff;
   word-break: break-word;
-  border-radius: 8px;
+  border-radius: 1px;
   height: 50vh;
   min-height: 250px;
   max-height: 450px;
-  background-image: linear-gradient(to top right, #0bed97cc, #00e6bfcc, #00ddddcc, #00d1eecc, #00c4f2cc, #00baf5cc, #00b0f6cc, #00a5f6cc, #009bfacc, #0090fccc, #0085fdcc, #0078fccc), url(/assets/card-background-vertical-71d34b49806be81e6c6852f1601f4e03a82b6664d722abf08dd02d917e196725.jpg);
-  // background-image: COLORS[playlist.color], url(/assets/card-background-vertical.jpg);
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 0;
+    margin: 5px; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: #1B1B1B;
+  }
+
   & .btn-play {
       position: absolute;
       font-size: 56px;
@@ -95,14 +121,14 @@ ul {
   }
 }
 
-.item-parent {
-  position: relative;
-}
 
 .item h1, i {
-  text-align: center;
+  text-align: left;
   text-decoration: none;
-  color: white;
+  color: $light-yellow;
+  z-index:3;
+  text-transform: uppercase;
+  font-weight:700;
 }
 
 @media only screen and (min-width: 56.875em ) {
@@ -119,7 +145,7 @@ ul {
     width: 63px;
   }
 
-  span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
-    font-size: 350%;
-  }
+  // span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
+  //   font-size: 350%;
+  // }
 }

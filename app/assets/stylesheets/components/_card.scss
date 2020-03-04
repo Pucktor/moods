@@ -1,85 +1,377 @@
-.cards {
+.card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
-  a {
-    color:white;
-    &:hover {
-      text-decoration: none;
-    }
+  grid-template-columns: 5fr;
+  grid-template-rows: 50px 50px 60px 1fr 50px;
+  grid-template-areas:
+      "title title title title title "
+      "genres genres genres genres genres "
+      "vinyl vinyl vinyl vinyl vinyl"
+      "vbar vbar vbar vbar vbar"
+      "logo logo logo logo logo";
+  height: 100%;
+  width: 100%;
+}
+
+.title-div {
+  grid-area: title;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 41px;
+  padding-left: 20px;
+}
+
+// .bar-div {
+//   grid-area: bar;
+//   display: flex;
+//   justify-content: left;
+//   align-items: center;
+// }
+
+.genres-div {
+  grid-area: genres;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 21px;
+}
+
+.vinyl-div {
+  grid-area: vinyl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vbar-div {
+  grid-area: vbar;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0px 15px;
+}
+
+.logo-div {
+  grid-area: logo;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0px 15px;
+  img{
+    filter:grayscale(1);
+    border-radius: 50%;
+    background: #1B1B1B;
+    box-shadow:  4px 4px 16px #0b0b0b,
+             -4px -4px 16px #2b2b2b;
+    width:25px;
+    height:25px;
   }
 }
 
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 360px;
-  word-break: break-word;
-  display: flex;
-  position: relative;
-  align-items: center;
-  overflow:hidden;
-  border-radius: 16px;
-  background-position: top;
-  transition :0.3s;
+.card {
+  height:50vh;
+  word-break:break-word;
+  min-height: 250px;
+  max-height: 450px;
+
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 0;
+    margin: 5px; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: #1B1B1B;
+  }
+
   & .btn-play {
       position: absolute;
-      font-size: 4em;
-      bottom: -5px;
-      left: 15px;
+      z-index:5;
+      font-size: 48px;
+      bottom: 0px;
+      left: 0px;
   };
-  & .title {
-      font-size: 40px;
-      font-weight: bold;
-  };
-}
 
-.card-category:hover {
-    text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
-    & .btn-play {
-      transform: rotate(360deg);
-      transition: 0.8s;
+  &.example {
+      background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
     }
   }
+}
 
-.card-transparent-background {
-  height: 30px;
-  width: 30px;
+.card:hover .circle .item-img img {
+  filter:none;
+  transition: 0.2s ease-out;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
 }
 
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.2s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.2s ease-out;
+}
+
+.card-title {
+  text-decoration: none;
+  color: $light-yellow;
+  z-index:3;
+  text-transform: uppercase;
+  font-weight:700;
+}
+
+.card-genres {
+  text-decoration: none;
+  color: grey;
+  z-index: 3;
+  font-weight: 400;
+  top: 76px;
+  left: 18px;
+}
+
+.bar {
+  position:relative;
+  height: 5px;
+  width: 150px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position:absolute;
+  top:0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  transition: 0.2s ease-out;
+
+  &.example {
+    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
+.card:hover .filledbar {
+  width: 150px;
+  transition: 0.2s ease-out;
+}
+
+.vbar {
+  position:relative;
+  height: 140px;
+  width: 5px;
+}
+
+.emptyvbar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledvbar {
+  position:absolute;
+  bottom:0px;
+  z-index: 3;
+  height: 0px;
+  width: 100%;
+  transition: 0.2s ease-out;
+
+  &.example {
+    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.card:hover .filledvbar {
+  height: 100%;
+  transition: 0.2s ease-out;
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.circle {
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 60px);
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.stroke {
+  stroke: $light-yellow;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.2s ease-out;
 }
+
+svg {
+  fill: #141414;
+  stroke-width: 3px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 0;
+  transition: 0.2s ease-out;
+}
+
+
+//------------------------------------------------------------------------
+
+
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 50px;
+//   a {
+//     color:white;
+//     &:hover {
+//       text-decoration: none;
+//     }
+//   }
+// }
+
+// .card-category {
+//   background-size: cover;
+//   background-position: center;
+//   height: 360px;
+//   word-break: break-word;
+//   display: flex;
+//   position: relative;
+//   align-items: center;
+//   overflow:hidden;
+//   border-radius: 16px;
+//   background-position: top;
+//   transition :0.2s;
+//   & .btn-play {
+//       position: absolute;
+//       font-size: 4em;
+//       bottom: -5px;
+//       left: 15px;
+//   };
+//   & .title {
+//       font-size: 40px;
+//       font-weight: bold;
+//   };
+// }
+
+// .card-category:hover {
+//     text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+//     & .btn-play {
+//       transform: rotate(360deg);
+//       transition: 0.8s;
+//     }
+//   }
+
+// .card-transparent-background {
+//   height: 30px;
+//   width: 30px;
+// }
+
+
+// // Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .cards {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .cards {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+// }
 
