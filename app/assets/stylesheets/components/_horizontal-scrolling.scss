@@ -80,12 +80,11 @@ ul {
 .full.hide-scroll {
   position: relative;
   margin-top: 45px;
+  flex:1;
 }
 
 .item-parent {
-  // margin-top: 45px;
-  // position: relative;
-  // padding-top:45px;
+  height:100%;
 }
 
 // .hs li,
@@ -142,8 +141,13 @@ ul {
   grid-gap: 58px;
   grid-auto-columns: 300px;
   margin-bottom: -15px;
+  height:100%;
+    a {
+      max-height:471px;
+    }
     a:hover {
       text-decoration: none;
+
     }
   }
 
