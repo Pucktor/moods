@@ -10,7 +10,8 @@
 
 .main {
   grid-area: main;
-  // overflow: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .main.inactive {
