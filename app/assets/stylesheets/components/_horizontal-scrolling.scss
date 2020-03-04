@@ -84,7 +84,7 @@ ul {
 }
 
 .item-parent {
-  height:100%
+  height:100%;
 }
 
 // .hs li,
@@ -142,8 +142,12 @@ ul {
   grid-auto-columns: 300px;
   margin-bottom: -15px;
   height:100%;
+    a {
+      max-height:471px;
+    }
     a:hover {
       text-decoration: none;
+
     }
   }
 
