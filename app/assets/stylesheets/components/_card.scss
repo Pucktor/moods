@@ -71,7 +71,8 @@
 .card {
 
   word-break:break-word;
-  height: 421px;
+  max-height: 421px;
+  height: 90%;
   min-width:298px;
   border-radius: 10px;
   box-shadow: -1rem 0 3rem #000;
