@@ -110,15 +110,15 @@ const initSpotifyPlayer = () => {
 
         player.togglePlay().then(() => {
           console.log('Toggled play!');
+          const currentTrackImage = document.getElementById('current-track-image');
+          const fontAwesome = document.getElementById('fontawesome-play-pause');
+          fontAwesome.classList.toggle("fa-play");
+          currentTrackImage.classList.toggle("paused");
         });
       });
 
-      playButton.addEventListener('click', (event) => {
-        const currentTrackImage = document.getElementById('current-track-image');
-        const fontAwesome = document.getElementById('fontawesome-play-pause');
-        fontAwesome.classList.toggle("fa-play");
-        currentTrackImage.classList.toggle("paused");
-      });
+      // playButton.addEventListener('click', (event) => {
+      // });
 
 
       // NEXT BUTTON

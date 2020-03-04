@@ -23,11 +23,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
+    <!-- SCROLLBAR -->
+
     <style>
       /* width */
       ::-webkit-scrollbar {
-        width: 5px;
-        border-radius:20px;
+        width: 10px;
       }
       /* Track */
       ::-webkit-scrollbar-track {
@@ -36,6 +37,7 @@
       /* Handle */
       ::-webkit-scrollbar-thumb {
         background: #888;
+        border-radius:20px;
       }
       /* Handle on hover */
       ::-webkit-scrollbar-thumb:hover {
