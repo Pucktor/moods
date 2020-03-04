@@ -1,15 +1,20 @@
 .card-grid {
-  display: grid;
-  grid-template-columns: 5fr;
-  grid-template-rows: 50px 50px 75px 1fr 50px;
-  grid-template-areas:
-      "title title title title title "
-      "genres genres genres genres genres "
-      "vinyl vinyl vinyl vinyl vinyl"
-      "vbar vbar vbar vbar vbar"
-      "logo logo logo logo logo";
-  height: 100%;
-  width: 100%;
+  // display: grid;
+  // grid-template-columns: 5fr;
+  // grid-template-rows: 50px 50px 1fr 1fr 50px;
+  // grid-template-areas:
+  //     "title title title title title "
+  //     "genres genres genres genres genres "
+  //     "vinyl vinyl vinyl vinyl vinyl"
+  //     "vbar vbar vbar vbar vbar"
+  //     "logo logo logo logo logo";
+  // height: 100%;
+  // width: 100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100%;
+  padding:20px;
 }
 
 .title-div {
@@ -17,23 +22,15 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  padding-top: 41px;
-  padding-left: 20px;
+  h1 {
+    margin:0px;
+  }
 }
-
-// .bar-div {
-//   grid-area: bar;
-//   display: flex;
-//   justify-content: left;
-//   align-items: center;
-// }
 
 .genres-div {
   grid-area: genres;
   display: flex;
   justify-content: left;
-  align-items: center;
-  padding-left: 21px;
 }
 
 .vinyl-div {
@@ -41,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow:1;
 }
 
 .vbar-div {
@@ -48,7 +46,7 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  padding: 0px 15px;
+  flex-grow:1;
 }
 
 .logo-div {
@@ -56,7 +54,6 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 0px 15px;
   img{
     filter:grayscale(1);
     border-radius: 50%;
@@ -75,7 +72,7 @@
   height: 90%;
   min-width:298px;
   border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000;
+  // box-shadow: -1rem 0 3rem #000;
 /*   margin-left: -50px; */
   transition: 0.4s ease-out;
 
@@ -161,52 +158,6 @@
   left: 18px;
 }
 
-.bar {
-  position:relative;
-  height: 5px;
-  width: 150px;
-}
-
-.emptybar {
-  background-color: #2e3033;
-  width: 100%;
-  height: 100%;
-}
-
-.filledbar {
-  position:absolute;
-  top:0px;
-  z-index: 3;
-  width: 0px;
-  height: 100%;
-  transition: 0.2s ease-out;
-
-  &.example {
-    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-    background-size: 800% 800%;
-
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
-
-    @-webkit-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @-moz-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-  }
-}
-
 .card:hover .filledbar {
   width: 150px;
   transition: 0.2s ease-out;
@@ -214,7 +165,7 @@
 
 .vbar {
   position:relative;
-  height: 140px;
+  height: 90%;
   width: 5px;
 }
 
