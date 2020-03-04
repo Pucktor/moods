@@ -95,7 +95,7 @@
   };
 
   &.example {
-      background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
     background-size: 800% 800%;
 
     -webkit-animation: AnimationName 8s ease infinite;
@@ -184,7 +184,7 @@
   transition: 0.2s ease-out;
 
   &.example {
-    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
     background-size: 800% 800%;
 
     -webkit-animation: AnimationName 8s ease infinite;
