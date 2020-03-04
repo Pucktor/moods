@@ -56,7 +56,11 @@
 
                       <div class="vinyl-div">
                         <div class="circle">
+                        <% if playlist.image_url %>
                           <div class="item-img"><%= image_tag playlist.image_url %></div>
+                        <% else %>
+                          <div class="item-img"><%= image_tag 'moods-logo.png' %></div>
+                        <% end %>
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <circle class="stroke" cx="60" cy="60" r="50"/>
                           </svg>
