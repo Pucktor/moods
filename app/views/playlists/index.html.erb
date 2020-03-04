@@ -1,17 +1,27 @@
   <header class="header">
     <h1 class="header__title">My <span>moods</span></h1>
-    <%= form_tag playlists_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a playlist"
-        %>
-    <% end %>
+
+    <!-- <form action="" class="searchbox">
+      <input type="search" class="searchbox" id="myInput">
+      <i class="fa fa-search"></i>
+    </form> -->
   </header>
 
   <main class="main">
+    <div class="main-searchbar">
+    <%= link_to new_playlist_path do %>
+      <div id="add-button"><i class="fas fa-plus"></i></div>
+    <% end %>
+     <%= form_tag playlists_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "main-searchbar",
+          id: "index-search",
+          placeholder: "Search for a mood"
+        %>
+    <% end %>
+    </div>
 
-    <div class="app">
       <div class="full hide-scroll">
         <% if @playlists.empty? && params[:query] %>
         <div class="container m-3">
@@ -24,19 +34,72 @@
                 <div class="item-parent">
                   <li class="card" style="background-image: <%= COLORS[playlist.color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)">
 
-                        <h1 class="title"><%= playlist.name %></h1>
+                    <div class="card-grid">
+
+                      <div class="title-div">
+                        <h1 class="card-title"><%= playlist.name %></h1>
+                      </div>
+
+                      <!-- <div class="bar-div">
                         <div class="bar">
                           <div class="emptybar"></div>
                           <div class="filledbar" style="background: <%= COLORS[playlist.color] %>"></div>
                         </div>
+                      </div> -->
 
-                      <div class="circle">
-                        <div class="item-img"><%= image_tag playlist.image_url %></div>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="stroke" cx="60" cy="60" r="50"/>
-                      </svg>
+                      <div class="genres-div">
+                        <% playlist.genres.each do |genre|%>
+                          <h4 class="card-genres"> <%= genre.name %> </h4>
+                        <% end %>
                       </div>
-                      <!-- <div class="btn-play"><i class="fas fa-play-circle"></i></div> -->
+
+                      <div class="vinyl-div">
+                        <div class="circle">
+                          <div class="item-img"><%= image_tag playlist.image_url %></div>
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="stroke" cx="60" cy="60" r="50"/>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div class="vbar-div">
+                        <div class="vbar" style="height: calc(<%= playlist.acousticness %> * 140px)">
+                          <div class="emptyvbar"></div>
+                          <div class="filledvbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+                        <div class="vbar" style="height: calc(<%= playlist.danceability %> * 140px)">
+                          <div class="emptyvbar"></div>
+                          <div class="filledvbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+                        <div class="vbar" style="height: calc(<%= playlist.energy %> * 140px)">
+                          <div class="emptyvbar"></div>
+                          <div class="filledvbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+                        <div class="vbar" style="height: calc(<%= playlist.valence %> * 140px)">
+                          <div class="emptyvbar"></div>
+                          <div class="filledvbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+                        <div class="vbar" style="height: calc(<%= playlist.popularity %> /100 * 140px)">
+                          <div class="emptyvbar"></div>
+                          <div class="filledvbar" style="background: <%= COLORS[playlist.color] %>"></div>
+                        </div>
+                      </div>
+
+                      <div class="logo-div">
+                        <%= image_tag "guitar.png" %>
+                        <%= image_tag "dancing.png" %>
+                        <%= image_tag "thunder.png" %>
+                        <%= image_tag "drama.png" %>
+                        <%= image_tag "star.png" %>
+                      </div>
+
+
+                    </div>
+
+
+
+
+
                   </li>
                 </div>
               <% end %>

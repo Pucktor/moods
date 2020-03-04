@@ -37,12 +37,13 @@
 /* Controls Previous/Next */
 .carousel-control-prev, .carousel-control-next {
   cursor: pointer;
-  background: rgba(20,20,20,0.5);
+  background: rgb(20,20,20);
   visibility: hidden;
+  z-index:20;
 }
 
 span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
-  font-size: 100%;
+  font-size: 30px;
 }
 
 .active-controls {
@@ -93,8 +94,6 @@ ul {
   height: 50vh;
   min-height: 250px;
   max-height: 450px;
-
-  padding: 15px;
 
   &:before{
     content: '';

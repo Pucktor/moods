@@ -8,15 +8,15 @@
 </header>
 
 <div class="main">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
+  <!-- <div class="container"> -->
+    <div class="row ">
+      <div class="col-6 text-center p-5">
           <div class="row d-flex justify-content-center align-items-center">
           <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
           </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
+          <div class="col-10">
             <%= t.label :acousticness %>
             <%= image_tag "guitar.png" %>
             <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
+          <div class="col-10">
             <%= t.label :danceability %>
             <%= image_tag "dancing.png" %>
             <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
+          <div class="col-10">
             <%= t.label :energy %>
             <%= image_tag "thunder.png" %>
             <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
+          <div class="col-10">
             <%= t.label :positivity %>
             <%= image_tag "drama.png" %>
             <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7">
+          <div class="col-10">
             <%= t.label :popularity  %>
             <%= image_tag "star.png" %>
             <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="row d-flex justify-content-center align-content-center mt-3">
-          <div class="col-7">
+          <div class="col-10">
             <div class="mb-1 text-muted">
               Give me some style
             </div>
@@ -74,20 +74,78 @@
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7 d-flex justify-content-center mt-3">
+          <div class="col-10 d-flex justify-content-center mt-3">
             <%= t.submit id: 'add-button'%>
           </div>
         </div>
     <% end %>
 
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-7 d-flex justify-content-center mt-3">
+          <div class="col-10 d-flex justify-content-center mt-3">
             <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
               <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
             <% else %>
             <% end %>
           </div>
         </div>
+
+      </div>
+      <div class="col-6 text-center p-5 d-flex justify-content-center align-items-center">
+        <li class="card example" style="width: 288px;">
+
+          <div class="card-grid">
+
+            <div class="title-div">
+              <h1 class="card-title">XXXXXXX</h1>
+            </div>
+
+
+            <div class="genres-div">
+              <h4 class="card-genres"> XXXXXX, XXX, XXXX </h4>
+            </div>
+
+            <div class="vinyl-div">
+              <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="stroke" cx="60" cy="60" r="50"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="vbar-div">
+              <div class="vbar" style="height: calc(0.3 * 140px)">
+                <div class="emptyvbar"></div>
+                <div class="filledvbar example"></div>
+              </div>
+              <div class="vbar" style="height: calc(0.8 * 140px)">
+                <div class="emptyvbar"></div>
+                <div class="filledvbar example"></div>
+              </div>
+              <div class="vbar" style="height: calc(0.5 * 140px)">
+                <div class="emptyvbar"></div>
+                <div class="filledvbar example"></div>
+              </div>
+              <div class="vbar" style="height: calc(0.3 * 140px)">
+                <div class="emptyvbar"></div>
+                <div class="filledvbar example"></div>
+              </div>
+              <div class="vbar" style="height: calc(90/100 * 140px)">
+                <div class="emptyvbar"></div>
+                <div class="filledvbar example"></div>
+              </div>
+            </div>
+
+            <div class="logo-div">
+              <%= image_tag "guitar.png" %>
+              <%= image_tag "dancing.png" %>
+              <%= image_tag "thunder.png" %>
+              <%= image_tag "drama.png" %>
+              <%= image_tag "star.png" %>
+            </div>
+
+          </div>
+
+        </li>
 
       </div>
     </div>
