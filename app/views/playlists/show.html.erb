@@ -3,11 +3,10 @@
 
 <div class="playlist-banner" style="background-image: url("<%= @playlist.image_url %>");">
   <header class="header">
-    <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:20px;padding:0px 20px;"><%= @playlist.name %></span></h1>
+    <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:10px;padding:0px 20px;"><%= @playlist.name %></span></h1>
     <% @playlist.genres.each do |genre|%>
-      <h2> <%= genre.name %> </h2>
+      <h2><%= genre.name %>&nbsp</h2>
     <% end %>
-    <h2><%= @playlist.danceability %></h2>
   </header>
 </div>
 
@@ -39,18 +38,18 @@
     </table>
 
 
-    <div class="row playlist-items">
+    <div class="row playlist-items m-0">
       <% if @playlist.image_url %>
         <div class="col-3 image-playlist">
           <%= image_tag @playlist.image_url %>
         </div>
-        <div class="col-12 col-md-9">
+        <div class="col-3 col-md-3">
           <div class="playlist-container">
             <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
           </div>
         </div>
       <% else %>
-        <div class="col-12">
+        <div class="col-3">
           <div class="playlist-container">
             <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
           </div>
