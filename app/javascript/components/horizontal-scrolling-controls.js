@@ -1,7 +1,8 @@
 const horizontalScrollingControls = () => {
-  const path = (window.location.pathname == '/playlists' || window.location.pathname == '/')
+  const playlist_path = window.location.pathname == '/playlists';
+  const root_path = window.location.pathname == '/';
 
-  if (path) {
+  if (playlist_path || root_path) {
     const horizontalOffset = window.innerWidth * 0.65 ;
     const sliderContent = document.getElementById('horizontal-slider') ;
     const previousController = document.querySelector('[data-slide=prev]') ;
@@ -11,7 +12,7 @@ const horizontalScrollingControls = () => {
       nextController.classList.remove('active-controls');
     } else {
       const cardWidth = sliderContent.children.item(0).offsetWidth ;
-      const cardsWidth = cardWidth * 1.1 * sliderContent.children.length;
+      const cardsWidth = cardWidth * sliderContent.children.length;
 
       if (cardsWidth < window.innerWidth) {
         nextController.classList.remove('active-controls');
