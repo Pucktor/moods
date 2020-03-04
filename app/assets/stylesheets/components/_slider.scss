@@ -36,6 +36,18 @@
 
 label, .simple_form img {
   margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
+  // margin-left: 5px;
+  // margin-right: 5px;
+}
+
+.simple_form.edit_playlist, .simple_form.new_playlist {
+  img{
+    filter:grayscale(0.5);
+    border-radius: 50%;
+    background: #1B1B1B;
+    box-shadow:  4px 4px 16px #0b0b0b
+             -4px -4px 16px #0b0b0b;
+    width:25px;
+    height:25px;
+  }
 }
