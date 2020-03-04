@@ -12,7 +12,7 @@ const horizontalScrollingControls = () => {
       nextController.classList.remove('active-controls');
     } else {
       const cardWidth = sliderContent.children.item(0).offsetWidth ;
-      const cardsWidth = cardWidth * 1.1 * sliderContent.children.length;
+      const cardsWidth = cardWidth * sliderContent.children.length;
 
       if (cardsWidth < window.innerWidth) {
         nextController.classList.remove('active-controls');

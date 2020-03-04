@@ -1,16 +1,16 @@
-.app {
-  margin: 40px 0;
-  // padding: 20px 0;
-  display: grid;
-  grid-gap: 20px 0;
-  grid-template-columns: 20px 1fr 20px;
-  align-content: start;
-  position: relative;
-}
+// .app {
+//   margin: 40px 0;
+//   // padding: 20px 0;
+//   display: grid;
+//   grid-gap: 20px 0;
+//   grid-template-columns: 20px 1fr 20px;
+//   align-content: start;
+//   position: relative;
+// }
 
-.app > .full {
-  grid-column: 1 / -1;
-}
+// .app > .full {
+//   grid-column: 1 / -1;
+// }
 
 .hs {
   display: grid;
@@ -77,9 +77,15 @@ ul {
   }
 }
 
-.item-parent {
+.full.hide-scroll {
   position: relative;
-  padding-top:45px;
+  margin-top: 45px;
+}
+
+.item-parent {
+  // margin-top: 45px;
+  // position: relative;
+  // padding-top:45px;
 }
 
 .hs li,

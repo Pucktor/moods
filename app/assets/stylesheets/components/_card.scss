@@ -133,10 +133,10 @@
 }
 
 
-.card:hover {
-  transform: translateY(-20px);
-  transition: 0.2s ease-out;
-}
+// .card:hover {
+//   transform: translateY(-20px);
+//   transition: 0.2s ease-out;
+// }
 
 .card:hover ~ .card {
   position: relative;
