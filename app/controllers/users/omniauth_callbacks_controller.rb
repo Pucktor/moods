@@ -10,6 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       expires_on: (Time.now + 3600).to_datetime
     )
     if @user.persisted?
+      UpdateUserAccountType.call(@user)
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, kind: "Spotify") if is_navigational_format?
     else
