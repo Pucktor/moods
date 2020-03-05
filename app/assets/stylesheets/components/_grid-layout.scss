@@ -31,7 +31,12 @@
 
 @media only screen and (max-width: 910px) {
   .main.inactive {
-    padding: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  div.card-grid {
+    min-height: 390px;
   }
 }
 
