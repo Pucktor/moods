@@ -72,8 +72,6 @@
   height: 90%;
   min-width:298px;
   border-radius: 10px;
-  // box-shadow: -1rem 0 3rem #000;
-/*   margin-left: -50px; */
   transition: 0.4s ease-out;
 
   &:before{
@@ -86,38 +84,31 @@
     background: #1B1B1B;
   }
 
-  & .btn-play {
-      position: absolute;
-      z-index:5;
-      font-size: 48px;
-      bottom: 0px;
-      left: 0px;
-  };
 
-  // &.example {
-  //   // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-  //   background-size: 800% 800%;
+  &.example {
+    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    background-size: 800% 800%;
 
-  //   -webkit-animation: AnimationName 8s ease infinite;
-  //   -moz-animation: AnimationName 8s ease infinite;
-  //   animation: AnimationName 8s ease infinite;
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
 
-  //   @-webkit-keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  //   @-moz-keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  //   @keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  // }
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+  }
 }
 
 .card:hover .circle .item-img img {
@@ -131,7 +122,7 @@
 
 
 // .card:hover {
-//   transform: translateY(-20px);
+//   transform: scale(1.005);
 //   transition: 0.2s ease-out;
 // }
 
@@ -161,11 +152,6 @@
   margin-bottom: 0px;
 }
 
-.card:hover .filledbar {
-  width: 150px;
-  transition: 0.2s ease-out;
-}
-
 .vbar {
   position:relative;
   height: 90%;
@@ -182,40 +168,42 @@
   position:absolute;
   bottom:0px;
   z-index: 3;
-  height: 100%;
+  height: 0%;
   width: 100%;
-  // transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
 
-  // &.example {
-  //   // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-  //   background-size: 800% 800%;
+  &.example {
+    height:100%;
 
-  //   -webkit-animation: AnimationName 8s ease infinite;
-  //   -moz-animation: AnimationName 8s ease infinite;
-  //   animation: AnimationName 8s ease infinite;
+    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    background-size: 800% 800%;
 
-  //   @-webkit-keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  //   @-moz-keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  //   @keyframes AnimationName {
-  //       0%{background-position:0% 51%}
-  //       50%{background-position:100% 50%}
-  //       100%{background-position:0% 51%}
-  //   }
-  // }
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 51%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 51%}
+    }
+  }
 }
 
-// .card:hover .filledvbar {
-//   height: 100%;
-//   transition: 0.2s ease-out;
-// }
+.card:hover .filledvbar {
+  height: 100%;
+  transition: 0.2s ease-out;
+}
 
 .circle {
   position: absolute;
@@ -224,10 +212,10 @@
 }
 
 .stroke {
-  stroke: $light-yellow;
+  stroke: #757575;
   stroke-dasharray: 360;
-  stroke-dashoffset: 0;
-  // transition: 0.2s ease-out;
+  stroke-dashoffset: 360;
+  transition: 0.2s ease-out;
 }
 
 svg {
@@ -235,10 +223,14 @@ svg {
   stroke-width: 3px;
 }
 
-// .card:hover .stroke {
-//   stroke-dashoffset: 0;
-//   transition: 0.2s ease-out;
-// }
+.card:hover .stroke {
+  stroke-dashoffset: 0;
+  transition: 0.2s ease-out;
+  & .example {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 360;
+  }
+}
 
 
 //------------------------------------------------------------------------
