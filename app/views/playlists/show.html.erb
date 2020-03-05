@@ -12,26 +12,42 @@
 
 
 <div class="main scrollbar">
+
+
+
   <table class="table table-sm table-genres">
     <thead>
       <tr>
         <th scope="col" class="sort" data-sort="title">Title</th>
         <th scope="col" class="sort desc" data-sort="artist">Album</th>
-
+        <th scope="col" class="sort desc" data-sort="artist"></th>
       </tr>
     </thead>
     <tbody class="list">
 
         <% @playlist.tracks.each_with_index do |x,i|%>
           <tr>
-            <th scope="row" class="title">
-              <div class="track-image" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
-              <span><%= i + 1%>.</span>
-              <%= x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
-              <%= x.title %>
+            <th scope="row">
+
+              <div class="track-info" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
+                <p class="number"><%= i + 1 %></p>
+                <%= x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
+                <div class="track-info-text ellipsis">
+                    <span class="track-title"><%= x.title %></span>
+                    <span class="artist-name"><%= x.artist %></span>
+                </div>
               </div>
+
             </th>
-            <td class="artist"><%= x.album %></td>
+
+            <td>
+              <p class="m-0"><%= x.album %></p>
+            </td>
+
+            <td id="like-button">
+                <i class="fas fa-heart"></i>
+            </td>
+
           </tr>
         <%end%>
       </tbody>

@@ -3,13 +3,9 @@
 }
 
 .table {
-    width: 100%;
+    width: 90%;
     margin-bottom: 1.5rem;
-  img {
-    width:48px;
-    height:48px;
-    border-radius:5px;
-  }
+
 }
 
 tbody {
@@ -32,6 +28,65 @@ table {
     border-color: #2d2d2d;
 }
 
+tr {
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.track-info {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height:100%;
+
+  & .number {
+    font-weight:400;
+    opacity:50%;
+    font-size:12px;
+    margin:0px;
+  }
+
+  img {
+    width:48px;
+    height:48px;
+    border-radius:5px;
+    margin: 0px 20px;
+  }
+
+  & .track-info-text {
+    display: inline-flex;
+    flex-direction: column;
+    height:100%;
+
+    & .track-title {
+      font-weight:bold;
+    }
+
+    & .artist-name {
+      font-weight:400;
+      opacity:50%;
+    }
+  }
+
+
+}
+
+#like-button {
+  font-weight: bold;
+  i {
+    color:#FBA862;
+    opacity:20%;
+    font-size:12px;
+  }
+  &:hover {
+    i {
+      color:#FBA862;
+      opacity:100%;
+    }
+  }
+}
+
 .table [data-sort] {
     white-space: nowrap;
 }
@@ -45,8 +100,9 @@ table {
 .table thead th {
     font-size: 0.8125rem;
     font-weight: 600;
+    opacity:70%;
     letter-spacing: 0.08em;
-    color: #95aac9;
+    color: $light-yellow;
     border-bottom-width: 1px;
 }
 .table thead th {
@@ -56,14 +112,16 @@ table {
 }
 .table-genres td, .table-genres th {
     padding: 0.7rem;
+    vertical-align: middle;
 }
 .table-sm td, .table-sm th {
     padding: 1rem;
+    vertical-align: middle;
 }
 .table td, .table th {
     padding: 1rem;
-    vertical-align: top;
     border-top: 1px solid #2d2d2d;
+    vertical-align: middle;
 }
 .sort {
     cursor: pointer;
