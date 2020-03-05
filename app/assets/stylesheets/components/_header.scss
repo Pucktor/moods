@@ -4,17 +4,16 @@
   display: flex;
   position:fixed;
   top:0px;
-  height: 150px;
   width:100%;
   align-items: center;
   justify-content: beginning;
-  padding: 0 16px;
+  padding: 20px;
   background-color: #1B1B1B;
   // box-shadow:  20px 20px 60px #0a0a0a,
   //            -20px -20px 60px #1e1e1e;
   z-index:5;
   span {
-    background-image: linear-gradient(transparent 54px, #F243B3 50%, #FFCA47 100%);
+    background-image: linear-gradient(transparent 46px, #F243B3 50%, #FFCA47 100%);
     position:relative;
   }
 }
@@ -22,7 +21,7 @@
 /* Make room for the menu icon on mobile */
 .header__title {
   margin-left: 0px;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   // &:after {
@@ -32,14 +31,14 @@
 
 @media only screen and (min-width: 56.875em ) {
   .header {
-    left:270px;
+    left:200px;
     span {
-      background-image: linear-gradient(transparent 75px, #F243B3 50%, #FFCA47 100%);
+      background-image: linear-gradient(transparent 58px, #F243B3 50%, #FFCA47 100%);
     }
   }
   .header__title {
-  margin-left: 48px;
-  font-size: 64px;
+  margin-left: 16px;
+  font-size: 48px;
   }
 
   // .header__search {
