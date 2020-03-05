@@ -24,11 +24,13 @@
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
   // &:after {
   //   content: ".";
   // }
+  &.form-title {
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 
 @media only screen and (min-width: 56.875em ) {
@@ -41,11 +43,9 @@
   .header__title {
     margin-left: 16px;
     font-size: 48px;
-    display: flex;
-    flex-direction: row !important;
   }
 
   // .header__search {
   //   margin-left: 0;
   // }
-}
+} 
