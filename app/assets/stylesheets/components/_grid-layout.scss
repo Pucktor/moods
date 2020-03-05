@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 150px 1fr;
+  grid-template-rows: 100px 1fr;
   grid-template-areas:
     'header'
     'main';
@@ -35,7 +35,7 @@
 
   .grid-container {
     grid-template-columns: 270px 1fr;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: 100px 1fr;
     grid-template-areas:
       "sidenav header"
       "sidenav main";

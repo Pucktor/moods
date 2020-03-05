@@ -1,5 +1,6 @@
 
 .sidenav {
+  font-size: 20px;
   grid-area: sidenav;
   display: flex;
   flex-direction: column;
@@ -39,6 +40,7 @@
   align-items: center;
   font-weight:300;
   transition: all 0.15s ease-out;
+  font-size: 16px;
   &:hover{
     padding-left: 60px;
     cursor: pointer;
@@ -103,7 +105,6 @@
 @media only screen and (min-width: 56.875em ) {
 
   .sidenav {
-    // position: relative;
     transform: translateX(0);
   }
 
@@ -126,4 +127,10 @@
   .sidenav-logo img {
   width:100px;
   }
+
+  .sidenav__list-item {
+    font-size: 20px;
+  }
 }
+
+

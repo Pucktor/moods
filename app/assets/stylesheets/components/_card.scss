@@ -147,6 +147,7 @@
   z-index:3;
   text-transform: uppercase;
   font-weight:700;
+  margin-bottom: 0px;
 }
 
 .card-genres {
@@ -156,6 +157,8 @@
   font-weight: 400;
   top: 76px;
   left: 18px;
+  font-size: 1.25em;
+  margin-bottom: 0px;
 }
 
 .card:hover .filledbar {
