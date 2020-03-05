@@ -8,7 +8,8 @@ class GetSpotifyRecommendationsFromSettings
       target_energy: playlist.energy,
       target_valence: playlist.valence,
       target_popularities: playlist.popularity,
-      limit: 100
+      limit: 20,
+      from_token: playlist.user.token
     )
     recommendations.tracks
   end
