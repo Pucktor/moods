@@ -17,15 +17,27 @@ const horizontalScrollingControls = () => {
       }
 
       previousController.addEventListener('click', (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         sliderContent.scroll({left: sliderContent.scrollLeft - horizontalOffset, behavior: 'smooth'}) ;
+        nextController.classList.add('active-controls');
+
+        if (cardsWidth < window.innerWidth + horizontalOffset) {
+          previousController.classList.remove('active-controls');
+        }
+
       });
 
       nextController.addEventListener('click', (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         previousController.classList.add('active-controls');
         sliderContent.scroll({left: sliderContent.scrollLeft + horizontalOffset, behavior: 'smooth'}) ;
+
+        if (cardsWidth < window.innerWidth + horizontalOffset) {
+          nextController.classList.remove('active-controls');
+        }
+
       });
+
     };
   };
 }
