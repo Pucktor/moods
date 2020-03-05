@@ -53,6 +53,24 @@
     z-index: 0;
 }
 
+#current-track-title {
+  font-weight:700;
+  margin:0px;
+}
+
+#current-track-artist {
+  opacity:60%;
+  margin:0px;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #current-track-image {
     position: absolute;
     left: 82px;
@@ -82,13 +100,12 @@
 
 }
 
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
 
-    @keyframes rotation {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
