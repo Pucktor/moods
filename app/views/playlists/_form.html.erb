@@ -1,9 +1,25 @@
+
 <header class="header">
   <h3 class="header__title d-flex align-items-center">Playlist
     <span class="mb-0 name">
       <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name" maxlength= "15" style="width: <%= "#{@playlist.name.length}ch" if @playlist.name %>">
     </span>
   </h3>
+  <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <%= link_to playlists_path do %>
+          <li class="nav-item" id="moods"><i class="fas fa-globe-asia"></i> My moods</li>
+        <% end %>
+        <%= link_to new_playlist_path do %>
+          <li class="nav-item" id="moods"><i class="fas fa-plus"></i> Add a mood</li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <div class="main">
