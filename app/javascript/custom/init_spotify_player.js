@@ -126,7 +126,7 @@ const initSpotifyPlayer = () => {
           play({
               playerInstance: player,
               spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
-            });const currentTrackImage = document.getElementById('current-track-image');
+            });
         })
       })
 
