@@ -1,8 +1,6 @@
 const horizontalScrollingControls = () => {
-  const playlist_path = window.location.pathname === '/playlists';
-  const root_path = window.location.pathname === '/';
-
-  if (playlist_path || root_path) {
+  const carouselElement = document.getElementById('horizontal-slider');
+  if (carouselElement) {
     const horizontalOffset = window.innerWidth * 0.65 ;
     const sliderContent = document.getElementById('horizontal-slider') ;
     const previousController = document.querySelector('[data-slide=prev]') ;

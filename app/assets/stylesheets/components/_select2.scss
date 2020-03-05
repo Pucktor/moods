@@ -81,6 +81,11 @@
   // margin-top: 14px;
   margin: 0 !important;
   height: 100%;
+  max-length: 20ch;
   text-align: left;
   background-image: linear-gradient(transparent 84px, #F243B3 70%, #FFCA47 100%);
+}
+
+span.mb-0.name {
+  margin-left: 20px;
 }

@@ -77,16 +77,16 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:playlist_id])
     authorize @playlist
 
-    count = @playlist.tracks.pluck(:read).select {|n| n == true }.count
+    count = @playlist.tracks.count
     spotify_user = RSpotify::User.new(session[:spotify_auth])
     RefreshPlaylist.call(@playlist, spotify_user)
-    if count < @playlist.tracks.pluck(:read).select {|n| n == true }.count
-      redirect_to playlist_path(@playlist)
-      flash[:success] = "Your playlist has been updated with new tracks."
-    else
-      redirect_to playlist_path(@playlist)
-      flash[:notice] = "Sorry there are no new tracks for this playlist settings."
-    end
+      if count < @playlist.tracks.count
+        redirect_to playlist_path(@playlist)
+        flash[:success] = "Your playlist has been updated with new tracks."
+      else
+        redirect_to playlist_path(@playlist)
+        flash[:notice] = "Sorry there are no new tracks for this playlist settings."
+      end
   end
 
   private

@@ -1,7 +1,7 @@
 <header class="header">
   <h3 class="header__title d-flex align-items-center">Playlist
     <span class="mb-0 name">
-      <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name" style="width: <%= "#{@playlist.name.length}ch" if @playlist.name %>">
+      <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name" maxlength= "20" style="width: <%= "#{@playlist.name.length}ch" if @playlist.name %>">
     </span>
   </h3>
 </header>
@@ -12,7 +12,7 @@
         <div class="col-6 text-center p-5">
           <%= simple_form_for(@playlist) do |t| %>
             <div class="row d-flex justify-content-center align-items-center">
-              <%= t.input :name, as: :hidden %>
+              <%= t.input :name, as: :hidden%>
               <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
             </div>
 

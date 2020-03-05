@@ -4,7 +4,7 @@ const enlargeInput = () => {
     const inputValue = document.querySelector("#playlist-name");
     const cardName = document.querySelector(".card-title");
     inputValue.addEventListener("input", (event) => {
-      var spaceCount = (inputValue.value.split(" ").length - 1);
+      var spaceCount = (inputValue.value.split(" ").length);
       event.currentTarget.style.width = 1 + event.currentTarget.value.length - 0.8 * spaceCount + "ch";
       cardName.innerText = event.currentTarget.value;
 
@@ -13,7 +13,7 @@ const enlargeInput = () => {
     const inputValue = document.querySelector("#playlist-name");
     const cardName = document.querySelector(".card-title");
     inputValue.addEventListener("input", (event) => {
-      var spaceCount = (inputValue.value.split(" ").length - 1);
+      var spaceCount = (inputValue.value.split(" ").length);
       event.currentTarget.style.width = 1 + event.currentTarget.value.length - 0.8 * spaceCount + "ch";
       cardName.innerText = event.currentTarget.value;
     });
