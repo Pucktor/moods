@@ -44,36 +44,36 @@ const initSpotifyPlayer = () => {
               spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
 
             });
-          }, 500)
+          }, 1000)
         }
       })
 
 
-       const fetchNewToken = (callback) => {
-        try {
-          const myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+      //  const fetchNewToken = (callback) => {
+      //   try {
+      //     const myHeaders = new Headers();
+      //     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-          const urlencoded = new URLSearchParams();
-          urlencoded.append("grant_type", "refresh_token");
-          urlencoded.append("refresh_token", refreshToken);
-          urlencoded.append("client_id", "62750ba1fb924428b4c6ae4845542d46");
-          urlencoded.append("client_secret", "881423bf972f48b7aab19f7bd3220123");
+      //     const urlencoded = new URLSearchParams();
+      //     urlencoded.append("grant_type", "refresh_token");
+      //     urlencoded.append("refresh_token", refreshToken);
+      //     urlencoded.append("client_id", "62750ba1fb924428b4c6ae4845542d46");
+      //     urlencoded.append("client_secret", "881423bf972f48b7aab19f7bd3220123");
 
-          fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: myHeaders,
-            body: urlencoded
-          }).then(response => response.json())
-            .then((data) => {
-              token = data.access_token;
-              console.log('Token updated!')
-              callback();
-            });
-        } catch (error) {
-          console.log(error);
-        }
-      }
+      //     fetch('https://accounts.spotify.com/api/token', {
+      //       method: 'POST',
+      //       headers: myHeaders,
+      //       body: urlencoded
+      //     }).then(response => response.json())
+      //       .then((data) => {
+      //         token = data.access_token;
+      //         console.log('Token updated!')
+      //         callback();
+      //       });
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
 
 // -------------------------PLAYER LISTENERS----------------------------------
 
@@ -108,7 +108,6 @@ const initSpotifyPlayer = () => {
       const currentTrackImage = document.getElementById('current-track-image');
 
       player.addListener('player_state_changed', state => {
-        console.log(state);
         currentTrackTitle.innerText = state.track_window.current_track.name;
         currentTrackArtist.innerText = state.track_window.current_track.artists[0].name;
         // var jsonImage = JSON.parse(`https://open.spotify.com/oembed?url=${state.track_window.current_track.uri}`);
@@ -122,7 +121,6 @@ const initSpotifyPlayer = () => {
         item.addEventListener('click', event => {
           position = item.dataset.position;
           const imgUrl = item.dataset.imgUrl;
-          console.log(imgUrl);
           play({
               playerInstance: player,
               spotify_uri: `spotify:track:${tracks[position].spotify_track_id}`,
@@ -136,7 +134,6 @@ const initSpotifyPlayer = () => {
       playButton.addEventListener('click', (event) => {
 
         player.togglePlay().then(() => {
-          console.log('Toggled play!');
           const currentTrackImage = document.getElementById('current-track-image');
           const fontAwesome = document.getElementById('fontawesome-play-pause');
           fontAwesome.classList.toggle("fa-play");
@@ -153,7 +150,6 @@ const initSpotifyPlayer = () => {
 
       nextButton.addEventListener('click', (event) => {
         event.preventDefault();
-        console.log(event);
         position = ++position
         play({
             playerInstance: player,
@@ -166,7 +162,6 @@ const initSpotifyPlayer = () => {
 
       previousButton.addEventListener('click', (event) => {
         event.preventDefault();
-        console.log(event);
         position = --position
         play({
             playerInstance: player,
@@ -175,14 +170,14 @@ const initSpotifyPlayer = () => {
       });
 
       // REFRESH BUTTON
-      const refreshButton = document.getElementById('refresh-button');
+      // const refreshButton = document.getElementById('refresh-button');
 
-      refreshButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        // fetchDeviceId();
-        fetchUserInfo();
-        console.log('--------------------',token);
-      })
+      // refreshButton.addEventListener('click', (event) => {
+      //   event.preventDefault();
+      //   // fetchDeviceId();
+      //   fetchUserInfo();
+      //   console.log('--------------------',token);
+      // })
 
     };
 
