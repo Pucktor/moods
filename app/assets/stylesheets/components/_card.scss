@@ -18,6 +18,13 @@
   min-height: 300px;
 }
 
+.edit-link {
+  display: inline;
+ position: absolute;
+ top: 0px;
+ right: 0px;
+}
+
 .title-div {
   grid-area: title;
   display: flex;

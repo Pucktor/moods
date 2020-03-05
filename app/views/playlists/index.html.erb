@@ -38,6 +38,8 @@
 
                       <div class="title-div">
                         <h1 class="card-title"><%= playlist.name %></h1>
+
+
                         <h3 style="z-index:3;"><i class="fas fa-sliders-h"></i></h3>
                       </div>
 
@@ -48,9 +50,9 @@
                         </div>
                   show  </div> -->
 
-                      <div class="genres-div">
+                      <div class="genres-div ellipsis">
                         <% playlist.genres.each do |genre|%>
-                          <h4 class="card-genres"><%= genre.name %>&nbsp;</h4>
+                          <h4 class="card-genres ellipsis"><%= genre.name %>&nbsp;</h4>
                         <% end %>
                       </div>
 
