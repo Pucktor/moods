@@ -94,30 +94,30 @@
       left: 0px;
   };
 
-  &.example {
-    // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-    background-size: 800% 800%;
+  // &.example {
+  //   // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+  //   background-size: 800% 800%;
 
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
+  //   -webkit-animation: AnimationName 8s ease infinite;
+  //   -moz-animation: AnimationName 8s ease infinite;
+  //   animation: AnimationName 8s ease infinite;
 
-    @-webkit-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @-moz-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-  }
+  //   @-webkit-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @-moz-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  // }
 }
 
 .card:hover .circle .item-img img {
@@ -179,40 +179,40 @@
   position:absolute;
   bottom:0px;
   z-index: 3;
-  height: 0px;
-  width: 100%;
-  transition: 0.2s ease-out;
-
-  &.example {
-    // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-    background-size: 800% 800%;
-
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
-
-    @-webkit-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @-moz-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-  }
-}
-
-.card:hover .filledvbar {
   height: 100%;
-  transition: 0.2s ease-out;
+  width: 100%;
+  // transition: 0.2s ease-out;
+
+  // &.example {
+  //   // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+  //   background-size: 800% 800%;
+
+  //   -webkit-animation: AnimationName 8s ease infinite;
+  //   -moz-animation: AnimationName 8s ease infinite;
+  //   animation: AnimationName 8s ease infinite;
+
+  //   @-webkit-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @-moz-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  // }
 }
+
+// .card:hover .filledvbar {
+//   height: 100%;
+//   transition: 0.2s ease-out;
+// }
 
 .circle {
   position: absolute;
@@ -223,8 +223,8 @@
 .stroke {
   stroke: $light-yellow;
   stroke-dasharray: 360;
-  stroke-dashoffset: 360;
-  transition: 0.2s ease-out;
+  stroke-dashoffset: 0;
+  // transition: 0.2s ease-out;
 }
 
 svg {
@@ -232,10 +232,10 @@ svg {
   stroke-width: 3px;
 }
 
-.card:hover .stroke {
-  stroke-dashoffset: 0;
-  transition: 0.2s ease-out;
-}
+// .card:hover .stroke {
+//   stroke-dashoffset: 0;
+//   transition: 0.2s ease-out;
+// }
 
 
 //------------------------------------------------------------------------
