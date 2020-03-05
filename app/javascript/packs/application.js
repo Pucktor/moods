@@ -53,7 +53,7 @@ document.addEventListener('turbolinks:load', () => {
       initSpin();
     });
   }
-  const refreshPlaylistButton = document.getElementById('refresh-playlist-btn');
+  const refreshPlaylistButton = document.getElementById('add-button');
   if (refreshPlaylistButton) {
     refreshPlaylistButton.addEventListener('click', (event) => {
       initSpin();
