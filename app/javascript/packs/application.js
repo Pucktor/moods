@@ -46,10 +46,17 @@ document.addEventListener('turbolinks:load', () => {
   enlargeInput();
   playlistNameInput();
   horizontalScrollingControls();
+
   const createPlaylistButton = document.querySelector('form');
   if (createPlaylistButton) {
     createPlaylistButton.addEventListener('submit', (event) => {
       initSpin();
     });
   }
+  // const refreshPlaylistButton = document.getElementById('refresh-playlist-btn');
+  // if (createPlaylistButton) {
+  //   refreshPlaylistButton.addEventListener('click', (event) => {
+  //     initSpin();
+  //   });
+  // }
 });

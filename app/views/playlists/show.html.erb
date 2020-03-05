@@ -12,7 +12,16 @@
 
 
 <div class="main scrollbar">
-  <table class="table table-sm table-genres">
+
+  <div class="row">
+    <div class="col text-center">
+      <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
+      <span><%= link_to "Refresh", playlist_refresh_path(@playlist), id: 'refresh-playlist-btn' %></span>
+    </div>
+  </div>
+
+  <% if current_user.account_type == 'premium' %>
+    <table class="table table-sm table-genres">
     <thead>
       <tr>
         <th scope="col" class="sort" data-sort="title">Title</th>
@@ -37,36 +46,17 @@
       </tbody>
     </table>
 
-
-    <div class="row playlist-items m-0">
-      <% if @playlist.image_url %>
-        <div class="col-3 image-playlist">
-          <%= image_tag @playlist.image_url %>
-        </div>
-        <div class="col-3 col-md-3">
-          <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
-          </div>
-        </div>
-      <% else %>
-        <div class="col-3">
-          <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
-          </div>
-        </div>
-      <% end %>
-
-    <div class="row">
-      <div class="col text-center">
-        <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
-        <span><%= link_to "Refresh", playlist_refresh_path(@playlist) %></span>
-        <%#= link_to 'play', root_path, id:'play-btn', class: 'btn btn-primary' %>
+    <div class="playlist-container" style="height: 100px">
+      <div id="spotify-player-iframe" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>">
       </div>
+  <% else %>
+    <div class="playlist-container">
+      <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 90%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
     </div>
-  </div>
-
+  <% end %>
 </div>
 
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
-
-<%= render 'shared/footer'%>
+<% if current_user.account_type == 'premium' %>
+  <%= render 'shared/footer'%>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+<% end %>
