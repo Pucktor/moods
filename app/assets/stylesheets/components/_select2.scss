@@ -23,7 +23,8 @@
  .select2-container--default .select2-search--inline {
   margin: 10px;
   height: 36px;
-  text-align:center;
+  text-align: center;
+  width: 100%;
   .select2-search__field {
     color: white;
     margin-top: 0 !important;
@@ -45,7 +46,9 @@
 }
 
 /* Around the search field */
-.select2-search {  }
+.select2-search { 
+  width: 100%;
+ }
 
 /* Search field */
 .select2-selection.select2-selection--multiple {

@@ -24,6 +24,8 @@
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
   // &:after {
   //   content: ".";
   // }
@@ -37,15 +39,13 @@
     }
   }
   .header__title {
-  margin-left: 16px;
-  font-size: 48px;
+    margin-left: 16px;
+    font-size: 48px;
+    display: flex;
+    flex-direction: row !important;
   }
 
   // .header__search {
   //   margin-left: 0;
   // }
-}
-
-.playlist-banner{
-
 }
