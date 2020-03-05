@@ -29,12 +29,17 @@
   }
 }
 
+@media only screen and (max-width: 910px) {
+  .main.inactive {
+    padding: 1rem !important;
+  }
+}
 
 
 @media only screen and (min-width: 56.875em ) {
 
   .grid-container {
-    grid-template-columns: 189px 1fr;
+    grid-template-columns: 200px 1fr;
     grid-template-rows: 100px 1fr;
     grid-template-areas:
       "sidenav header"
