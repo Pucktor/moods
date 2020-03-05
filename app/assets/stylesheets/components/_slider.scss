@@ -51,3 +51,7 @@ label, .simple_form img {
     height:25px;
   }
 }
+
+input[type=submit]:focus {
+    outline: none;
+}

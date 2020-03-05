@@ -66,10 +66,9 @@
 }
 
 .card {
-
   word-break:break-word;
-  max-height: 421px;
-  height: 90%;
+  max-height: 471px;
+  height: 100%;
   min-width:298px;
   border-radius: 10px;
   transition: 0.4s ease-out;
@@ -85,30 +84,30 @@
   }
 
 
-  &.example {
-    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-    background-size: 800% 800%;
+  // &.example {
+  //   background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+  //   background-size: 800% 800%;
 
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
+  //   -webkit-animation: AnimationName 8s ease infinite;
+  //   -moz-animation: AnimationName 8s ease infinite;
+  //   animation: AnimationName 8s ease infinite;
 
-    @-webkit-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @-moz-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-  }
+  //   @-webkit-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @-moz-keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  //   @keyframes AnimationName {
+  //       0%{background-position:0% 51%}
+  //       50%{background-position:100% 50%}
+  //       100%{background-position:0% 51%}
+  //   }
+  // }
 }
 
 .card:hover .circle .item-img img {
@@ -175,28 +174,28 @@
   &.example {
     height:100%;
 
-    background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
-    background-size: 800% 800%;
+    // background: linear-gradient(148deg, #00ffbd, #ff8900, #00dbff, #e700ff);
+    // background-size: 800% 800%;
 
-    -webkit-animation: AnimationName 8s ease infinite;
-    -moz-animation: AnimationName 8s ease infinite;
-    animation: AnimationName 8s ease infinite;
+    // -webkit-animation: AnimationName 8s ease infinite;
+    // -moz-animation: AnimationName 8s ease infinite;
+    // animation: AnimationName 8s ease infinite;
 
-    @-webkit-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @-moz-keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
-    @keyframes AnimationName {
-        0%{background-position:0% 51%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 51%}
-    }
+    // @-webkit-keyframes AnimationName {
+    //     0%{background-position:0% 51%}
+    //     50%{background-position:100% 50%}
+    //     100%{background-position:0% 51%}
+    // }
+    // @-moz-keyframes AnimationName {
+    //     0%{background-position:0% 51%}
+    //     50%{background-position:100% 50%}
+    //     100%{background-position:0% 51%}
+    // }
+    // @keyframes AnimationName {
+    //     0%{background-position:0% 51%}
+    //     50%{background-position:100% 50%}
+    //     100%{background-position:0% 51%}
+    // }
   }
 }
 
@@ -216,6 +215,10 @@
   stroke-dasharray: 360;
   stroke-dashoffset: 360;
   transition: 0.2s ease-out;
+}
+
+.card.example .stroke {
+  stroke-dashoffset: 0;
 }
 
 svg {
