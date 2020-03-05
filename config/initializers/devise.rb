@@ -303,6 +303,7 @@ Devise.setup do |config|
   app-remote-control
   streaming
   user-read-email
+  user-read-private
   user-library-read
   user-library-modify
   user-modify-playback-state

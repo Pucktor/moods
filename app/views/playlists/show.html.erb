@@ -1,36 +1,76 @@
 <div id="player"></div>
-<div class="scrollbar"></div>
 
-<div class="playlist-banner" style="background-image: url("<%= @playlist.image_url %>");">
-  <header class="header">
-    <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:10px;padding:0px 20px;"><%= @playlist.name %></span></h1>
-    <% @playlist.genres.each do |genre|%>
-      <h2><%= genre.name %>&nbsp</h2>
-    <% end %>
+  <header class="header show-header" style="background-image: <%= COLORS[@playlist.color] %>">
+      <div class="showheader-first-row">
+
+          <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:10px;padding:3px 20px;"><%= @playlist.name %></span></h1>
+          <div class="playlist-info-text ellipsis">
+            <div class="d-flex justify-content:left">
+              <!-- <h5 style="opacity: 30%">&nbsp;&nbsp;Genres:</h5> -->
+              <% @playlist.genres.each do |genre|%>
+                <div class="tag">
+                  <h6>&nbsp;<%= genre.name %></h6>
+                </div>
+              <% end %>
+            </div>
+            <div class="d-flex justify-content:center align-items-center">
+              <div class="px-2">
+                <%= image_tag "guitar.png" %>
+                <h6>&nbsp;<%= @playlist.acousticness.round(1) %></h6>
+              </div>
+              <div class="px-2">
+                <%= image_tag "dancing.png" %>
+                <h6>&nbsp;<%= @playlist.danceability.round(1) %></h6>
+              </div>
+              <div class="px-2">
+                <%= image_tag "thunder.png" %>
+                <h6>&nbsp;<%= @playlist.energy.round(1) %></h6>
+              </div>
+              <div class="px-2">
+                <%= image_tag "drama.png" %>
+                <h6>&nbsp;<%= @playlist.valence.round(1) %></h6>
+              </div>
+              <div class="px-2">
+                <%= image_tag "star.png" %>
+                <h6>&nbsp;<%= @playlist.popularity.round(1) %></h6>
+              </div>
+            </div>
+          </div>
+
+
+        <h3 class="options">
+          <%= link_to edit_playlist_path(@playlist), class: "options" do %>
+            <i class="fas fa-sliders-h"></i>
+          <% end %>
+        </h3>
   </header>
-</div>
 
 
-<div class="main scrollbar">
+<div class="main">
 
 
 
-  <table class="table table-sm table-genres">
-    <thead>
-      <tr>
-        <th scope="col" class="sort" data-sort="title">Title</th>
-        <th scope="col" class="sort desc" data-sort="artist">Album</th>
-        <th scope="col" class="sort desc" data-sort="artist"></th>
-      </tr>
-    </thead>
+  <% if current_user.account_type == 'premium' %>
+    <table class="table table-sm table-genres">
+      <thead>
+        <tr class="title-head">
+          <th scope="col" class="sort title-head" data-sort="title" style="padding-left:139px;">Title</th>
+          <th scope="col" class="sort desc" data-sort="artist">Album</th>
+          <th scope="col" class="sort desc" data-sort="artist"></th>
+        </tr>
+      </thead>
     <tbody class="list">
 
         <% @playlist.tracks.each_with_index do |x,i|%>
-          <tr>
+          <tr class="playlist-row" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
             <th scope="row">
 
-              <div class="track-info" data-spotify-id="<%= x.spotify_track_id %>" data-img-url="<%= x.image_url %>" data-position="<%= i %>">
-                <p class="number"><%= i + 1 %></p>
+              <div class="track-info">
+                <% if i < 9 %>
+                  <p class="number pr-1"><%= i + 1 %>&nbsp;</p>
+                <% else %>
+                  <p class="number"><%= i + 1 %></p>
+                <% end %>
                 <%= x.image_url ? (image_tag x.image_url) : (image_tag 'moods-logo.png') %>
                 <div class="track-info-text ellipsis">
                     <span class="track-title"><%= x.title %></span>
@@ -45,7 +85,7 @@
             </td>
 
             <td id="like-button">
-                <i class="fas fa-heart"></i>
+                <i class="fa-heart fas"></i>
             </td>
 
           </tr>
@@ -53,36 +93,21 @@
       </tbody>
     </table>
 
+    <p>
+      <%= link_to "Generate more songs", playlist_refresh_path(@playlist), id: 'refresh-playlist-btn' %>
+    </p>
 
-    <div class="row playlist-items m-0">
-      <% if @playlist.image_url %>
-        <div class="col-3 image-playlist">
-          <%= image_tag @playlist.image_url %>
-        </div>
-        <div class="col-3 col-md-3">
-          <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
-          </div>
-        </div>
-      <% else %>
-        <div class="col-3">
-          <div class="playlist-container">
-            <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 100%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
-          </div>
-        </div>
-      <% end %>
-
-    <div class="row">
-      <div class="col text-center">
-        <span><%= link_to "Edit playlist", edit_playlist_path(@playlist) %></span>
-        <span><%= link_to "Refresh", playlist_refresh_path(@playlist) %></span>
-        <%#= link_to 'play', root_path, id:'play-btn', class: 'btn btn-primary' %>
+    <div class="playlist-container" style="height: 100px">
+      <div id="spotify-player-iframe" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>">
       </div>
+  <% else %>
+    <div class="playlist-container">
+      <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 90%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
     </div>
-  </div>
-
+  <% end %>
 </div>
 
-<script src="https://sdk.scdn.co/spotify-player.js"></script>
-
-<%= render 'shared/footer'%>
+<% if current_user.account_type == 'premium' %>
+  <%= render 'shared/footer'%>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+<% end %>

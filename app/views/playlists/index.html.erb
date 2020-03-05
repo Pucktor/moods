@@ -7,8 +7,7 @@
     </form> -->
   </header>
 
-
-  <main class="main inactive">
+  <div class="main inactive">
     <div class="main-searchbar">
     <%= link_to new_playlist_path do %>
       <div id="add-button"><i class="fas fa-plus"></i></div>
@@ -38,7 +37,7 @@
                     <div class="card-grid">
 
                       <div class="title-div">
-                        <h3 class="card-title"><%= playlist.name %></h3>
+                        <h1 class="card-title"><%= playlist.name %></h1>
                       </div>
 
                       <!-- <div class="bar-div">
@@ -46,7 +45,7 @@
                           <div class="emptybar"></div>
                           <div class="filledbar" style="background: <%= COLORS[playlist.color] %>"></div>
                         </div>
-                      </div> -->
+                  show  </div> -->
 
                       <div class="genres-div">
                         <% playlist.genres.each do |genre|%>

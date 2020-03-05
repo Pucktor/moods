@@ -1,16 +1,61 @@
-.table-sm {
-    font-size: 0.9125rem;
+.table {
+    margin-bottom: 1.5rem;
 }
 
-.table {
-    width: 90%;
-    margin-bottom: 1.5rem;
+.show-header {
+  background: #1B1B1B;
+  filter: brightness(20%);
+  opacity:100%;
+  box-shadow:  20px 20px 60px #171717,
+             -20px -20px 60px #1f1f1f;
+}
 
+.showheader-first-row {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width:100%;
+  & .options {
+    justify-self: flex-end;
+    position:fixed;
+    top: 27px;
+    right : 25px;
+  }
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  padding:0px 5px;
+  border-radius:20px;
+  color:$light-yellow;
+  border: solid 2px $light-yellow;
+  margin-left: 10px;
+}
+
+.playlist-info-text {
+    display: inline-flex;
+    flex-direction: column;
+    height:100%;
+    opacity: 70%;
+
+  h6 {
+    margin:0px;
+  }
+
+  img{
+    filter:grayscale(1);
+    border-radius: 50%;
+    background: #1B1B1B;
+    width:20px;
+    height:20px;
+    margin-left: 4px;
+  }
 }
 
 tbody {
     display: table-row-group;
-    vertical-align: middle;
+    vertical-aligRequestn: middle;
     border-color: inherit;
 }
 
@@ -20,7 +65,7 @@ table {
 *, ::after, ::before {
     box-sizing: border-box;
 }
-user agent stylesheet
+
 table {
     display: table;
     border-collapse: separate;
@@ -29,8 +74,13 @@ table {
 }
 
 tr {
+  border: 1px solid #2d2d2d;
   &:hover {
-    background-color: #eee;
+    background: #1B1B1B;
+    transition: box-shadow 0.15s ease-out;
+    box-shadow: inset 8px 8px 28px #0f0f0f,
+                inset -8px -8px 28px #272727;
+    cursor:pointer;
   }
 }
 
@@ -39,6 +89,7 @@ tr {
   justify-content: left;
   align-items: center;
   height:100%;
+  padding-left: 20px;
 
   & .number {
     font-weight:400;
@@ -74,6 +125,7 @@ tr {
 
 #like-button {
   font-weight: bold;
+  padding-right:50px;
   i {
     color:#FBA862;
     opacity:20%;
@@ -91,41 +143,36 @@ tr {
     white-space: nowrap;
 }
 
-.table-sm thead th {
-    font-size: 0.625rem;
-}
-.table thead th {
-    vertical-align: middle;
-}
 .table thead th {
     font-size: 0.8125rem;
     font-weight: 600;
-    opacity:70%;
     letter-spacing: 0.08em;
     color: $light-yellow;
     border-bottom-width: 1px;
-}
-.table thead th {
-    vertical-align: bottom;
-    border-top:none;
     border-bottom: 2px solid #2d2d2d;
+    position: sticky;
+    top:88px;
+    background: #1B1B1B;
+    z-index: 6;
 }
-.table-genres td, .table-genres th {
-    padding: 0.7rem;
-    vertical-align: middle;
-}
-.table-sm td, .table-sm th {
-    padding: 1rem;
-    vertical-align: middle;
-}
+
+
 .table td, .table th {
     padding: 1rem;
-    border-top: 1px solid #2d2d2d;
+    border-top: 0px solid #2d2d2d;
     vertical-align: middle;
 }
+
 .sort {
     cursor: pointer;
 }
-th {
+
+th {top:105px;
     text-align: inherit;
+}
+
+@media only screen and (min-width: 56.875em ) {
+  .table thead th {
+    top:105px;
+  }
 }
