@@ -138,7 +138,10 @@ ul {
 
 @media only screen and (max-width: 56.875em ) {
   .active-controls {
-    max-height:297px;
+    max-height:392px;
+  }
+  .hs {
+  grid-gap: 18px;
   }
 }
 
