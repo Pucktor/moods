@@ -2,12 +2,13 @@
     margin-bottom: 1.5rem;
 }
 
-.show-header {
-  background: #1B1B1B;
-  filter: brightness(20%);
-  opacity:100%;
+.show-header-bg {
+  opacity:50%;
   box-shadow:  20px 20px 60px #171717,
              -20px -20px 60px #1f1f1f;
+  width:100%;
+  height:100%;
+  position:absolute;
 }
 
 .showheader-first-row {
@@ -37,7 +38,7 @@
     display: inline-flex;
     flex-direction: column;
     height:100%;
-    opacity: 70%;
+    opacity: 90%;
 
   h6 {
     margin:0px;

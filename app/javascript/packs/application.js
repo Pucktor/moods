@@ -53,10 +53,10 @@ document.addEventListener('turbolinks:load', () => {
       initSpin();
     });
   }
-  // const refreshPlaylistButton = document.getElementById('refresh-playlist-btn');
-  // if (createPlaylistButton) {
-  //   refreshPlaylistButton.addEventListener('click', (event) => {
-  //     initSpin();
-  //   });
-  // }
+  const refreshPlaylistButton = document.getElementById('refresh-playlist-btn');
+  if (refreshPlaylistButton) {
+    refreshPlaylistButton.addEventListener('click', (event) => {
+      initSpin();
+    });
+  }
 });

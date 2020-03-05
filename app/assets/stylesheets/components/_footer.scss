@@ -13,6 +13,20 @@
   z-index:9;
 }
 
+#footer {
+  // grid-area: footer;
+  position:fixed;
+  width: 100%;
+  height:75px;
+  // display: flex;
+  top: 0px;
+  // align-items: center;
+  // justify-content: space-between;
+  background: #141414;
+  backdrop-filter: blur(20px);
+  z-index:9;
+}
+
 .fa-play {
   position: relative;
   left: 2px;

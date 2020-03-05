@@ -1,6 +1,7 @@
 
 .sidenav {
   font-size: 20px;
+  width: 200px;
   grid-area: sidenav;
   display: flex;
   flex-direction: column;
@@ -48,7 +49,7 @@
                 inset -9px -9px 18px #222222;
     i {
       color:#F2E0B7;
-    }
+    };
   };
 }
 
@@ -60,7 +61,8 @@
                 inset -9px -9px 18px #222222;
     i {
       color:#F2E0B7;
-    }
+    };
+    font-weight: bold;
   };
 
 .sidenav__list-item i {
@@ -122,7 +124,7 @@
   }
 
   .sidenav-logo img {
-  width:100px;
+    width:100px;
   }
 
   .sidenav__list-item {

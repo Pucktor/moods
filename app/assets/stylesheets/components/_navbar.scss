@@ -1,8 +1,10 @@
 .navbar {
-  position: sticky !important;
+  position: absolute;
+  right: 10px;
   top: 0;
   z-index: 10000;
-  background-color: rgba(0,0,0,0.9);
+  background-color: transparent;
+  visibility: hidden;
 }
 .navbar-brand {
   margin-right: 20px;
@@ -12,8 +14,37 @@
     object-fit: cover;
   }
 }
+.nav-item {
+  text-align: right;
+  color: $light-yellow;
+}
+
+#navbarSupportedContent > ul {
+  margin-top: 59px;
+  padding-right: 24px;
+  background-color: #1B1B1B;
+    padding: 20px 10px;
+    border-radius: 7px;
+}
+
+#navbarSupportedContent > ul > a{
+ padding-top: 5px;
+ padding-bottom: 5px;
+}
+
+
+.navbar-dark .navbar-toggler {
+  color: $light-yellow;
+  font-weight: bold;
+  position: absolute;
+    top: 28px;
+    right: 40px;
+}
 
 @media (max-width: 992px) {
+  .navbar {
+    visibility: visible;
+  }
   #navbarText {
     ul {
       margin: 20px 0px 0px 0px;

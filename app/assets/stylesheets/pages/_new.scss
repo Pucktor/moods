@@ -79,4 +79,14 @@ input[type=range]::-webkit-slider-thumb {
     margin: 0;
     font-size: 1.5em;
   }
+  input#index-search[type=text] {
+    width: 250px;
+    min-width: 250px;
+  }
+  #card-default{
+    display: none!important;
+  }
+  #playlist-name {
+    max-width: 200px;
+  }
 }

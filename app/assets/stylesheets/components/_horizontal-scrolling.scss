@@ -17,12 +17,12 @@
   grid-gap: 28px;
   grid-template-columns: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 270px;
+  // grid-auto-columns: 270px;
   grid-template-rows: minmax(150px, 1fr);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
-  padding-bottom: calc(.75 * 20px);
-  margin-bottom: -15px;
+  // padding-bottom: calc(.75 * 20px);
+  // margin-bottom: -15px;
   a:hover {
     text-decoration: none;
   }
@@ -52,10 +52,10 @@ span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-cust
 }
 
 /* Hide scrollbar */
-.hide-scroll {
-  overflow-y: hidden;
-  margin-bottom: calc(-.1 * 150px);
-}
+// .hide-scroll {
+//   overflow-y: hidden;
+//   margin-bottom: calc(-.1 * 150px);
+// }
 
 /* Demo styles */
 ul {
@@ -134,6 +134,15 @@ ul {
   z-index:3;
   text-transform: uppercase;
   font-weight:700;
+}
+
+@media only screen and (max-width: 56.875em ) {
+  .active-controls {
+    max-height:392px;
+  }
+  .hs {
+  grid-gap: 18px;
+  }
 }
 
 @media only screen and (min-width: 56.875em ) {

@@ -3,6 +3,7 @@
   <head>
     <title>Moods - The soundtrack of your life</title>
     <!-- Facebook Open Graph data -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
@@ -22,33 +23,10 @@
     <%= favicon_link_tag asset_path('moods-favicon.png') %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-    <!-- SCROLLBAR -->
-
-    <style>
-      /* width */
-      ::-webkit-scrollbar {
-        width: 1px;
-      }
-      /* Track */
-      ::-webkit-scrollbar-track {
-        background: #1B1B1B;
-      }
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius:20px;
-      }
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background-image: linear-gradient(to top right, #FFCC31e6, #FD7031e6, #C70D79e6);
-      }
-    </style>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
+
       <% flash.each do |type, msg| %>
         <div class="alert alert-info">
           <%= msg %>

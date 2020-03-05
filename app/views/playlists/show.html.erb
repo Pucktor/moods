@@ -1,9 +1,12 @@
 <div id="player"></div>
+  <header class="header pl-0">
+    <div class="show-header-bg" style="background-image: <%= COLORS[@playlist.color] %>">
 
-  <header class="header show-header" style="background-image: <%= COLORS[@playlist.color] %>">
+    </div>
+
       <div class="showheader-first-row">
 
-          <h1 class="header__title" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:10px;padding:3px 20px;"><%= @playlist.name %></span></h1>
+          <h1 class="header__title pl-2" style="color:#1B1B1B;"><span style="background-image: <%= COLORS[@playlist.color] %>;border-radius:10px;padding:3px 20px;"><%= @playlist.name %></span></h1>
           <div class="playlist-info-text ellipsis">
             <div class="d-flex justify-content:left">
               <!-- <h5 style="opacity: 30%">&nbsp;&nbsp;Genres:</h5> -->
@@ -38,11 +41,30 @@
           </div>
 
 
-        <h3 class="options">
+<!--         <h3 class="options">
           <%= link_to edit_playlist_path(@playlist), class: "options" do %>
             <i class="fas fa-sliders-h"></i>
           <% end %>
-        </h3>
+        </h3> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <%= link_to playlists_path do %>
+          <li class="nav-item" id="moods"><i class="fas fa-globe-asia"></i> My moods</li>
+        <% end %>
+        <%= link_to new_playlist_path do %>
+          <li class="nav-item" id="moods"><i class="fas fa-plus"></i> Add a mood</li>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <li class="nav-item" id="moods"><i class="fas fa-sign-out-alt"></i>Sign out</li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
   </header>
 
 
@@ -93,9 +115,12 @@
       </tbody>
     </table>
 
-    <p>
-      <%= link_to "Generate more songs", playlist_refresh_path(@playlist), id: 'refresh-playlist-btn' %>
-    </p>
+    <div class="d-flex justify-content:center" style="width:100%;">
+      <div>
+
+      <%= link_to "Generate more songs", playlist_refresh_path(@playlist), id: 'add-button' %>
+      </div>
+    </div>
 
     <div class="playlist-container" style="height: 100px">
       <div id="spotify-player-iframe" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>">
