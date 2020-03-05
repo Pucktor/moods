@@ -41,11 +41,7 @@
           </div>
 
 
-<!--         <h3 class="options">
-          <%= link_to edit_playlist_path(@playlist), class: "options" do %>
-            <i class="fas fa-sliders-h"></i>
-          <% end %>
-        </h3> -->
+
 
     <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,11 +111,8 @@
       </tbody>
     </table>
 
-    <div class="d-flex justify-content:center" style="width:100%;">
-      <div>
-
+    <div class="d-flex justify-content:center" style="margin: 0px auto;">
       <%= link_to "Generate more songs", playlist_refresh_path(@playlist), id: 'add-button' %>
-      </div>
     </div>
 
     <div class="playlist-container" style="height: 100px">
