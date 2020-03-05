@@ -39,22 +39,17 @@ import { initSpin } from '../plugins/init_spin';
 import { playlistNameInput } from '../components/playlist-name-input';
 
 document.addEventListener('turbolinks:load', () => {
+  initSpotifyPlayer();
   moodColorPicker();
   initSelect2();
-  horizontalScrollingControls();
-  initSpotifyPlayer();
   sliderRange();
   enlargeInput();
   playlistNameInput();
-
-  // addActiveClassNav();
-  // initPlayer();
+  horizontalScrollingControls();
+  const createPlaylistButton = document.querySelector('form');
+  if (createPlaylistButton) {
+    createPlaylistButton.addEventListener('submit', (event) => {
+      initSpin();
+    });
+  }
 });
-
-
-const createPlaylistButton = document.getElementById('add-button');
-if (createPlaylistButton) {
-  createPlaylistButton.addEventListener('click', (event) => {
-    initSpin(createPlaylistButton);
-  });
-}
