@@ -1,6 +1,6 @@
 #add-button {
   padding : 5px;
-  border-radius: 150px;
+  border-radius: 50%;
   background: linear-gradient(145deg, #181818, #1d1d1d);
   box-shadow:  4px 4px 8px #0b0b0b,
                -4px -4px 8px #2b2b2b;
@@ -9,6 +9,7 @@
   color:#FBA862 !important;
   font-weight: bold;
   border:none;
+  height: 56px;
   i {
     color:#FBA862;
     font-size:20px;
