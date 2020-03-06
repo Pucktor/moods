@@ -10,19 +10,27 @@
   background-color:#F2E0B7;
   i {
   color:#1B1B1B !important
+  };
+  &:hover {
+    cursor:pointer;
   }
 
 }
 #next-button{
   i {
   color:#F2E0B7 !important
+  };
+  &:hover {
+    cursor:pointer;
   }
-
 }
 
 #previous-button{
   i {
   color:#F2E0B7 !important
+  };
+  &:hover {
+    cursor:pointer;
   }
 }
 
