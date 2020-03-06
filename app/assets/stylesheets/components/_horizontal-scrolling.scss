@@ -138,10 +138,10 @@ ul {
 
 @media only screen and (max-width: 56.875em ) {
   .active-controls {
-    max-height:392px;
+    max-height:302px;
   }
   .hs {
-  grid-gap: 18px;
+    grid-gap: 18px;
   }
 }
 
@@ -162,6 +162,8 @@ ul {
 
   .active-controls {
     width: 53px;
+    max-height:425px !important
+
   }
 
   // span.carousel-control-next-icon-custom > i, span.carousel-control-prev-icon-custom > i {
