@@ -2,13 +2,14 @@
 class EditPlaylist
 
   def self.call(playlist, params, user, spotify_user)
+    RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     spotify_playlist = RSpotify::Playlist.find(spotify_user.id, playlist.spotify_id)
+    playlist.update(params)
     playlist.genres.destroy_all
+    playlist.tracks.destroy_all
     add_genres_to_playlist(playlist, params[:genre_ids])
     recommendations = GetSpotifyRecommendationsFromSettings.call(playlist)
-
     if recommendations
-      playlist.tracks.destroy_all
       add_tracks_to_playlist(playlist, recommendations)
       UpdateSpotifyPlaylist.call(playlist, spotify_playlist, recommendations)
       playlist.update(params)
