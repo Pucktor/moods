@@ -133,6 +133,10 @@
     <div class="playlist-container">
       <iframe id="spotify-player-iframe" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="293" height="373" frameborder="0" allowtransparency="true" allow="encrypted-media" style="width: 90%;" data-spotify-token="<%= current_user.token %>" data-spotify-refresh-token="<%= current_user.refresh_token %>" data-playlist-tracks="<%= @track_ids.to_json%>"></iframe>
     </div>
+
+    <div class="d-flex justify-content:center" style="margin: 0px auto; position:fixed; right:40px; top:20px; z-index: 18;">
+      <%= link_to "Edit mood", edit_playlist_path(@playlist), id: 'action-button' %>
+    </div>
   <% end %>
 </div>
 
