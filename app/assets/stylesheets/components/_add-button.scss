@@ -1,6 +1,6 @@
 #add-button {
   padding : 5px;
-  border-radius: 150px;
+  border-radius: 50%;
   background: linear-gradient(145deg, #181818, #1d1d1d);
   box-shadow:  4px 4px 8px #0b0b0b,
                -4px -4px 8px #2b2b2b;
@@ -9,6 +9,47 @@
   color:#FBA862 !important;
   font-weight: bold;
   border:none;
+  height: 56px;
+  i {
+    color:#FBA862;
+    font-size:20px;
+  }
+  &:hover {
+    box-shadow: inset 8px 8px 15px #0b0b0b,
+            inset -8px -8px 15px #2b2b2b;
+    background: #1B1B1B;
+    // margin-left:2px;
+    // margin-right:25px;
+    color:#FBA862;
+    i {
+      color:#FBA862;
+    }
+  }
+
+  // &:active {
+  //   box-shadow: inset 8px 8px 15px #0f622c,
+  //           inset -8px -8px 15px #3dffb2;
+  //   background: #26F46F;
+  //   margin-left:2px;
+  //   margin-right:25px;
+  //   i {
+  //     color:#1B1B1B;
+  //   }
+  // }
+}
+
+#action-button {
+  padding : 5px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #181818, #1d1d1d);
+  box-shadow:  4px 4px 8px #0b0b0b,
+               -4px -4px 8px #2b2b2b;
+  padding: 17px;
+  // margin-right: 27px;
+  color:#FBA862 !important;
+  font-weight: bold;
+  border:none;
+  height: 56px;
   i {
     color:#FBA862;
     font-size:20px;
