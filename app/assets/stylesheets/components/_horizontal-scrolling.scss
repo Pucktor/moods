@@ -1,24 +1,8 @@
-// .app {
-//   margin: 40px 0;
-//   // padding: 20px 0;
-//   display: grid;
-//   grid-gap: 20px 0;
-//   grid-template-columns: 20px 1fr 20px;
-//   align-content: start;
-//   position: relative;
-// }
-
-// .app > .full {
-//   grid-column: 1 / -1;
-// }
-
 .hs {
   display: grid;
   grid-gap: 28px;
   grid-template-columns: 10px;
   grid-auto-flow: column;
-  // grid-auto-columns: 270px;
-  grid-template-rows: minmax(150px, 1fr);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   // padding-bottom: calc(.75 * 20px);
@@ -87,45 +71,6 @@ ul {
   height:100%;
 }
 
-// .hs li,
-// .item {
-//   display: flex;
-//   align-items: center;
-//   scroll-snap-align: center;
-//   flex-direction: column;
-//   justify-content: center;
-//   word-break: break-word;
-//   border-radius: 1px;
-//   height: 50vh;
-//   min-height: 250px;
-//   max-height: 450px;
-
-//   &:before{
-//     content: '';
-//     position: absolute;
-//     top: 0; right: 0; bottom: 0; left: 0;
-//     z-index: 0;
-//     margin: 5px; /* !importanté */
-//     border-radius: inherit; /* !importanté */
-//     background: #1B1B1B;
-//   }
-
-//   & .btn-play {
-//       position: absolute;
-//       font-size: 56px;
-//       bottom: 0px;
-//       left: 15px;
-//   };
-
-//   &:hover {
-//     text-shadow: 4px 4px 15px rgba(0,0,0,0.2);
-//     & .btn-play {
-//       transform: rotate(360deg);
-//       transition: 0.8s;
-//     }
-//   }
-// }
-
 
 .item h1, i {
   text-align: left;
@@ -142,6 +87,7 @@ ul {
   }
   .hs {
     grid-gap: 18px;
+    grid-template-rows: minmax(450px, 1fr);
   }
 }
 
@@ -149,6 +95,7 @@ ul {
   .hs {
   grid-gap: 48px;
   grid-auto-columns: 300px;
+
   margin-bottom: -15px;
   height:100%;
     a {
