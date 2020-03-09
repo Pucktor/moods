@@ -13,7 +13,7 @@
   //            -20px -20px 60px #1e1e1e;
   z-index:5;
   span {
-    background-image: linear-gradient(transparent 46px, #F243B3 50%, #FFCA47 100%);
+    background-image: linear-gradient(transparent 48px, #F243B3 50%, #FFCA47 100%);
     position:relative;
   }
 }
@@ -24,6 +24,7 @@
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
+  padding-left:20px;
   // &:after {
   //   content: ".";
   // }
