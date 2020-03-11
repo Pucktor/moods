@@ -37,6 +37,7 @@ import { horizontalScrollingControls } from '../components/horizontal-scrolling-
 import { enlargeInput } from '../components/enlarge-input';
 import { initSpin } from '../plugins/init_spin';
 import { playlistNameInput } from '../components/playlist-name-input';
+import { navigation } from '../components/sidenav';
 
 document.addEventListener('turbolinks:load', () => {
   initSpotifyPlayer();
@@ -46,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   enlargeInput();
   playlistNameInput();
   horizontalScrollingControls();
+  navigation();
 
   const createPlaylistButton = document.querySelector('form');
   if (createPlaylistButton) {

@@ -1,5 +1,8 @@
 <div id="player"></div>
   <header class="header pl-0">
+    <div class="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="show-header-bg" style="background-image: <%= COLORS[@playlist.color] %>">
 
     </div>
@@ -16,58 +19,12 @@
                 </div>
               <% end %>
             </div>
-            <!--< div class="d-flex justify-content:center align-items-center">
-              <div class="px-2">
-                <%#= image_tag "guitar.png" %>
-                <h6>&nbsp;<%= @playlist.acousticness.round(1) %></h6>
-              </div>
-              <div class="px-2">
-                <%#= image_tag "dancing.png" %>
-                <h6>&nbsp;<%= @playlist.danceability.round(1) %></h6>
-              </div>
-              <div class="px-2">
-                <%#= image_tag "thunder.png" %>
-                <h6>&nbsp;<%= @playlist.energy.round(1) %></h6>
-              </div>
-              <div class="px-2">
-                <%#= image_tag "drama.png" %>
-                <h6>&nbsp;<%= @playlist.valence.round(1) %></h6>
-              </div>
-              <div class="px-2">
-                <%#= image_tag "star.png" %>
-                <h6>&nbsp;<%= @playlist.popularity.round(1) %></h6>
-              </div>
-            </div> -->
               <% link_to edit_playlist_path(@playlist) do %>
               <div style="z-index:3; position:fixed; top: 32px; right: 39px; font-size:50px">
                 <h2><i class="fas fa-sliders-h"></i></h2>
               </div>
             <% end %>
           </div>
-
-
-
-
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <%= link_to playlists_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-globe-asia"></i> My moods</li>
-        <% end %>
-        <%= link_to new_playlist_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-plus"></i> Add a mood</li>
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <li class="nav-item" id="moods"><i class="fas fa-sign-out-alt"></i>Sign out</li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
   </header>
 
 

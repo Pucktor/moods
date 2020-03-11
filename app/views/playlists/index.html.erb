@@ -1,24 +1,14 @@
-  <header class="header">
-    <h1 class="header__title">My <span>moods</span></h1>
 
-    <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <%= link_to playlists_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-globe-asia"></i> My moods</li>
-        <% end %>
-        <%= link_to new_playlist_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-plus"></i> Add a mood</li>
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <li class="nav-item" id="moods"><i class="fas fa-sign-out-alt"></i> Sign out</li>
-        <% end %>
-      </ul>
+
+  <header class="header">
+
+    <div class="menu-icon">
+      <i class="fas fa-bars"></i>
     </div>
-  </nav>
+
+    <h1 class="header__title">
+    My <span>moods</span></h1>
+
   </header>
 
   <div class="main inactive">
