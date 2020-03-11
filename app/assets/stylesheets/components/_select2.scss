@@ -5,7 +5,7 @@
 }
 
 .select2-selection {
-  border: 2px solid #F2E0B7 !important;
+  border: 2px solid #1B1B1B !important;
   background: transparent !important;
 }
 
@@ -33,12 +33,12 @@
 
 .select2-selection__choice {
   border: none !important;
-  border-radius: 25px !important;
-  padding: 6px 12px !important;
-  background: linear-gradient(to top right, #F8B23Be6, #EC1288e6) !important;
-  color: white !important;
+  // border-radius: 25px !important;
+  // padding: 6px 12px !important;
+  background: linear-gradient(to top right, #1B1B1B, black) !important;
+  color: $light-yellow !important;
   font-weight: bold;
-  margin: 10px !important;
+  // margin: 10px !important;
 }
 
 .select2-selection__choice__remove {
@@ -46,7 +46,7 @@
 }
 
 /* Around the search field */
-.select2-search { 
+.select2-search {
   width: 100%;
  }
 

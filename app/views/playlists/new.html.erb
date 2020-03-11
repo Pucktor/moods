@@ -1,2 +1,73 @@
-<%= render 'form' %>
-<%=  %>
+<header class="header">
+  <div class="menu-icon"><i class="fas fa-bars"></i></div>
+  <h3 class="header__title form_title align-items-center">New <span>mood</span></h3>
+</header>
+
+<div class="main">
+<!--     <div class="container"> -->
+      <div class="d-flex justify-content-around px-3">
+
+        <div>
+          <%= render 'form' %>
+        </div>
+
+
+        <div id="card-default">
+          <li class="card example" style="width: 288px; background-image: <%= COLORS[@playlist.color] %>">
+            <div class="card-grid">
+
+              <div class="title-div">
+                <h1 class="card-title"><%= @playlist.name ? "#{@playlist.name}" : "Name" %></h1>
+              </div>
+
+
+              <div class="genres-div">
+                <h4 class="card-genres">Genres</h4>
+              </div>
+
+              <div class="vinyl-div">
+                <div class="circle">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="vbar-div">
+                <div class="vbar" style="height: calc(<%= @playlist.acousticness ? @playlist.acousticness : 0.5 %> * 140px)">
+                  <div class="emptyvbar"></div>
+                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+                </div>
+                <div class="vbar" style="height: calc(<%= @playlist.danceability ? @playlist.danceability : 0.5  %> * 140px)">
+                  <div class="emptyvbar"></div>
+                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+                </div>
+                <div class="vbar" style="height: calc(<%= @playlist.energy ? @playlist.energy : 0.5; %> * 140px)">
+                  <div class="emptyvbar"></div>
+                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+                </div>
+                <div class="vbar" style="height: calc(<%= @playlist.valence ? @playlist.valence : 0.5 %> * 140px)">
+                  <div class="emptyvbar"></div>
+                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+                </div>
+                <div class="vbar" style="height: calc(<%= @playlist.popularity ? @playlist.popularity : 50 %>/100 * 140px)">
+                  <div class="emptyvbar"></div>
+                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+                </div>
+              </div>
+
+              <div class="logo-div">
+                <%= image_tag "guitar.png" %>
+                <%= image_tag "dancing.png" %>
+                <%= image_tag "thunder.png" %>
+                <%= image_tag "drama.png" %>
+                <%= image_tag "star.png" %>
+              </div>
+
+            </div>
+          </li>
+        </div>
+
+      </div>
+    </div>
+<!--   </div> -->
+</div>
