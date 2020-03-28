@@ -14,7 +14,7 @@ sliders.forEach((slider) => {
       const bar = document.querySelector("div.vbar-div > div:nth-child(5)");
       bar.style.height = `calc(${this.value}/100 * 140px)`;
       const sliderImgPopularity = document.querySelector('.slider-img.popularity img');
-        sliderImgPopularity.style.left = `calc(${this.value}/100 * 85% + 22px`;
+        sliderImgPopularity.style.left = `calc(${this.value}/100 * 92% + 5px`;
     };
   }
   else {
@@ -26,22 +26,22 @@ sliders.forEach((slider) => {
         const bar = document.querySelector("div.vbar-div > div:nth-child(1)");
         bar.style.height = `calc(${this.value} * 140px)`;
         const sliderImgAcousticness = document.querySelector('.slider-img.acousticness img');
-        sliderImgAcousticness.style.left = `calc(${this.value} * 94% + 5px`;
+        sliderImgAcousticness.style.left = `calc(${this.value} * 92% + 5px`;
       } else if (this.id === "playlist_danceability") {
         const bar = document.querySelector("div.vbar-div > div:nth-child(2)");
         bar.style.height = `calc(${this.value} * 140px)`;
         const sliderImgDanceability = document.querySelector('.slider-img.danceability img');
-        sliderImgDanceability.style.left = `calc(${this.value} * 94% + 5px`;
+        sliderImgDanceability.style.left = `calc(${this.value} * 92% + 5px`;
       } else if (this.id === "playlist_energy") {
         const bar = document.querySelector("div.vbar-div > div:nth-child(3)");
         bar.style.height = `calc(${this.value} * 140px)`;
         const sliderImgEnergy = document.querySelector('.slider-img.energy img');
-        sliderImgEnergy.style.left = `calc(${this.value} * 94% + 5px`;
+        sliderImgEnergy.style.left = `calc(${this.value} * 92% + 5px`;
       } else if (this.id === "playlist_valence") {
         const bar = document.querySelector("div.vbar-div > div:nth-child(4)");
         bar.style.height = `calc(${this.value} * 140px)`;
         const sliderImgValence = document.querySelector('.slider-img.valence img');
-        sliderImgValence.style.left = `calc(${this.value} * 94% + 5px`;
+        sliderImgValence.style.left = `calc(${this.value} * 92% + 5px`;
       }
       ;
     };

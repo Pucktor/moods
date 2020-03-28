@@ -5,19 +5,16 @@
 
 <div class="main">
 <!--     <div class="container"> -->
-      <div class="d-flex justify-content-around px-3">
+      <div class="d-flex">
 
-        <div>
-          <%= render 'form' %>
-        </div>
-
+        <%= render 'form' %>
 
         <div id="card-default">
           <li class="card example" style="width: 288px; background-image: <%= COLORS[@playlist.color] %>">
             <div class="card-grid">
 
               <div class="title-div">
-                <h1 class="card-title"><%= @playlist.name ? "#{@playlist.name}" : "Name" %></h1>
+                <h1 class="card-title" style="font-size:1.75em;"><%= @playlist.name ? "#{@playlist.name}" : "Name" %></h1>
               </div>
 
 

@@ -1,6 +1,4 @@
 COLORS = {
-  # "Sublime Light" => "linear-gradient(to top right, rgba(252, 92, 125, 0.9), rgba(106, 130, 251, 0.9))",
-  "Jshine" => "linear-gradient(to top right, rgba(18, 194, 233, 0.9), rgba(196, 113, 237, 0.9), rgba(247, 121, 125, 0.9))",
   "Ibiza Sunset" => "linear-gradient(to top right, rgba(238, 9, 121, 0.9), rgba(255, 106, 0, 0.9))",
   "Radar" => "linear-gradient(to top right, rgba(167, 112, 239, 0.9), rgba(207, 139, 243, 0.9), rgba(253, 185, 155, 0.9))",
   "Brady Brady Fun Fun" => "linear-gradient(to top right, rgba(0, 195, 255, 0.9), rgba(255, 255, 28, 0.9))",

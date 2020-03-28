@@ -1,8 +1,7 @@
 
-
-<%= simple_form_for(@playlist) do |t| %>
 <div class="new-form">
-  <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name" maxlength= "15" style="width: <%= "#{@playlist.name.length}ch" if @playlist.name %>">
+<%= simple_form_for(@playlist) do |t| %>
+  <input type="text" placeholder="name" autofocus="true" id="playlist-name" maxlength= "15">
 
       <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
 

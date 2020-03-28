@@ -19,6 +19,7 @@ input#index-search[type=text] {
     max-height:70vh;
     position: sticky;
     top:114px;
+    margin-top:69px;
   }
 
 input[type=text] {
@@ -36,12 +37,6 @@ input[type=text] {
   padding-left:0px;
   margin-left:20px;
   outline:none;
-}
-
-#playlist-name {
-  width: 150px;
-  min-width: 150px;
-  max-width:inherit;
 }
 
 #query {
@@ -65,7 +60,7 @@ abbr[title] {
 
 .simple_form {
   text-align: center;
-  margin: 20px 0px;
+  width:100%;
 }
 
 .page-title {
@@ -73,7 +68,15 @@ abbr[title] {
 }
 
 .new-form {
-  display:column;
+  padding:20px;
+  border: none;
+  border-radius:20px;
+  margin-top:15px;
+  transform: scale(0.8);
+  transform-origin: top center;
+  background: linear-gradient(145deg, #181818, #1d1d1d);
+  box-shadow:  4px 4px 8px #0b0b0b,
+               -4px -4px 8px #2b2b2b;
 }
 
 @media (max-width: 568px) {
@@ -87,8 +90,5 @@ abbr[title] {
   }
   #card-default{
     display: none!important;
-  }
-  #playlist-name {
-    max-width: 200px;
   }
 }
