@@ -56,20 +56,6 @@
   color: white;
 }
 
-#new_playlist {
-  .btn-primary {
-    width: 30%;
-  }
-}
-
-@media (max-width: 768px) {
-  #new_playlist {
-    .btn-primary {
-      width: 90%;
-    }
-  }
-}
-
 .fas .fa-arrow-circle-left {
   border-radius: 50%;
   box-shadow:  9px 9px 19px #d1d1d1,

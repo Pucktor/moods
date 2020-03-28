@@ -1,177 +1,78 @@
 
-<header class="header">
-  <h3 class="header__title form_title align-items-center">Playlist
-    <span class="mb-0 name">
-      <input type="text" placeholder="name" class="mb-2 text-left input" autofocus="true" id="playlist-name" maxlength= "15" style="width: <%= "#{@playlist.name.length}ch" if @playlist.name %>">
-    </span>
-  </h3>
-  <nav class="navbar navbar-expand-lg navbar-dark text-white d-flex align-items-center">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <%= link_to playlists_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-globe-asia"></i> My moods</li>
-        <% end %>
-        <%= link_to new_playlist_path do %>
-          <li class="nav-item" id="moods"><i class="fas fa-plus"></i> Add a mood</li>
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <li class="nav-item" id="moods"><i class="fas fa-sign-out-alt"></i> Sign out</li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</header>
+<div class="new-form">
+<%= simple_form_for(@playlist) do |t| %>
+  <input type="text" placeholder="name" autofocus="true" id="playlist-name" maxlength= "15">
 
-<div class="main">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6 text-center px-5">
-          <%= simple_form_for(@playlist) do |t| %>
-            <div class="row d-flex justify-content-center align-items-center">
-              <%= t.input :name, as: :hidden%>
-              <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
-            </div>
+      <%= t.association :genres, include_blank: false, include_hidden: false, input_html: { class: "select2" }, multiple: "multiple", label: false %>
 
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12">
-                <%= t.label :acousticness %>
-                <%= image_tag "guitar.png" %>
-                <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
-              </div>
-            </div>
-
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12">
-                <%= t.label :danceability %>
-                <%= image_tag "dancing.png" %>
-                <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12">
-                <%= t.label :energy %>
-                <%= image_tag "thunder.png" %>
-                <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12">
-                <%= t.label :positivity %>
-                <%= image_tag "drama.png" %>
-                <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
-              </div>
-            </div>
-
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12">
-                <%= t.label :popularity  %>
-                <%= image_tag "star.png" %>
-                <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center align-content-center mt-2">
-              <div class="col-12">
-                <div class="mb-1 font-weight-bold">
-                  Give me some style
-                </div>
-                <div>
-                  <% COLORS.keys.each do |color| %>
-                    <% if COLORS[@playlist.color] == COLORS[color] %>
-                      <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
-                    <% else %>
-                      <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)" aria-labelledby="shopping cart items"><span class="color-name"><%= color %></span></div>
-                    <% end %>
-                  <% end %>
-                  <%= t.input :color, as: :hidden %>
-                </div>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12 d-flex justify-content-center mt-3">
-                <%= t.submit id: 'action-button'%>
-              </div>
-            </div>
-
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-12 d-flex justify-content-center mt-3">
-                <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
-                  <small class="text-muted">
-                    <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
-                  </small>
-                <% else %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="col-6 text-center d-flex justify-content-center align-items-center" id="card-default">
-          <li class="card example" style="width: 288px; background-image: <%= COLORS[@playlist.color] %>">
-
-            <div class="card-grid">
-
-              <div class="title-div">
-                <h1 class="card-title"><%= @playlist.name ? "#{@playlist.name}" : "Name" %></h1>
-              </div>
-
-
-              <div class="genres-div">
-                <h4 class="card-genres">Genres</h4>
-              </div>
-
-              <div class="vinyl-div">
-                <div class="circle">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="stroke" cx="60" cy="60" r="50"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="vbar-div">
-                <div class="vbar" style="height: calc(<%= @playlist.acousticness ? @playlist.acousticness : 0.5 %> * 140px)">
-                  <div class="emptyvbar"></div>
-                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
-                </div>
-                <div class="vbar" style="height: calc(<%= @playlist.danceability ? @playlist.danceability : 0.5  %> * 140px)">
-                  <div class="emptyvbar"></div>
-                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
-                </div>
-                <div class="vbar" style="height: calc(<%= @playlist.energy ? @playlist.energy : 0.5; %> * 140px)">
-                  <div class="emptyvbar"></div>
-                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
-                </div>
-                <div class="vbar" style="height: calc(<%= @playlist.valence ? @playlist.valence : 0.5 %> * 140px)">
-                  <div class="emptyvbar"></div>
-                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
-                </div>
-                <div class="vbar" style="height: calc(<%= @playlist.popularity ? @playlist.popularity : 50 %>/100 * 140px)">
-                  <div class="emptyvbar"></div>
-                  <div class="filledvbar example" style="background-image: <%= COLORS[@playlist.color] %>"></div>
-                </div>
-              </div>
-
-              <div class="logo-div">
-                <%= image_tag "guitar.png" %>
-                <%= image_tag "dancing.png" %>
-                <%= image_tag "thunder.png" %>
-                <%= image_tag "drama.png" %>
-                <%= image_tag "star.png" %>
-              </div>
-
-            </div>
-
-          </li>
-
+      <div class="slider-div">
+        <%= t.label :acousticness %>
+        <%= t.input :acousticness, input_html: { class: 'slider', step: 0.001, min: 0, max: 1, value: @playlist.acousticness }, as: :range, label: false, type: "range" %>
+        <div class="slider-img acousticness"><%= image_tag "guitar.png"%></div>
+        <div class="slider-bg acousticness" style="background-image: <%= COLORS[@playlist.color] %>">
         </div>
       </div>
-    </div>
-  </div>
+
+
+      <div class="slider-div">
+        <%= t.label :danceability %>
+        <%= t.input :danceability, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+        <div class="slider-img danceability"><%= image_tag "dancing.png" %></div>
+        <div class="slider-bg danceability" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+      </div>
+
+
+      <div class="slider-div">
+        <%= t.label :energy %>
+        <%= t.input :energy, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false,  type: "range" %>
+        <div class="slider-img energy"><%= image_tag "thunder.png" %></div>
+        <div class="slider-bg energy" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+      </div>
+
+
+      <div class="slider-div">
+        <%= t.label :positivity %>
+        <%= t.input :valence, input_html: { class: 'slider', step: 0.001, min: 0, max: 1 }, as: :range, label: false, type: "range" %>
+        <div class="slider-img valence"><%= image_tag "drama.png" %></div>
+        <div class="slider-bg valence" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+      </div>
+
+
+      <div class="slider-div">
+        <%= t.label :popularity  %>
+        <%= t.input :popularity, input_html: { class: 'slider' }, as: :range, label: false, type: "range" %>
+        <div class="slider-img popularity"><%= image_tag "star.png" %></div>
+        <div class="slider-bg popularity" style="background-image: <%= COLORS[@playlist.color] %>"></div>
+      </div>
+
+      <div class="col-12">
+        <div class="mb-1 font-weight-bold">
+          Give me some style
+        </div>
+        <div>
+          <% COLORS.keys.each do |color| %>
+            <% if COLORS[@playlist.color] == COLORS[color] %>
+              <div class="mood-color-picker activemood" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)"><span class="color-name"><%= color %></span></div>
+            <% else %>
+              <div class="mood-color-picker" style="background-image: <%= COLORS[color] %>, url(<%= asset_path 'card-background-vertical.jpg' %>)" aria-labelledby="shopping cart items"><span class="color-name"><%= color %></span></div>
+            <% end %>
+          <% end %>
+          <%= t.input :color, as: :hidden %>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-center mt-3">
+        <%= t.submit id: 'action-button'%>
+      </div>
+
+      <div class="col-12 d-flex justify-content-center mt-3">
+        <% unless params["controller"] == "playlists" && (params["action"] == "create" || params["action"] == "new")   %>
+          <small class="text-muted">
+            <%= link_to "Delete this playlist", playlist_path(@playlist), method: :delete, data: {confirm: "Are you sure ?"} %>
+          </small>
+        <% else %>
+        <% end %>
+      </div>
+  <% end %>
 </div>
+

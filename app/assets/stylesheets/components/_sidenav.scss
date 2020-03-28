@@ -9,8 +9,10 @@
   position: fixed;
   top:0px;
   left:0px;
-  transform: translateX(-400px);
-  // transition: all .6s ease-in-out;
+  overflow-y: auto;
+  transform: translateX(-250px);
+  transition: all .6s ease-in-out;
+  background-color: #1B1B1B;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   z-index: 8;
   padding-top:126px;
@@ -18,9 +20,29 @@
              -10px -10px 19px #2b2b2b;
 }
 
-.sidenav-logo img {
-    width: 20px;
+.sidenav.active {
+  transform: translateX(0);
+}
+
+.sidenav-logo {
+  position: absolute;
+  top: 48px;
+  left: 25%;
+  border-radius:100px;
+  background: #1B1B1B;
+  box-shadow:  15px 15px 29px #0b0b0b,
+           -15px -15px 29px #2b2b2b;
+  transition: box-shadow 0.15s ease-out;
+  &:hover {
+    box-shadow:  1px 1px 50px #b255d4,
+           -1px -1px 50px #6D276D;
   }
+
+}
+
+.sidenav-logo img {
+  width:100px;
+}
 
 
 .sidenav__list {
@@ -40,7 +62,7 @@
   align-items: center;
   font-weight:300;
   transition: all 0.15s ease-out;
-  font-size: 16px;
+  font-size: 20px;
   &:hover{
     cursor: pointer;
     background: #1B1B1B;
@@ -71,35 +93,6 @@
   transition: all 0.15s ease-out;
 }
 
-// #moods:hover {
-//   color:#F2E0B7;
-// }
-
-// #explore:hover {
-//   color:#ff8c00;
-// }
-
-// #explore:hover i {
-//   color:#ff8c00 !important;
-// }
-
-
-// #library:hover {
-//   color:yellow;
-// }
-
-// #library:hover i {
-//   color:yellow !important;
-// }
-
-// #rooms:hover {
-//   color:#a1ff0a;
-// }
-
-// #rooms:hover i {
-//   color:#a1ff0a !important;
-// }
-
 
 @media only screen and (min-width: 56.875em ) {
 
@@ -107,29 +100,36 @@
     transform: translateX(0);
   }
 
-  .sidenav-logo {
-    position: absolute;
-    top: 48px;
-    left: 25%;
-    border-radius:100px;
-    background: #1B1B1B;
-    box-shadow:  15px 15px 29px #0b0b0b,
-             -15px -15px 29px #2b2b2b;
-    transition: box-shadow 0.15s ease-out;
-    &:hover {
-      box-shadow:  1px 1px 50px #b255d4,
-             -1px -1px 50px #6D276D;
-    }
-
+  .sidenav__close-icon {
+    display: none;
   }
 
-  .sidenav-logo img {
-    width:100px;
-  }
-
-  .sidenav__list-item {
-    font-size: 20px;
+  .menu-icon {
+    display: none !important;
   }
 }
 
 
+// SLIDING --------------------//
+
+.menu-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  border:$light-yellow solid 1px;
+  z-index: -2;
+  cursor: pointer;
+  padding: 12px;
+  background-color: #1B1B1B;
+}
+
+.sidenav__close-icon {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+}
