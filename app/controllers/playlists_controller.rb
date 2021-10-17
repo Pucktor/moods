@@ -3,9 +3,6 @@ class PlaylistsController < ApplicationController
   before_action :update_token, only: [:show]
 
   def index
-    # RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
-    # party = RSpotify::Category.find('party')
-    # party.playlists #=> (Playlist array)
     @spotify_user = RSpotify::User.new(session[:spotify_auth])
     if params[:query].present?
       @playlists = policy_scope(Playlist.all).where("name ILIKE ?", "%#{params[:query]}%").order(created_at: :desc)
